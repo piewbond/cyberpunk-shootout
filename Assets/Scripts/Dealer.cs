@@ -15,6 +15,16 @@ public class Dealer : MonoBehaviour
     [SerializeField]
     public Modifier[] possibleModifiers;
 
+    [SerializeField]
+    public int magBulletCount;
+    [SerializeField]
+    public Weapon weapon;
+
+    private bool gameRunning;
+
+    private int roundCount;
+    private int turnCount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +39,17 @@ public class Dealer : MonoBehaviour
 
     public void StartGame()
     {
-
+        turnCount = 0;
+        roundCount = 0;
+        gameRunning = false;
+        foreach (Player player in players)
+        {
+            player.health = player.maxHealth;
+            player.shield = 0;
+        }
+        DealModifiers();
+        weapon.LoadWeapon(magBulletCount);
+        currentPlayer = players[0];
     }
 
     public void EndGame()
@@ -39,12 +59,39 @@ public class Dealer : MonoBehaviour
 
     public void NewRound()
     {
-
+        roundCount++;
+        DealModifiers();
+        weapon.LoadWeapon(magBulletCount);
     }
 
-    public void EndRound()
+    public void EndTurn()
     {
+        turnCount++;
+        NextPlayer();
+        if (weapon.ammoCount == 0)
+        {
+            NewRound();
+        }
+        else
+        {
+            StartTurn();
+        }
+    }
 
+    public void StartTurn()
+    {
+        currentPlayer.PlayTurn();
+    }
+
+    private void NextPlayer()
+    {
+        int currentPlayerIndex = System.Array.IndexOf(players, currentPlayer);
+        currentPlayerIndex++;
+        if (currentPlayerIndex >= players.Length)
+        {
+            currentPlayerIndex = 0;
+        }
+        currentPlayer = players[currentPlayerIndex];
     }
 
     public void DealModifiers()

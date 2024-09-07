@@ -4,19 +4,7 @@ using UnityEngine;
 
 public class Modifier : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void ApplyModifier(Player player)
+    public virtual void Apply()
     {
         Debug.Log("Applying modifier to player");
     }

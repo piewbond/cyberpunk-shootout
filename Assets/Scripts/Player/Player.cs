@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
     public int health;
     public int maxHealth;
     public int shield;
+    [SerializeField]
+    public Dealer dealer;
+    [SerializeField]
     private Weapon weapon;
     private List<Modifier> modifiers;
 
@@ -20,6 +23,11 @@ public class Player : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void PlayTurn()
+    {
+        dealer.EndTurn();
     }
 
     public void TakeDamage(int damage)

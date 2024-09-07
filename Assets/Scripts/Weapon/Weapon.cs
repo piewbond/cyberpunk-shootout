@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Shoot(bool shootEnemy)
@@ -42,13 +42,12 @@ public class Weapon : MonoBehaviour
                     shooterPlayer.TakeDamage(damage);
                 }
                 ammoList.RemoveAt(0);
-            } 
+            }
             else
             {
                 Debug.Log("Ammo is not live");
                 //Do whiff animation here
             }
-
             Debug.Log("Shoot");
         }
     }
@@ -58,6 +57,16 @@ public class Weapon : MonoBehaviour
         Player temp = targetPlayer;
         targetPlayer = shooterPlayer;
         shooterPlayer = temp;
+    }
+
+    public void LoadWeapon(int ammoCount)
+    {
+        ammoList = new List<Ammo>();
+        for (int i = 0; i < ammoCount; i++)
+        {
+            ammoList.Add(new Ammo());
+        }
+        Debug.Log("Weapon loaded");
     }
 
 }
