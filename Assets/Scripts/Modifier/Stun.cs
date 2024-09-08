@@ -15,4 +15,17 @@ public class Stun : Modifier
     {
 
     }
+
+    public override void Apply()
+    {
+        GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
+        Dealer dealer = dealerObject.GetComponent<Dealer>();
+        foreach (Player player in dealer.players)
+        {
+            if (!player.IsActivePlayer())
+            {
+                player.SkipTurn();
+            }
+        }
+    }
 }

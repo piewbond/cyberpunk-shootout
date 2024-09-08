@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,12 +12,24 @@ public class Player : MonoBehaviour
     public Dealer dealer;
     [SerializeField]
     private Weapon weapon;
+    [SerializeField]
+    private int MaxModifierAmount;
+    [SerializeField]
     private List<Modifier> modifiers;
 
+    private Agent agent;
+
+    [SerializeField]
+    public string playerName;
+    private bool skipTurn = false;
+    private bool activePlayer = false;
+    private bool knowsNextShot;
+    private bool isNextShotLive;
     // Start is called before the first frame update
+
     void Start()
     {
-
+        modifiers = new List<Modifier>();
     }
 
     // Update is called once per frame
@@ -27,12 +40,19 @@ public class Player : MonoBehaviour
 
     public void PlayTurn()
     {
+        if (skipTurn)
+        {
+            skipTurn = false;
+            return;
+        }
+        agent.PlayTurn();
         dealer.EndTurn();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool ignoreShield)
     {
-        if (shield > 0)
+        Debug.Log(playerName + " took " + damage + " damage");
+        if (shield > 0 && !ignoreShield)
         {
             shield -= damage;
             if (shield < 0)
@@ -53,7 +73,8 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Player died");
+        Debug.Log("Player died: " + playerName);
+        dealer.EndGame();
     }
 
     public void Heal(int healAmount)
@@ -67,6 +88,10 @@ public class Player : MonoBehaviour
 
     public void AddModifier(Modifier modifier)
     {
+        if (modifiers.Count >= MaxModifierAmount)
+        {
+            return;
+        }
         modifiers.Add(modifier);
     }
 
@@ -80,9 +105,49 @@ public class Player : MonoBehaviour
         this.weapon = weapon;
     }
 
-    public void ShieldUp(int shieldAmount)
+    public void Shield(int shieldAmount)
     {
         shield += shieldAmount;
     }
 
+    public void SetAgent(Agent agent)
+    {
+        this.agent = agent;
+        agent.SetPlayer(this);
+    }
+    public void Shoot(bool shootEnemy)
+    {
+        weapon.Shoot(shootEnemy);
+        knowsNextShot = false;
+    }
+
+    public List<Modifier> GetModifiers()
+    {
+        return modifiers;
+    }
+
+    public void UseModifier(Modifier modifier)
+    {
+        modifier.Apply();
+        modifiers.Remove(modifier);
+    }
+    public void SkipTurn()
+    {
+        this.skipTurn = true;
+    }
+
+    public void SetActivePlayer(bool active)
+    {
+        activePlayer = active;
+    }
+    public bool IsActivePlayer()
+    {
+        return activePlayer;
+    }
+
+    public void SpyBullet()
+    {
+        knowsNextShot = weapon.isNextShotLive();
+        isNextShotLive = weapon.isNextShotLive();
+    }
 }

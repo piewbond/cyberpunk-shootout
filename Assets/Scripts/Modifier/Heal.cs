@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Heal : Modifier
 {
-    public Player player;
+    private Player player;
     [SerializeField]
     private int healAmount;
     // Start is called before the first frame update
@@ -20,6 +20,9 @@ public class Heal : Modifier
     }
     public override void Apply()
     {
+        GameObject DealerObject = GameObject.FindGameObjectWithTag("Dealer");
+        Dealer dealer = DealerObject.GetComponent<Dealer>();
+        player = dealer.GetCurrentPlayer();
         player.Heal(healAmount);
     }
 

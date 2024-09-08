@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shield : Modifier
 {
+    public int shieldAmount;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,13 @@ public class Shield : Modifier
     void Update()
     {
 
+    }
+
+    public override void Apply()
+    {
+        GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
+        Dealer dealer = dealerObject.GetComponent<Dealer>();
+        Player player = dealer.GetCurrentPlayer();
+        player.Shield(shieldAmount);
     }
 }

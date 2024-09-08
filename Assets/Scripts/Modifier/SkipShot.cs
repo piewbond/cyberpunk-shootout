@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultiplyDamage : Modifier
+public class SkipShot : Modifier
 {
-    [SerializeField]
-    public int damageAmount;
-    private Weapon weapon;
-
+    // Start is called before the first frame update
     void Start()
     {
 
@@ -22,7 +19,7 @@ public class MultiplyDamage : Modifier
     public override void Apply()
     {
         GameObject weaponObject = GameObject.FindGameObjectWithTag("Weapon");
-        weapon = weaponObject.GetComponent<Weapon>();
-        weapon.MultiplyDamage(damageAmount);
+        Weapon weapon = weaponObject.GetComponent<Weapon>();
+        weapon.SkipShot();
     }
 }

@@ -15,4 +15,12 @@ public class SpyBullet : Modifier
     {
 
     }
+
+    public override void Apply()
+    {
+        GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
+        Dealer dealer = dealerObject.GetComponent<Dealer>();
+        Player player = dealer.GetCurrentPlayer();
+        player.SpyBullet();
+    }
 }
