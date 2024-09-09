@@ -25,4 +25,9 @@ public class MultiplyDamage : Modifier
         weapon = weaponObject.GetComponent<Weapon>();
         weapon.MultiplyDamage(damageAmount);
     }
+
+    public override ModifierType GetModifierType()
+    {
+        return ModifierType.MultiplyDamage;
+    }
 }

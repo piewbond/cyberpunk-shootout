@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 745008782197248271}
   m_Layer: 0
   m_Name: Dealer
-  m_TagString: Untagged
+  m_TagString: Dealer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,11 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ddbbd6ce471aa4197ffa7325b20a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GivenModifierAmount: 0
+  score: {fileID: 0}
+  GivenModifierAmount: 1
   players:
   - {fileID: 0}
   - {fileID: 0}
-  possibleModifiers: []
+  possibleModifiers:
+  - {fileID: 432097160241193135, guid: 4e19a53965a18b4458eec7e97d365a52, type: 3}
+  - {fileID: 1739638214913274894, guid: a78d739b701dc6d489193ff0ceb16bcb, type: 3}
+  - {fileID: 6482227494355798778, guid: 23e30a34070fb0e4e9efe4442dfa572d, type: 3}
+  - {fileID: 335578035038922764, guid: 28b85d5146804cf48a752c5e7709327e, type: 3}
+  - {fileID: 83820930365943193, guid: 12838a93fbca81f4492fd628337d341c, type: 3}
+  - {fileID: 9160443694542504228, guid: 6010cf1734c02b44caada0fb22d18079, type: 3}
+  - {fileID: 1193044614870839197, guid: a7e6fd5b47163f44b85763bdb746654f, type: 3}
+  - {fileID: 4684625542667860226, guid: ffda3bd30b3e6b44bbcb39e48678664b, type: 3}
+  magBulletCount: 6
+  weapon: {fileID: 0}
+  gameRunning: 0
+  turnToBeat: 0
 --- !u!212 &745008782197248271
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -9,4 +9,21 @@ public class Modifier : MonoBehaviour
         Debug.Log("Applying modifier to player");
     }
 
+    public virtual ModifierType GetModifierType()
+    {
+        return ModifierType.DoubleAction;
+    }
+
+}
+
+public enum ModifierType
+{
+    DoubleAction,
+    Heal,
+    IgnoreShield,
+    MultiplyDamage,
+    Shield,
+    SkipShot,
+    SpyBullet,
+    Stun,
 }

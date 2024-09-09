@@ -24,4 +24,9 @@ public class Shield : Modifier
         Player player = dealer.GetCurrentPlayer();
         player.Shield(shieldAmount);
     }
+
+    public override ModifierType GetModifierType()
+    {
+        return ModifierType.Shield;
+    }
 }

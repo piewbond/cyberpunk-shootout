@@ -22,4 +22,9 @@ public class DoubleAction : Modifier
         Player player = dealer.GetCurrentPlayer();
         Debug.Log("TODO IMPLEMENT DOUBLE ACTION");
     }
+
+    public override ModifierType GetModifierType()
+    {
+        return ModifierType.DoubleAction;
+    }
 }

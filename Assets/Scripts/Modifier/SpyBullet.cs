@@ -23,4 +23,9 @@ public class SpyBullet : Modifier
         Player player = dealer.GetCurrentPlayer();
         player.SpyBullet();
     }
+
+    public override ModifierType GetModifierType()
+    {
+        return ModifierType.SpyBullet;
+    }
 }

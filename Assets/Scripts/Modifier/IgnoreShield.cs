@@ -22,4 +22,9 @@ public class IgnoreShield : Modifier
     {
         weapon.ignoreShield = true;
     }
+
+    public override ModifierType GetModifierType()
+    {
+        return ModifierType.IgnoreShield;
+    }
 }

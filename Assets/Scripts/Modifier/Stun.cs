@@ -28,4 +28,9 @@ public class Stun : Modifier
             }
         }
     }
+
+    public override ModifierType GetModifierType()
+    {
+        return ModifierType.Stun;
+    }
 }

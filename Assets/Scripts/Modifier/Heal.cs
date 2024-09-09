@@ -26,4 +26,9 @@ public class Heal : Modifier
         player.Heal(healAmount);
     }
 
+    public override ModifierType GetModifierType()
+    {
+        return ModifierType.Heal;
+    }
+
 }

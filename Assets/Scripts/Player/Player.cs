@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -16,15 +17,14 @@ public class Player : MonoBehaviour
     private int MaxModifierAmount;
     [SerializeField]
     private List<Modifier> modifiers;
-
     private Agent agent;
 
     [SerializeField]
     public string playerName;
     private bool skipTurn = false;
     private bool activePlayer = false;
-    private bool knowsNextShot;
-    private bool isNextShotLive;
+    public bool knowsNextShot;
+    public bool isNextShotLive;
     // Start is called before the first frame update
 
     void Start()
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Player died: " + playerName);
+        Debug.Log(playerName + " died " + agent.GetType());
         dealer.EndGame();
     }
 
@@ -113,8 +113,8 @@ public class Player : MonoBehaviour
     public void SetAgent(Agent agent)
     {
         this.agent = agent;
-        agent.SetPlayer(this);
     }
+
     public void Shoot(bool shootEnemy)
     {
         weapon.Shoot(shootEnemy);
@@ -131,6 +131,7 @@ public class Player : MonoBehaviour
         modifier.Apply();
         modifiers.Remove(modifier);
     }
+
     public void SkipTurn()
     {
         this.skipTurn = true;
@@ -140,6 +141,7 @@ public class Player : MonoBehaviour
     {
         activePlayer = active;
     }
+
     public bool IsActivePlayer()
     {
         return activePlayer;

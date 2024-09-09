@@ -22,4 +22,9 @@ public class SkipShot : Modifier
         Weapon weapon = weaponObject.GetComponent<Weapon>();
         weapon.SkipShot();
     }
+
+    public override ModifierType GetModifierType()
+    {
+        return ModifierType.SkipShot;
+    }
 }

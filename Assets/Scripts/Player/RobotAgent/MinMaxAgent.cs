@@ -7,26 +7,19 @@ public class MinMaxAgent : Agent
 {
     private Dealer dealer;
     private Player player;
-    // Start is called before the first frame update
-    void Start()
-    {
+    private Weapon weapon;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    private int maxDepth;
+    private bool shootEnemy = true;
     public MinMaxAgent(Player player)
     {
         this.player = player;
         this.dealer = player.dealer;
+        this.weapon = dealer.weapon;
     }
     public override void PlayTurn()
     {
-        bool shootEnemy = true;
+        maxDepth = weapon.GetAmmoList().Count;
         player.Shoot(shootEnemy);
     }
 }

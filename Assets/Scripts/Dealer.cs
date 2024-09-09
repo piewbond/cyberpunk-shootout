@@ -26,6 +26,7 @@ public class Dealer : MonoBehaviour
 
     private int roundCount;
     private int turnCount;
+    public int turnToBeat;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class Dealer : MonoBehaviour
     {
         turnCount = 0;
         roundCount = 0;
+        turnToBeat = 0;
         int startingPlayerIndex = Random.Range(0, players.Length);
         gameRunning = true;
         foreach (Player player in players)
@@ -83,6 +85,8 @@ public class Dealer : MonoBehaviour
 
     public void EndTurn()
     {
+        turnToBeat++;
+
         if (!gameRunning) return;
         if (turnCount == 60)
         {

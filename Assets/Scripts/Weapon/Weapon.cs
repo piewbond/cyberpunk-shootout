@@ -113,4 +113,10 @@ public class Weapon : MonoBehaviour
     {
         return ammoList[0].GetIsLive();
     }
+
+    public List<Ammo> GetAmmoList()
+    {
+        return ammoList;
+    }
+
 }
