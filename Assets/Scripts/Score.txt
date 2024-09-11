@@ -22,3 +22,15 @@ Score constants: 100 1 10
 Turn to beat: 18
 Player1 with agent: HeuristicAgent Score: 2
 Player2 with agent: MinMaxAgent Score: 105
+Score constants: 100 1 10
+Turn to beat: 20
+Player1 with agent: HeuristicAgent Score: 104
+Player2 with agent: MinMaxAgent Score: 6
+Score constants: 100 1 10
+Turn to beat: 19
+Player1 with agent: HeuristicAgent Score: 102
+Player2 with agent: MinMaxAgent Score: 5
+Score constants: 100 1 10
+Turn to beat: 20
+Player1 with agent: HeuristicAgent Score: 4
+Player2 with agent: MinMaxAgent Score: 106

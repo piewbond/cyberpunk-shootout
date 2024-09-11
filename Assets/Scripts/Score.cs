@@ -49,6 +49,15 @@ public class Score : MonoBehaviour
         WriteScoreToFile();
     }
 
+    private int CalculateScoreForPlayer(Player player)
+    {
+        int finalScore = 0;
+        finalScore += player.health * ScoreByRemainingHP;
+        finalScore += player.GetModifiers().Count * ScoreByRemainingModifier;
+
+        return finalScore;
+    }
+
     public void WriteScoreToFile()
     {
         using (StreamWriter writer = new StreamWriter(filePath, true))
