@@ -26,6 +26,8 @@ public class HeuristicAgent : Agent
 
     public override void PlayTurn()
     {
+        Debug.Log("Heuristic Agent playing turn");
+
         bool shootEnemy = true;
         int liveBulletCount = 0;
         int blankBulletCount = 0;

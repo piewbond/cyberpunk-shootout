@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Score : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Score : MonoBehaviour
 
     private double finalScorePlayer1;
     private double finalScorePlayer2;
+
+    private string filePath = "Assets/Scripts/Score.txt";
 
     public void ScoreGame()
     {
@@ -41,6 +44,20 @@ public class Score : MonoBehaviour
             else
             {
                 finalScorePlayer2 = finalScore;
+            }
+        }
+        WriteScoreToFile();
+    }
+
+    public void WriteScoreToFile()
+    {
+        using (StreamWriter writer = new StreamWriter(filePath, true))
+        {
+            writer.WriteLine("Score constants: " + ScoreByRemainingHP + " " + ScoreByRemainingModifier + " " + turnToBeatScoreDivideBy);
+            writer.WriteLine("Turn to beat: " + dealer.turnToBeat);
+            foreach (Player player in dealer.players)
+            {
+                writer.WriteLine(player.GetPlayerInfoForScore() + " Score: " + (player.playerName == "Player1" ? finalScorePlayer1 : finalScorePlayer2));
             }
         }
     }

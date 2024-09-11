@@ -29,12 +29,10 @@ public class Weapon : MonoBehaviour
 
     public void Shoot(bool shootEnemy)
     {
+        this.shootEnemy = shootEnemy;
+
         if (ammoCount > 0)
         {
-            if (ammoCount == 1)
-            {
-                this.shootEnemy = shootEnemy;
-            }
             ammoCount--;
             if (ammoList[0].GetIsLive())
             {
@@ -55,8 +53,9 @@ public class Weapon : MonoBehaviour
                 Debug.Log("Ammo is not live");
                 //Do whiff animation here
             }
-            Debug.Log("Shoot");
+            Debug.Log("Shoot " + ammoCount);
         }
+        damage = 1;
     }
 
     private void SwitchPlayerRole()

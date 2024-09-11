@@ -40,18 +40,21 @@ public class Player : MonoBehaviour
 
     public void PlayTurn()
     {
+        Debug.Log(playerName + " playing turn");
         if (skipTurn)
         {
             skipTurn = false;
+            dealer.EndTurn();
             return;
         }
         agent.PlayTurn();
+        Debug.Log(playerName + " played turn");
         dealer.EndTurn();
     }
 
     public void TakeDamage(int damage, bool ignoreShield)
     {
-        Debug.Log(playerName + " took " + damage + " damage");
+        Debug.Log(playerName + " took " + damage + " damage" + " health: " + health);
         if (shield > 0 && !ignoreShield)
         {
             shield -= damage;
@@ -71,9 +74,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ResetPlayer()
+    {
+        health = maxHealth;
+        shield = 0;
+        modifiers.Clear();
+        knowsNextShot = false;
+        isNextShotLive = false;
+    }
+
     public void Die()
     {
-        Debug.Log(playerName + " died " + agent.GetType());
+        Debug.Log(playerName + " died. type: " + agent.GetType());
         dealer.EndGame();
     }
 
@@ -128,6 +140,7 @@ public class Player : MonoBehaviour
 
     public void UseModifier(Modifier modifier)
     {
+        Debug.Log(playerName + " used " + modifier.GetModifierType());
         modifier.Apply();
         modifiers.Remove(modifier);
     }
@@ -151,5 +164,10 @@ public class Player : MonoBehaviour
     {
         knowsNextShot = weapon.isNextShotLive();
         isNextShotLive = weapon.isNextShotLive();
+    }
+
+    public string GetPlayerInfoForScore()
+    {
+        return playerName + " with agent: " + agent.GetType();
     }
 }

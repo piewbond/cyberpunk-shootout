@@ -47,17 +47,19 @@ public class Dealer : MonoBehaviour
         turnToBeat = 0;
         int startingPlayerIndex = Random.Range(0, players.Length);
         gameRunning = true;
+
         foreach (Player player in players)
-        {
-            player.health = player.maxHealth;
-            player.shield = 0;
-        }
+            player.ResetPlayer();
+
         players[0].SetAgent(new HeuristicAgent(players[0]));
         players[1].SetAgent(new MinMaxAgent(players[1]));
+
         DealModifiers();
+
         weapon.LoadWeapon(magBulletCount);
         currentPlayer = players[startingPlayerIndex];
         weapon.SetPlayerRoles(startingPlayerIndex);
+
         StartTurn();
     }
 
@@ -146,5 +148,4 @@ public class Dealer : MonoBehaviour
             }
         }
     }
-
 }
