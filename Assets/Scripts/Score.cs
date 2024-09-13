@@ -49,7 +49,7 @@ public class Score : MonoBehaviour
         WriteScoreToFile();
     }
 
-    private int CalculateScoreForPlayer(Player player)
+    public int CalculateScoreForPlayer(Player player)
     {
         int finalScore = 0;
         finalScore += player.health * ScoreByRemainingHP;

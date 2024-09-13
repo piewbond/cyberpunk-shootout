@@ -118,4 +118,30 @@ public class Weapon : MonoBehaviour
         return ammoList;
     }
 
+    public int GetLiveAmmoCount()
+    {
+        int liveAmmoCount = 0;
+        foreach (Ammo ammo in ammoList)
+        {
+            if (ammo.GetIsLive())
+            {
+                liveAmmoCount++;
+            }
+        }
+        return liveAmmoCount;
+    }
+
+    public int GetBlankAmmoCount()
+    {
+        int blankAmmoCount = 0;
+        foreach (Ammo ammo in ammoList)
+        {
+            if (!ammo.GetIsLive())
+            {
+                blankAmmoCount++;
+            }
+        }
+        return blankAmmoCount;
+    }
+
 }
