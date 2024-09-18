@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour
             ammoCount--;
             if (ammoList[0].GetIsLive())
             {
-                Debug.Log("Target player: " + targetPlayer.playerName + "\nShooter player: " + shooterPlayer.playerName);
+                Debug.Log("Target player: " + targetPlayer.playerName + "\nShooter player: " + shooterPlayer.playerName + "Is live: " + ammoList[0].GetIsLive());
                 if (shootEnemy)
                 {
                     targetPlayer.TakeDamage(damage, ignoreShield);
@@ -89,7 +89,7 @@ public class Weapon : MonoBehaviour
         {
             ammoList[Random.Range(0, ammoList.Count)].InverzAmmo();
         }
-        Debug.Log("Weapon loaded: " + ammoCount);
+        Debug.Log("Weapon loaded: " + ammoCount + " blank: " + blankCount);
     }
 
     public void MultiplyDamage(int damageMultiplier)
