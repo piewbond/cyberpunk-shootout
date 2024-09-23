@@ -27,6 +27,10 @@ public class Dealer : MonoBehaviour
     private int roundCount;
     private int turnCount;
     public int turnToBeat;
+    public float startTime = 0.000f;
+    public float elapsedTime = 0.000f;
+    [SerializeField]
+    private bool UseMLAgent;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +41,16 @@ public class Dealer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(gameRunning)
+        {
+            elapsedTime = Time.time - startTime;
+        }
     }
 
     public void StartGame()
     {
+        startTime = Time.time;
+
         turnCount = 0;
         roundCount = 0;
         turnToBeat = 0;
@@ -50,6 +59,9 @@ public class Dealer : MonoBehaviour
 
         foreach (Player player in players)
             player.ResetPlayer();
+
+        if (!UseMLAgent)
+            players[1].SetAgent(players[1].GetComponent<MLAgent>());
 
         players[0].SetAgent(new HeuristicAgent(players[0]));
         players[1].SetAgent(new MinMaxAgent(players[1]));
@@ -65,18 +77,20 @@ public class Dealer : MonoBehaviour
 
     public void EndGame()
     {
+        Debug.Log("Time: " + elapsedTime);
         gameRunning = false;
+        if (UseMLAgent)
+        {
+            IBaseAgent agent = players[1].GetAgent();
+            // agent.AddReward(score.CalculateScoreForPlayer(players[1]));
+            // agent.EndEpisode();
+        }
         score.ScoreGame();
     }
 
     public void NewRound()
     {
         roundCount++;
-        if (roundCount == 10)
-        {
-            EndGame();
-            return;
-        }
         Debug.Log("Round " + roundCount);
         DealModifiers();
         weapon.LoadWeapon(magBulletCount);
@@ -90,11 +104,6 @@ public class Dealer : MonoBehaviour
         turnToBeat++;
 
         if (!gameRunning) return;
-        if (turnCount == 60)
-        {
-            EndGame();
-            return;
-        }
         turnCount++;
         Debug.Log("Turn " + turnCount);
         Debug.Log("Ammo count: " + weapon.ammoCount);

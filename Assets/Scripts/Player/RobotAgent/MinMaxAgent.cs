@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq; // Add this using directive
 using UnityEngine;
 
-public class MinMaxAgent : Agent
+public class MinMaxAgent : IBaseAgent
 {
     private Dealer dealer;
     private Player player;
@@ -26,14 +26,12 @@ public class MinMaxAgent : Agent
         this.weapon = dealer.weapon;
     }
 
-    public override void PlayTurn()
+    public void PlayTurn()
     {
-        if (!DepthBySerialize)
-        {
-            maxDepth = weapon.GetAmmoList().Count;
-        }
-
-
+        // if (!DepthBySerialize)
+        // {
+        //     maxDepth = weapon.GetAmmoList().Count;
+        // }
 
         // List<PossibleMove> finalMoves = GetBestMove();
 

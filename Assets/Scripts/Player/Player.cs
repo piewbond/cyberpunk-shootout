@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private int MaxModifierAmount;
     [SerializeField]
     private List<Modifier> modifiers;
-    private Agent agent;
+    public IBaseAgent agent;
 
     [SerializeField]
     public string playerName;
@@ -104,6 +104,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
+
         modifiers.Add(modifier);
     }
 
@@ -122,7 +123,7 @@ public class Player : MonoBehaviour
         shield += shieldAmount;
     }
 
-    public void SetAgent(Agent agent)
+    public void SetAgent(IBaseAgent agent)
     {
         this.agent = agent;
     }
@@ -169,5 +170,10 @@ public class Player : MonoBehaviour
     public string GetPlayerInfoForScore()
     {
         return playerName + " with agent: " + agent.GetType();
+    }
+
+    public IBaseAgent GetAgent()
+    {
+        return agent;
     }
 }

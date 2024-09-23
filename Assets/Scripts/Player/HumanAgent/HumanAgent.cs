@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class HumanAgent : MonoBehaviour
+public class HumanAgent : IBaseAgent
 {
-    // Start is called before the first frame update
+    Player player;
+    Dealer dealer;
+    Weapon weapon;
     void Start()
     {
         
@@ -15,4 +18,38 @@ public class HumanAgent : MonoBehaviour
     {
         
     }
+
+    public void PlayTurn() 
+    {
+
+    }
+
+    public HumanAgent(Player player)
+    {
+        this.player = player;
+        this.dealer = player.dealer;
+        this.weapon = dealer.weapon;
+    }
+
+    public void Shoot(bool shootEnemy) 
+    {
+        weapon.Shoot(shootEnemy);
+        SetPlayerButton(false);
+        dealer.EndTurn();
+    }
+
+    public void AimGun() 
+    {
+        SetPlayerButton(true);
+    }
+
+    private void SetPlayerButton(bool interactable) 
+    {
+                foreach(Player p in dealer.players)
+        {
+            Button button = p.GetComponent<Button>();
+            button.interactable = interactable;
+        }
+    }
+
 }

@@ -63,7 +63,7 @@ public class Score : MonoBehaviour
         using (StreamWriter writer = new StreamWriter(filePath, true))
         {
             writer.WriteLine("Score constants: " + ScoreByRemainingHP + " " + ScoreByRemainingModifier + " " + turnToBeatScoreDivideBy);
-            writer.WriteLine("Turn to beat: " + dealer.turnToBeat);
+            writer.WriteLine("Turn to beat: " + dealer.turnToBeat + " Time: " + dealer.elapsedTime);
             foreach (Player player in dealer.players)
             {
                 writer.WriteLine(player.GetPlayerInfoForScore() + " Score: " + (player.playerName == "Player1" ? finalScorePlayer1 : finalScorePlayer2));

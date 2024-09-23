@@ -13,8 +13,11 @@ public class DoubleAction : Modifier
     // Update is called once per frame
     void Update()
     {
-
+        
     }
+
+    public DoubleAction() : base()
+    {}
     public override void Apply()
     {
         GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");

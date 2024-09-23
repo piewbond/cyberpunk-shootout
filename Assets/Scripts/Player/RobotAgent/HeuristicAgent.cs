@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeuristicAgent : Agent
+public class HeuristicAgent : IBaseAgent
 {
     private Player player;
     private Player enemy;
@@ -24,7 +24,7 @@ public class HeuristicAgent : Agent
         }
     }
 
-    public override void PlayTurn()
+    public void PlayTurn()
     {
         Debug.Log("Heuristic Agent playing turn");
 
