@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1727207249",
+        "python_version": "3.9.13 (v3.9.13:6de2ca5339, May 17 2022, 11:37:23) \n[Clang 13.0.0 (clang-1300.0.29.30)]",
+        "command_line_arguments": "/Users/bponya/Documents/projects/Uni/Untitled/cyberpunk-shootout/venv/bin/mlagents-learn --run-id=Test3",
+        "mlagents_version": "0.30.0",
+        "mlagents_envs_version": "0.30.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.11.0",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1727207250"
+    },
+    "total": 0.7726652919999999,
+    "count": 1,
+    "self": 0.0031461259999998603,
+    "children": {
+        "run_training.setup": {
+            "total": 0.02651045799999996,
+            "count": 1,
+            "self": 0.02651045799999996
+        },
+        "TrainerController.start_learning": {
+            "total": 0.7430087080000001,
+            "count": 1,
+            "self": 5.4417000000084315e-05,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 0.742928083,
+                    "count": 1,
+                    "self": 0.742928083
+                },
+                "TrainerController._save_models": {
+                    "total": 2.620799999997203e-05,
+                    "count": 1,
+                    "self": 2.620799999997203e-05
+                }
+            }
+        }
+    }
+}

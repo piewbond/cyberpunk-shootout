@@ -30,7 +30,7 @@ public class Dealer : MonoBehaviour
     public float startTime = 0.000f;
     public float elapsedTime = 0.000f;
     [SerializeField]
-    private bool UseMLAgent;
+    private bool UseMLAgent = true;
 
     // Start is called before the first frame update
     void Start()
@@ -60,11 +60,12 @@ public class Dealer : MonoBehaviour
         foreach (Player player in players)
             player.ResetPlayer();
 
+        players[0].SetAgent(new HeuristicAgent(players[0]));
+        
         if (!UseMLAgent)
             players[1].SetAgent(players[1].GetComponent<MLAgent>());
-
-        players[0].SetAgent(new HeuristicAgent(players[0]));
-        players[1].SetAgent(new MinMaxAgent(players[1]));
+        else
+            players[1].SetAgent(new MinMaxAgent(players[1]));
 
         DealModifiers();
 
@@ -81,9 +82,9 @@ public class Dealer : MonoBehaviour
         gameRunning = false;
         if (UseMLAgent)
         {
-            IBaseAgent agent = players[1].GetAgent();
-            // agent.AddReward(score.CalculateScoreForPlayer(players[1]));
-            // agent.EndEpisode();
+            MLAgent agent = players[1].GetComponent<MLAgent>();
+            agent.AddReward(score.CalculateScoreForPlayer(players[1]));
+            agent.EndEpisode();
         }
         score.ScoreGame();
     }
