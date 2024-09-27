@@ -1,0 +1,29 @@
+{
+    "Shooting Behaviour": {
+        "checkpoints": [
+            {
+                "steps": 4856,
+                "file_path": "results\\Test1\\Shooting Behaviour\\Shooting Behaviour-4856.onnx",
+                "reward": 637.9861111111111,
+                "creation_time": 1727435170.4271383,
+                "auxillary_file_paths": [
+                    "results\\Test1\\Shooting Behaviour\\Shooting Behaviour-4856.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4856,
+            "file_path": "results\\Test1\\Shooting Behaviour.onnx",
+            "reward": 637.9861111111111,
+            "creation_time": 1727435170.4271383,
+            "auxillary_file_paths": [
+                "results\\Test1\\Shooting Behaviour\\Shooting Behaviour-4856.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.4.1+cpu"
+    }
+}

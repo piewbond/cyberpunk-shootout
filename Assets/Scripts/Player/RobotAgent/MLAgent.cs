@@ -7,18 +7,23 @@ using UnityEngine;
 
 public class MLAgent : Agent, IBaseAgent
 {
+    [SerializeField]
     private Weapon weapon;
+    [SerializeField]
     private Player player;
+    [SerializeField]
     private Player enemy;
+    [SerializeField]
     private Dealer dealer;
-    // Start is called before the first frame update
+
+    private bool isFirstEpisode = true;
     void Start()
     {
         // Link to the player and weapon
         player = GetComponent<Player>();
         weapon = player.GetComponent<Weapon>();
         dealer = player.dealer;
-        
+
         // Assume enemy is the other player in the dealer
         if (player.playerName == "Player1")
         {
@@ -32,14 +37,17 @@ public class MLAgent : Agent, IBaseAgent
 
     public override void OnEpisodeBegin()
     {
-        dealer.StartGame();
+        if (!isFirstEpisode)
+            dealer.StartGame();
+        isFirstEpisode = false;
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        // Add observations for the agent (number of live and blank bullets)
-        sensor.AddObservation(weapon.GetLiveAmmoCount());
-        sensor.AddObservation(weapon.GetBlankAmmoCount());
+
+        //TODO: Fix weapon nullreference
+        // sensor.AddObservation(weapon.GetLiveAmmoCount());
+        // sensor.AddObservation(weapon.GetBlankAmmoCount());
 
         // Optionally: Add observations like player's health, shield, etc.
         sensor.AddObservation(player.health);
@@ -47,7 +55,7 @@ public class MLAgent : Agent, IBaseAgent
 
         //Add observatoin enemy health and shield
         sensor.AddObservation(enemy.health);
-        sensor.AddObservation(enemy.shield);    
+        sensor.AddObservation(enemy.shield);
 
         // Observe whether the player knows if the next shot is live or not
         sensor.AddObservation(player.knowsNextShot);
@@ -70,9 +78,6 @@ public class MLAgent : Agent, IBaseAgent
             // Shoot self
             player.Shoot(false);
         }
-
-        // End the turn and move to the next episode
-        player.dealer.EndTurn();
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -95,14 +100,7 @@ public class MLAgent : Agent, IBaseAgent
 
     public void PlayTurn()
     {
-    VectorSensor sensor = new VectorSensor(8);  // Create the sensor with the correct size
-
-    // Create an ActionBuffers object for discrete actions. 
-    // Let's assume your game has 1 discrete action (e.g., attack, defend, etc.).
-    float[] discreteActions = new float[1];  // Array with 1 discrete action
-    ActionBuffers actionBuffers = ActionBuffers.FromDiscreteActions(discreteActions);
-
-    CollectObservations(sensor);         // Collect the observations
-    OnActionReceived(actionBuffers);     // Pass the actions to the agent
+        RequestDecision();
+        player.dealer.EndTurn();
     }
 }

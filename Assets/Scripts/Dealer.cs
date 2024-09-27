@@ -22,7 +22,7 @@ public class Dealer : MonoBehaviour
     [SerializeField]
     public Weapon weapon;
 
-    public bool gameRunning;
+    public bool gameRunning = false;
 
     private int roundCount;
     private int turnCount;
@@ -30,20 +30,35 @@ public class Dealer : MonoBehaviour
     public float startTime = 0.000f;
     public float elapsedTime = 0.000f;
     [SerializeField]
-    private bool UseMLAgent = true;
+    public bool UseMLAgent = true;
+    private bool isPlayerInTurn = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(StartGameAfterDelay(1.0f));
 
+        IEnumerator StartGameAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            StartGame();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameRunning)
+        if (gameRunning)
         {
             elapsedTime = Time.time - startTime;
+        }
+        if (!isPlayerInTurn && gameRunning)
+        {
+            isPlayerInTurn = true;
+            if (weapon.ammoCount == 0)
+                NewRound();
+            else
+                StartTurn();
         }
     }
 
@@ -61,8 +76,8 @@ public class Dealer : MonoBehaviour
             player.ResetPlayer();
 
         players[0].SetAgent(new HeuristicAgent(players[0]));
-        
-        if (!UseMLAgent)
+
+        if (UseMLAgent)
             players[1].SetAgent(players[1].GetComponent<MLAgent>());
         else
             players[1].SetAgent(new MinMaxAgent(players[1]));
@@ -80,13 +95,13 @@ public class Dealer : MonoBehaviour
     {
         Debug.Log("Time: " + elapsedTime);
         gameRunning = false;
+        score.ScoreGame();
         if (UseMLAgent)
         {
             MLAgent agent = players[1].GetComponent<MLAgent>();
             agent.AddReward(score.CalculateScoreForPlayer(players[1]));
             agent.EndEpisode();
         }
-        score.ScoreGame();
     }
 
     public void NewRound()
@@ -110,14 +125,7 @@ public class Dealer : MonoBehaviour
         Debug.Log("Ammo count: " + weapon.ammoCount);
         Debug.Log("Current player: " + currentPlayer.name);
         NextPlayer();
-        if (weapon.ammoCount == 0)
-        {
-            NewRound();
-        }
-        else
-        {
-            StartTurn();
-        }
+        isPlayerInTurn = false;
     }
 
     public void StartTurn()

@@ -7,17 +7,18 @@ using UnityEngine.UI;
 public class Modifier : MonoBehaviour
 {
     Button button;
-    Dealer dealer;
+    protected Dealer dealer;
     protected Player player;
-    void Start() {
+    void Start()
+    {
         button = GetComponent<Button>();
         GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
         dealer = dealerObject.GetComponent<Dealer>();
         player = dealer.GetCurrentPlayer();
     }
-    void Update() 
+    void Update()
     {
-        if (player == dealer.GetCurrentPlayer()) 
+        if (player == dealer.GetCurrentPlayer())
         {
             button.interactable = true;
         }
@@ -28,7 +29,7 @@ public class Modifier : MonoBehaviour
     }
     public virtual void Apply()
     {
-        Destroy(this);
+        // Destroy(this);
     }
 
     public virtual ModifierType GetModifierType()

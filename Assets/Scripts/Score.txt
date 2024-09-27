@@ -1,68 +1,564 @@
 Score constants: 100 1 10
-Turn to beat: 51 Time: 0
+Turn to beat: 59 Time: 0.2539594
+Player1 with agent: HeuristicAgent Score: 206
+Player2 with agent: MinMaxAgent Score: 15
+Score constants: 100 1 10
+Turn to beat: 141 Time: 23.33333
+Player1 with agent: HeuristicAgent Score: 23
+Player2 with agent: MLAgent Score: 724
+Score constants: 100 1 10
+Turn to beat: 162 Time: 27
+Player1 with agent: HeuristicAgent Score: 23
+Player2 with agent: MLAgent Score: 626
+Score constants: 100 1 10
+Turn to beat: 137 Time: 24
+Player1 with agent: HeuristicAgent Score: 19
+Player2 with agent: MLAgent Score: 523
+Score constants: 100 1 10
+Turn to beat: 189 Time: 31.33331
+Player1 with agent: HeuristicAgent Score: 26
+Player2 with agent: MLAgent Score: 328
+Score constants: 100 1 10
+Turn to beat: 26 Time: 3.666748
+Player1 with agent: HeuristicAgent Score: 4
+Player2 with agent: MLAgent Score: 1004
+Score constants: 100 1 10
+Turn to beat: 187 Time: 31
+Player1 with agent: HeuristicAgent Score: 28
+Player2 with agent: MLAgent Score: 628
+Score constants: 100 1 10
+Turn to beat: 221 Time: 37.33325
+Player1 with agent: HeuristicAgent Score: 31
+Player2 with agent: MLAgent Score: 232
+Score constants: 100 1 10
+Turn to beat: 804 Time: 1.258286
+Player1 with agent: HeuristicAgent Score: 84
+Player2 with agent: MLAgent Score: 1090
+Score constants: 100 1 10
+Turn to beat: 1944 Time: 2.777183
+Player1 with agent: HeuristicAgent Score: 204
+Player2 with agent: MLAgent Score: 304
+Score constants: 100 1 10
+Turn to beat: 703 Time: 1.244034
+Player1 with agent: HeuristicAgent Score: 475
+Player2 with agent: MLAgent Score: 80
+Score constants: 100 1 10
+Turn to beat: 1105 Time: 1.510344
+Player1 with agent: HeuristicAgent Score: 516
+Player2 with agent: MLAgent Score: 120
+Score constants: 100 1 10
+Turn to beat: 138 Time: 22.66667
+Player1 with agent: HeuristicAgent Score: 923
+Player2 with agent: MLAgent Score: 23
+Score constants: 100 1 10
+Turn to beat: 182 Time: 29.98
+Player1 with agent: HeuristicAgent Score: 428
+Player2 with agent: MLAgent Score: 28
+Score constants: 100 1 10
+Turn to beat: 98 Time: 15.98
+Player1 with agent: HeuristicAgent Score: 18
+Player2 with agent: MLAgent Score: 1018
+Score constants: 100 1 10
+Turn to beat: 148 Time: 24.31334
+Player1 with agent: HeuristicAgent Score: 24
+Player2 with agent: MLAgent Score: 1024
+Score constants: 100 1 10
+Turn to beat: 157 Time: 25.99334
+Player1 with agent: HeuristicAgent Score: 1025
+Player2 with agent: MLAgent Score: 25
+Score constants: 100 1 10
+Turn to beat: 85 Time: 13.99335
+Player1 with agent: HeuristicAgent Score: 13
+Player2 with agent: MLAgent Score: 1016
+Score constants: 100 1 10
+Turn to beat: 50 Time: 7.993347
+Player1 with agent: HeuristicAgent Score: 10
+Player2 with agent: MLAgent Score: 1010
+Score constants: 100 1 10
+Turn to beat: 102 Time: 16.66
+Player1 with agent: HeuristicAgent Score: 19
+Player2 with agent: MLAgent Score: 1019
+Score constants: 100 1 10
+Turn to beat: 88 Time: 14.31335
+Player1 with agent: HeuristicAgent Score: 16
+Player2 with agent: MLAgent Score: 1016
+Score constants: 100 1 10
+Turn to beat: 147 Time: 24.32668
+Player1 with agent: HeuristicAgent Score: 1024
+Player2 with agent: MLAgent Score: 24
+Score constants: 100 1 10
+Turn to beat: 37 Time: 5.986679
 Player1 with agent: HeuristicAgent Score: 6
-Player2 with agent: MinMaxAgent Score: 314
+Player2 with agent: MLAgent Score: 1007
 Score constants: 100 1 10
-Turn to beat: 60 Time: 0
-Player1 with agent: HeuristicAgent Score: 908
-Player2 with agent: MinMaxAgent Score: 616
+Turn to beat: 143 Time: 23.98668
+Player1 with agent: HeuristicAgent Score: 621
+Player2 with agent: MLAgent Score: 24
 Score constants: 100 1 10
-Turn to beat: 61 Time: 0
-Player1 with agent: HeuristicAgent Score: 508
-Player2 with agent: MinMaxAgent Score: 416
+Turn to beat: 111 Time: 18.32001
+Player1 with agent: HeuristicAgent Score: 20
+Player2 with agent: MLAgent Score: 1021
 Score constants: 100 1 10
-Turn to beat: 60 Time: 0
-Player1 with agent: HeuristicAgent Score: 707
-Player2 with agent: MinMaxAgent Score: 316
+Turn to beat: 241 Time: 39.98001
+Player1 with agent: HeuristicAgent Score: 34
+Player2 with agent: MLAgent Score: 634
 Score constants: 100 1 10
-Turn to beat: 61 Time: 0
-Player1 with agent: HeuristicAgent Score: 807
-Player2 with agent: MinMaxAgent Score: 916
+Turn to beat: 121 Time: 19.98001
+Player1 with agent: HeuristicAgent Score: 22
+Player2 with agent: MLAgent Score: 822
 Score constants: 100 1 10
-Turn to beat: 61 Time: 0
-Player1 with agent: HeuristicAgent Score: 808
-Player2 with agent: MinMaxAgent Score: 716
+Turn to beat: 122 Time: 19.98001
+Player1 with agent: HeuristicAgent Score: 22
+Player2 with agent: MLAgent Score: 1022
 Score constants: 100 1 10
-Turn to beat: 60 Time: 0
-Player1 with agent: HeuristicAgent Score: 506
-Player2 with agent: MinMaxAgent Score: 216
+Turn to beat: 176 Time: 28.98001
+Player1 with agent: HeuristicAgent Score: 1027
+Player2 with agent: MLAgent Score: 27
 Score constants: 100 1 10
-Turn to beat: 61 Time: 0
-Player1 with agent: HeuristicAgent Score: 307
-Player2 with agent: MinMaxAgent Score: 316
+Turn to beat: 62 Time: 9.980011
+Player1 with agent: HeuristicAgent Score: 12
+Player2 with agent: MLAgent Score: 1012
 Score constants: 100 1 10
-Turn to beat: 60 Time: 0
-Player1 with agent: HeuristicAgent Score: 406
-Player2 with agent: MinMaxAgent Score: 316
+Turn to beat: 182 Time: 29.98001
+Player1 with agent: HeuristicAgent Score: 28
+Player2 with agent: MLAgent Score: 1028
 Score constants: 100 1 10
-Turn to beat: 61 Time: 0
-Player1 with agent: HeuristicAgent Score: 307
-Player2 with agent: MinMaxAgent Score: 416
+Turn to beat: 186 Time: 31.31335
+Player1 with agent: HeuristicAgent Score: 1023
+Player2 with agent: MLAgent Score: 28
 Score constants: 100 1 10
-Turn to beat: 61 Time: 0
-Player1 with agent: HeuristicAgent Score: 507
-Player2 with agent: MinMaxAgent Score: 416
+Turn to beat: 145 Time: 23.99335
+Player1 with agent: HeuristicAgent Score: 1024
+Player2 with agent: MLAgent Score: 24
 Score constants: 100 1 10
-Turn to beat: 61 Time: 0
-Player1 with agent: HeuristicAgent Score: 208
-Player2 with agent: MinMaxAgent Score: 116
+Turn to beat: 135 Time: 22.32669
+Player1 with agent: HeuristicAgent Score: 1023
+Player2 with agent: MLAgent Score: 23
 Score constants: 100 1 10
-Turn to beat: 61 Time: 0
-Player1 with agent: HeuristicAgent Score: 806
-Player2 with agent: MinMaxAgent Score: 616
+Turn to beat: 266 Time: 43.98669
+Player1 with agent: HeuristicAgent Score: 36
+Player2 with agent: MLAgent Score: 336
 Score constants: 100 1 10
-Turn to beat: 61 Time: 0
-Player1 with agent: HeuristicAgent Score: 1006
-Player2 with agent: MinMaxAgent Score: 616
+Turn to beat: 280 Time: 46.32001
+Player1 with agent: HeuristicAgent Score: 38
+Player2 with agent: MLAgent Score: 638
 Score constants: 100 1 10
-Turn to beat: 61 Time: 0
-Player1 with agent: HeuristicAgent Score: 1007
-Player2 with agent: MinMaxAgent Score: 816
+Turn to beat: 77 Time: 12.64673
+Player1 with agent: HeuristicAgent Score: 13
+Player2 with agent: MLAgent Score: 714
 Score constants: 100 1 10
-Turn to beat: 134 Time: 0
-Player1 with agent: HeuristicAgent Score: 216
-Player2 with agent: MinMaxAgent Score: 23
+Turn to beat: 316 Time: 53.32001
+Player1 with agent: HeuristicAgent Score: 839
+Player2 with agent: MLAgent Score: 41
 Score constants: 100 1 10
-Turn to beat: 61 Time: 0
+Turn to beat: 51 Time: 8.313416
 Player1 with agent: HeuristicAgent Score: 9
-Player2 with agent: MinMaxAgent Score: 216
+Player2 with agent: MLAgent Score: 1010
+Score constants: 100 1 10
+Turn to beat: 134 Time: 21.99341
+Player1 with agent: HeuristicAgent Score: 23
+Player2 with agent: MLAgent Score: 1023
+Score constants: 100 1 10
+Turn to beat: 242 Time: 39.99341
+Player1 with agent: HeuristicAgent Score: 34
+Player2 with agent: MLAgent Score: 1034
+Score constants: 100 1 10
+Turn to beat: 102 Time: 16.66003
+Player1 with agent: HeuristicAgent Score: 19
+Player2 with agent: MLAgent Score: 1019
+Score constants: 100 1 10
+Turn to beat: 85 Time: 14.64673
+Player1 with agent: HeuristicAgent Score: 10
+Player2 with agent: MLAgent Score: 1016
+Score constants: 100 1 10
+Turn to beat: 182 Time: 29.98669
+Player1 with agent: HeuristicAgent Score: 928
+Player2 with agent: MLAgent Score: 28
+Score constants: 100 1 10
+Turn to beat: 164 Time: 27.65338
+Player1 with agent: HeuristicAgent Score: 24
+Player2 with agent: MLAgent Score: 926
+Score constants: 100 1 10
+Turn to beat: 122 Time: 19.99341
+Player1 with agent: HeuristicAgent Score: 22
+Player2 with agent: MLAgent Score: 1022
+Score constants: 100 1 10
+Turn to beat: 267 Time: 44.32672
+Player1 with agent: HeuristicAgent Score: 36
+Player2 with agent: MLAgent Score: 636
+Score constants: 100 1 10
+Turn to beat: 61 Time: 9.986694
+Player1 with agent: HeuristicAgent Score: 1012
+Player2 with agent: MLAgent Score: 12
+Score constants: 100 1 10
+Turn to beat: 54 Time: 8.653381
+Player1 with agent: HeuristicAgent Score: 10
+Player2 with agent: MLAgent Score: 1010
+Score constants: 100 1 10
+Turn to beat: 100 Time: 16.32672
+Player1 with agent: HeuristicAgent Score: 19
+Player2 with agent: MLAgent Score: 1019
+Score constants: 100 1 10
+Turn to beat: 170 Time: 27.98669
+Player1 with agent: HeuristicAgent Score: 27
+Player2 with agent: MLAgent Score: 1027
+Score constants: 100 1 10
+Turn to beat: 89 Time: 14.98669
+Player1 with agent: HeuristicAgent Score: 15
+Player2 with agent: MLAgent Score: 1016
+Score constants: 100 1 10
+Turn to beat: 70 Time: 11.32001
+Player1 with agent: HeuristicAgent Score: 13
+Player2 with agent: MLAgent Score: 1013
+Score constants: 100 1 10
+Turn to beat: 122 Time: 19.98004
+Player1 with agent: HeuristicAgent Score: 22
+Player2 with agent: MLAgent Score: 1022
+Score constants: 100 1 10
+Turn to beat: 161 Time: 26.64673
+Player1 with agent: HeuristicAgent Score: 723
+Player2 with agent: MLAgent Score: 26
+Score constants: 100 1 10
+Turn to beat: 160 Time: 26.32001
+Player1 with agent: HeuristicAgent Score: 26
+Player2 with agent: MLAgent Score: 1026
+Score constants: 100 1 10
+Turn to beat: 75 Time: 12.31342
+Player1 with agent: HeuristicAgent Score: 13
+Player2 with agent: MLAgent Score: 1014
+Score constants: 100 1 10
+Turn to beat: 155 Time: 25.66003
+Player1 with agent: HeuristicAgent Score: 25
+Player2 with agent: MLAgent Score: 125
+Score constants: 100 1 10
+Turn to beat: 65 Time: 10.64673
+Player1 with agent: HeuristicAgent Score: 12
+Player2 with agent: MLAgent Score: 1012
+Score constants: 100 1 10
+Turn to beat: 98 Time: 15.98682
+Player1 with agent: HeuristicAgent Score: 18
+Player2 with agent: MLAgent Score: 1018
+Score constants: 100 1 10
+Turn to beat: 133 Time: 21.98682
+Player1 with agent: HeuristicAgent Score: 1023
+Player2 with agent: MLAgent Score: 23
+Score constants: 100 1 10
+Turn to beat: 318 Time: 52.98682
+Player1 with agent: HeuristicAgent Score: 341
+Player2 with agent: MLAgent Score: 41
+Score constants: 100 1 10
+Turn to beat: 112 Time: 18.32007
+Player1 with agent: HeuristicAgent Score: 21
+Player2 with agent: MLAgent Score: 1021
+Score constants: 100 1 10
+Turn to beat: 188 Time: 30.97998
+Player1 with agent: HeuristicAgent Score: 228
+Player2 with agent: MLAgent Score: 28
+Score constants: 100 1 10
+Turn to beat: 49 Time: 7.97998
+Player1 with agent: HeuristicAgent Score: 1008
+Player2 with agent: MLAgent Score: 9
+Score constants: 100 1 10
+Turn to beat: 68 Time: 10.97998
+Player1 with agent: HeuristicAgent Score: 12
+Player2 with agent: MLAgent Score: 1012
+Score constants: 100 1 10
+Turn to beat: 217 Time: 35.97998
+Player1 with agent: HeuristicAgent Score: 31
+Player2 with agent: MLAgent Score: 631
+Score constants: 100 1 10
+Turn to beat: 149 Time: 24.64673
+Player1 with agent: HeuristicAgent Score: 1024
+Player2 with agent: MLAgent Score: 24
+Score constants: 100 1 10
+Turn to beat: 92 Time: 14.98682
+Player1 with agent: HeuristicAgent Score: 17
+Player2 with agent: MLAgent Score: 1017
+Score constants: 100 1 10
+Turn to beat: 150 Time: 24.65344
+Player1 with agent: HeuristicAgent Score: 25
+Player2 with agent: MLAgent Score: 1025
+Score constants: 100 1 10
+Turn to beat: 254 Time: 42.66003
+Player1 with agent: HeuristicAgent Score: 35
+Player2 with agent: MLAgent Score: 635
+Score constants: 100 1 10
+Turn to beat: 111 Time: 18.31335
+Player1 with agent: HeuristicAgent Score: 19
+Player2 with agent: MLAgent Score: 1021
+Score constants: 100 1 10
+Turn to beat: 134 Time: 22.66003
+Player1 with agent: HeuristicAgent Score: 23
+Player2 with agent: MLAgent Score: 523
+Score constants: 100 1 10
+Turn to beat: 181 Time: 29.97998
+Player1 with agent: HeuristicAgent Score: 1028
+Player2 with agent: MLAgent Score: 28
+Score constants: 100 1 10
+Turn to beat: 127 Time: 20.97998
+Player1 with agent: HeuristicAgent Score: 1022
+Player2 with agent: MLAgent Score: 22
+Score constants: 100 1 10
+Turn to beat: 205 Time: 33.97998
+Player1 with agent: HeuristicAgent Score: 30
+Player2 with agent: MLAgent Score: 1030
+Score constants: 100 1 10
+Turn to beat: 157 Time: 25.97998
+Player1 with agent: HeuristicAgent Score: 25
+Player2 with agent: MLAgent Score: 1025
+Score constants: 100 1 10
+Turn to beat: 86 Time: 13.97998
+Player1 with agent: HeuristicAgent Score: 16
+Player2 with agent: MLAgent Score: 1016
+Score constants: 100 1 10
+Turn to beat: 80 Time: 12.97998
+Player1 with agent: HeuristicAgent Score: 15
+Player2 with agent: MLAgent Score: 1015
+Score constants: 100 1 10
+Turn to beat: 92 Time: 15.31335
+Player1 with agent: HeuristicAgent Score: 716
+Player2 with agent: MLAgent Score: 17
+Score constants: 100 1 10
+Turn to beat: 147 Time: 24.32678
+Player1 with agent: HeuristicAgent Score: 1024
+Player2 with agent: MLAgent Score: 24
+Score constants: 100 1 10
+Turn to beat: 74 Time: 11.98682
+Player1 with agent: HeuristicAgent Score: 14
+Player2 with agent: MLAgent Score: 1014
+Score constants: 100 1 10
+Turn to beat: 54 Time: 8.653442
+Player1 with agent: HeuristicAgent Score: 10
+Player2 with agent: MLAgent Score: 1010
+Score constants: 100 1 10
+Turn to beat: 75 Time: 12.32678
+Player1 with agent: HeuristicAgent Score: 13
+Player2 with agent: MLAgent Score: 1014
+Score constants: 100 1 10
+Turn to beat: 1742 Time: 2.897444
+Player1 with agent: HeuristicAgent Score: 784
+Player2 with agent: MLAgent Score: 184
+Score constants: 100 1 10
+Turn to beat: 100 Time: 0.217838
+Player1 with agent: HeuristicAgent Score: 12
+Player2 with agent: MLAgent Score: 1012
+Score constants: 100 1 10
+Turn to beat: 578 Time: 0.9767308
+Player1 with agent: HeuristicAgent Score: 66
+Player2 with agent: MLAgent Score: 1066
+Score constants: 100 1 10
+Turn to beat: 283 Time: 0.7193432
+Player1 with agent: HeuristicAgent Score: 1034
+Player2 with agent: MLAgent Score: 35
+Score constants: 100 1 10
+Turn to beat: 589 Time: 1.117603
+Player1 with agent: HeuristicAgent Score: 1063
+Player2 with agent: MLAgent Score: 68
+Score constants: 100 1 10
+Turn to beat: 476 Time: 1.087546
+Player1 with agent: HeuristicAgent Score: 848
+Player2 with agent: MLAgent Score: 57
+Score constants: 100 1 10
+Turn to beat: 2060 Time: 3.144315
+Player1 with agent: HeuristicAgent Score: 1216
+Player2 with agent: MLAgent Score: 216
+Score constants: 100 1 10
+Turn to beat: 657 Time: 1.097838
+Player1 with agent: HeuristicAgent Score: 1075
+Player2 with agent: MLAgent Score: 75
+Score constants: 100 1 10
+Turn to beat: 348 Time: 0.57897
+Player1 with agent: HeuristicAgent Score: 39
+Player2 with agent: MLAgent Score: 1039
+Score constants: 100 1 10
+Turn to beat: 528 Time: 0.8589935
+Player1 with agent: HeuristicAgent Score: 60
+Player2 with agent: MLAgent Score: 1060
+Score constants: 100 1 10
+Turn to beat: 962 Time: 1.598553
+Player1 with agent: HeuristicAgent Score: 504
+Player2 with agent: MLAgent Score: 106
+Score constants: 100 1 10
+Turn to beat: 718 Time: 1.219049
+Player1 with agent: HeuristicAgent Score: 81
+Player2 with agent: MLAgent Score: 1081
+Score constants: 100 1 10
+Turn to beat: 221 Time: 0.7590981
+Player1 with agent: HeuristicAgent Score: 1028
+Player2 with agent: MLAgent Score: 29
+Score constants: 100 1 10
+Turn to beat: 493 Time: 0.8393497
+Player1 with agent: HeuristicAgent Score: 1057
+Player2 with agent: MLAgent Score: 57
+Score constants: 100 1 10
+Turn to beat: 208 Time: 0.3398781
+Player1 with agent: HeuristicAgent Score: 23
+Player2 with agent: MLAgent Score: 1023
+Score constants: 100 1 10
+Turn to beat: 1112 Time: 1.659502
+Player1 with agent: HeuristicAgent Score: 121
+Player2 with agent: MLAgent Score: 1121
+Score constants: 100 1 10
+Turn to beat: 766 Time: 1.239586
+Player1 with agent: HeuristicAgent Score: 86
+Player2 with agent: MLAgent Score: 1086
+Score constants: 100 1 10
+Turn to beat: 445 Time: 0.7193947
+Player1 with agent: HeuristicAgent Score: 50
+Player2 with agent: MLAgent Score: 1051
+Score constants: 100 1 10
+Turn to beat: 1381 Time: 2.057632
+Player1 with agent: HeuristicAgent Score: 1148
+Player2 with agent: MLAgent Score: 148
+Score constants: 100 1 10
+Turn to beat: 217 Time: 0.3588238
+Player1 with agent: HeuristicAgent Score: 24
+Player2 with agent: MLAgent Score: 1025
+Score constants: 100 1 10
+Turn to beat: 1862 Time: 2.773628
+Player1 with agent: HeuristicAgent Score: 396
+Player2 with agent: MLAgent Score: 196
+Score constants: 100 1 10
+Turn to beat: 449 Time: 0.7162514
+Player1 with agent: HeuristicAgent Score: 1050
+Player2 with agent: MLAgent Score: 51
+Score constants: 100 1 10
+Turn to beat: 2594 Time: 3.59824
+Player1 with agent: HeuristicAgent Score: 266
+Player2 with agent: MLAgent Score: 469
+Score constants: 100 1 10
+Turn to beat: 611 Time: 0.9783897
+Player1 with agent: HeuristicAgent Score: 1069
+Player2 with agent: MLAgent Score: 70
+Score constants: 100 1 10
+Turn to beat: 361 Time: 0.5978241
+Player1 with agent: HeuristicAgent Score: 42
+Player2 with agent: MLAgent Score: 1042
+Score constants: 100 1 10
+Turn to beat: 237 Time: 0.3797531
+Player1 with agent: HeuristicAgent Score: 27
+Player2 with agent: MLAgent Score: 1027
+Score constants: 100 1 10
+Turn to beat: 560 Time: 1.01778
+Player1 with agent: HeuristicAgent Score: 65
+Player2 with agent: MLAgent Score: 1065
+Score constants: 100 1 10
+Turn to beat: 750 Time: 1.211285
+Player1 with agent: HeuristicAgent Score: 85
+Player2 with agent: MLAgent Score: 1085
+Score constants: 100 1 10
+Turn to beat: 745 Time: 1.191685
+Player1 with agent: HeuristicAgent Score: 1082
+Player2 with agent: MLAgent Score: 84
+Score constants: 100 1 10
+Turn to beat: 616 Time: 0.9978218
+Player1 with agent: HeuristicAgent Score: 1070
+Player2 with agent: MLAgent Score: 70
+Score constants: 100 1 10
+Turn to beat: 556 Time: 1.339226
+Player1 with agent: HeuristicAgent Score: 65
+Player2 with agent: MLAgent Score: 1065
+Score constants: 100 1 10
+Turn to beat: 361 Time: 0.7981744
+Player1 with agent: HeuristicAgent Score: 1042
+Player2 with agent: MLAgent Score: 43
+Score constants: 100 1 10
+Turn to beat: 632 Time: 1.276278
+Player1 with agent: HeuristicAgent Score: 267
+Player2 with agent: MLAgent Score: 73
+Score constants: 100 1 10
+Turn to beat: 1497 Time: 2.698366
+Player1 with agent: HeuristicAgent Score: 659
+Player2 with agent: MLAgent Score: 159
+Score constants: 100 1 10
+Turn to beat: 619 Time: 1.41864
+Player1 with agent: HeuristicAgent Score: 70
+Player2 with agent: MLAgent Score: 771
+Score constants: 100 1 10
+Turn to beat: 1040 Time: 1.999211
+Player1 with agent: HeuristicAgent Score: 114
+Player2 with agent: MLAgent Score: 1114
+Score constants: 100 1 10
+Turn to beat: 586 Time: 0.9786539
+Player1 with agent: HeuristicAgent Score: 67
+Player2 with agent: MLAgent Score: 1067
+Score constants: 100 1 10
+Turn to beat: 1220 Time: 1.818274
+Player1 with agent: HeuristicAgent Score: 132
+Player2 with agent: MLAgent Score: 1132
+Score constants: 100 1 10
+Turn to beat: 1372 Time: 2.258767
+Player1 with agent: HeuristicAgent Score: 147
+Player2 with agent: MLAgent Score: 1047
+Score constants: 100 1 10
+Turn to beat: 1012 Time: 1.898458
+Player1 with agent: HeuristicAgent Score: 611
+Player2 with agent: MLAgent Score: 111
+Score constants: 100 1 10
+Turn to beat: 289 Time: 0.7172565
+Player1 with agent: HeuristicAgent Score: 1034
+Player2 with agent: MLAgent Score: 35
+Score constants: 100 1 10
+Turn to beat: 367 Time: 0.957407
+Player1 with agent: HeuristicAgent Score: 644
+Player2 with agent: MLAgent Score: 45
+Score constants: 100 1 10
+Turn to beat: 554 Time: 1.118036
+Player1 with agent: HeuristicAgent Score: 65
+Player2 with agent: MLAgent Score: 1065
+Score constants: 100 1 10
+Turn to beat: 1463 Time: 2.380619
+Player1 with agent: HeuristicAgent Score: 148
+Player2 with agent: MLAgent Score: 556
+Score constants: 100 1 10
+Turn to beat: 778 Time: 1.411842
+Player1 with agent: HeuristicAgent Score: 587
+Player2 with agent: MLAgent Score: 87
+Score constants: 100 1 10
+Turn to beat: 961 Time: 1.719936
+Player1 with agent: HeuristicAgent Score: 106
+Player2 with agent: MLAgent Score: 1106
+Score constants: 100 1 10
+Turn to beat: 929 Time: 1.578354
+Player1 with agent: HeuristicAgent Score: 1102
+Player2 with agent: MLAgent Score: 102
+Score constants: 100 1 10
+Turn to beat: 583 Time: 0.9971867
+Player1 with agent: HeuristicAgent Score: 67
+Player2 with agent: MLAgent Score: 1067
+Score constants: 100 1 10
+Turn to beat: 397 Time: 0.7195206
+Player1 with agent: HeuristicAgent Score: 843
+Player2 with agent: MLAgent Score: 46
+Score constants: 100 1 10
+Turn to beat: 1730 Time: 2.679893
+Player1 with agent: HeuristicAgent Score: 183
+Player2 with agent: MLAgent Score: 583
+Score constants: 100 1 10
+Turn to beat: 1630 Time: 2.957947
+Player1 with agent: HeuristicAgent Score: 173
+Player2 with agent: MLAgent Score: 473
+Score constants: 100 1 10
+Turn to beat: 607 Time: 1.278294
+Player1 with agent: HeuristicAgent Score: 1070
+Player2 with agent: MLAgent Score: 70
+Score constants: 100 1 10
+Turn to beat: 657 Time: 1.339645
+Player1 with agent: HeuristicAgent Score: 74
+Player2 with agent: MLAgent Score: 1075
+Score constants: 100 1 10
+Turn to beat: 1558 Time: 2.619251
+Player1 with agent: HeuristicAgent Score: 165
+Player2 with agent: MLAgent Score: 265
+Score constants: 100 1 10
+Turn to beat: 393 Time: 0.8596802
+Player1 with agent: HeuristicAgent Score: 46
+Player2 with agent: MLAgent Score: 1047
+Score constants: 100 1 10
+Turn to beat: 773 Time: 1.437698
+Player1 with agent: HeuristicAgent Score: 87
+Player2 with agent: MLAgent Score: 1087
+Score constants: 100 1 10
+Turn to beat: 669 Time: 1.578835
+Player1 with agent: HeuristicAgent Score: 276
+Player2 with agent: MLAgent Score: 76

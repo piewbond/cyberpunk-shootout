@@ -9,6 +9,9 @@ public class Heal : Modifier
     private int healAmount;
     public override void Apply()
     {
+        GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
+        dealer = dealerObject.GetComponent<Dealer>();
+        player = dealer.GetCurrentPlayer();
         player.Heal(healAmount);
         base.Apply();
     }
