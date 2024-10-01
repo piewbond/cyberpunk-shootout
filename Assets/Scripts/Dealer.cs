@@ -84,20 +84,18 @@ public class Dealer : MonoBehaviour
         foreach (Player player in players)
             player.ResetPlayer();
 
-        players[0].SetAgent(new HeuristicAgent(players[0]));
+        players[1].SetAgent(new HeuristicAgent(players[1]));
 
         if (UseMLAgent)
             players[1].SetAgent(players[1].GetComponent<MLAgent>());
 
-        if (!players[1].isGamer)
-            players[1].SetAgent(new MinMaxAgent(players[1]));
+        if (!players[0].isGamer)
+            players[0].SetAgent(new MinMaxAgent(players[0]));
 
         DealModifiers();
 
         weapon.LoadWeapon(magBulletCount);
-        currentPlayer = players[startingPlayerIndex];
-        weapon.SetPlayerRoles(startingPlayerIndex);
-
+        currentPlayer = players[0];
         StartTurn();
     }
 
@@ -140,7 +138,7 @@ public class Dealer : MonoBehaviour
 
     public void StartTurn()
     {
-        infoPanel.ShowInfo("Round " + roundCount + " " + currentPlayer.name + "'s turn");
+        infoPanel.ShowInfo("Round " + roundCount + " Turn" + turnCount + " " + currentPlayer.name + "'s turn");
         isPlayerInTurn = true;
         currentPlayer.PlayTurn();
     }

@@ -9,12 +9,10 @@ public class WeaponController : MonoBehaviour
     GameEnv gameEnv;
     [SerializeField]
     private InfoPanel infoPanel;
-    private Weapon weapon;
     PlayerController[] playerControllers;
     public bool isTargeting = false;
     void Start()
     {
-        weapon = GetComponent<Weapon>();
         playerControllers = gameEnv.GetComponentsInChildren<PlayerController>();
     }
 
@@ -22,11 +20,11 @@ public class WeaponController : MonoBehaviour
     {
         infoPanel.ShowInfo("Choose target");
         Debug.Log("Weapon clicked");
-        isTargeting = !isTargeting;
+        isTargeting = true;
         gameEnv.GetComponentsInChildren<PlayerController>();
         foreach (PlayerController playerController in playerControllers)
         {
-            playerController.isTargeting = !playerController.isTargeting;
+            playerController.isTargeting = true;
         }
     }
 

@@ -150,6 +150,7 @@ public class Player : MonoBehaviour
         knowsNextShot = false;
         if (isGamer)
         {
+            Debug.Log(playerName + " shot");
             activePlayer = false;
             dealer.EndTurn();
         }

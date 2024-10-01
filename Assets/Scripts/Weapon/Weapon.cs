@@ -31,44 +31,39 @@ public class Weapon : MonoBehaviour
     {
         this.shootEnemy = shootEnemy;
 
-        if (ammoCount > 0)
+        if (players[0].IsActivePlayer())
         {
+            shooterPlayer = players[0];
+            targetPlayer = players[1];
+        }
+        else
+        {
+            shooterPlayer = players[1];
+            targetPlayer = players[0];
+        }
+
+        if (ammoCount > 0)
             ammoCount--;
-            if (ammoList[0].GetIsLive())
+        if (ammoList[0].GetIsLive())
+        {
+            Debug.Log("Target player: " + targetPlayer.playerName + "\nShooter player: " + shooterPlayer.playerName + "Is live: " + ammoList[0].GetIsLive());
+            if (shootEnemy)
             {
-                Debug.Log("Target player: " + targetPlayer.playerName + "\nShooter player: " + shooterPlayer.playerName + "Is live: " + ammoList[0].GetIsLive());
-                if (shootEnemy)
-                {
-                    targetPlayer.TakeDamage(damage, ignoreShield);
-                    SwitchPlayerRole();
-                }
-                else
-                {
-                    shooterPlayer.TakeDamage(damage, ignoreShield);
-                }
-                ammoList.RemoveAt(0);
+                targetPlayer.TakeDamage(damage, ignoreShield);
             }
             else
             {
-                Debug.Log("Ammo is not live");
-                //Do whiff animation here
+                shooterPlayer.TakeDamage(damage, ignoreShield);
             }
-            Debug.Log("Weapon.Shoot     Ammo: " + ammoCount);
+            ammoList.RemoveAt(0);
         }
+        else
+        {
+            Debug.Log("Ammo is not live");
+            //Do whiff animation here
+        }
+        Debug.Log("Weapon.Shoot     Ammo: " + ammoCount);
         damage = 1;
-    }
-
-    private void SwitchPlayerRole()
-    {
-        Player temp = targetPlayer;
-        targetPlayer = shooterPlayer;
-        shooterPlayer = temp;
-    }
-
-    public void SetPlayerRoles(int targetPlayerIndex)
-    {
-        targetPlayer = players[targetPlayerIndex];
-        shooterPlayer = players[(targetPlayerIndex + 1) % players.Count];
     }
 
     public void LoadWeapon(int ammoCount)

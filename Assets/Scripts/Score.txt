@@ -962,3 +962,27 @@ Score constants: 100 1 10
 Turn to beat: 104 Time: 0.5811453
 Player1 with agent: HeuristicAgent Score: 14
 Player2 with agent: MinMaxAgent Score: 220
+Score constants: 100 1 10
+Turn to beat: 106 Time: 0.4662228
+Player1 with agent: HeuristicAgent Score: 12
+Player2 with agent: MinMaxAgent Score: 420
+Score constants: 100 1 10
+Turn to beat: 179 Time: 0.6870327
+Player1 with agent: HeuristicAgent Score: 122
+Player2 with agent: MinMaxAgent Score: 27
+Score constants: 100 1 10
+Turn to beat: 117 Time: 0.4790077
+Player1 with agent: HeuristicAgent Score: 13
+Player2 with agent: MinMaxAgent Score: 521
+Score constants: 100 1 10
+Turn to beat: 129 Time: 0.4973631
+Player1 with agent: HeuristicAgent Score: 16
+Player2 with agent: MinMaxAgent Score: 622
+Score constants: 100 1 10
+Turn to beat: 117 Time: 0.5514555
+Player1 with agent: HeuristicAgent Score: 16
+Player2 with agent: MinMaxAgent Score: 221
+Score constants: 100 1 10
+Turn to beat: 122 Time: 0.7001562
+Player1 with agent: MinMaxAgent Score: 222
+Player2 with agent: HeuristicAgent Score: 16
