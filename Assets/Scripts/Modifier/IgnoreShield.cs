@@ -5,7 +5,6 @@ using UnityEngine;
 public class IgnoreShield : Modifier
 {
     private Weapon weapon;
-    // Start is called before the first frame update
     void Start()
     {
         GameObject weaponObject = GameObject.FindGameObjectWithTag("Weapon");

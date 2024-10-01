@@ -13,7 +13,6 @@ public class Heal : Modifier
         dealer = dealerObject.GetComponent<Dealer>();
         player = dealer.GetCurrentPlayer();
         player.Heal(healAmount);
-        base.Apply();
     }
 
     public override ModifierType GetModifierType()
