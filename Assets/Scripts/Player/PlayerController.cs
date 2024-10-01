@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool isTargeting = false;
+    private Player player;
+    private WeaponController weaponController;
+    private InfoPanel infoPanel;
+
     void Start()
     {
-        
+        player = GetComponent<Player>();
+        GameObject weapon = GameObject.FindGameObjectWithTag("Weapon");
+        weaponController = weapon.GetComponent<WeaponController>();
+        infoPanel = GameObject.FindGameObjectWithTag("InfoPanel").GetComponent<InfoPanel>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void OnClick()
     {
-        
+        Debug.Log("Player clicked");
+        if (isTargeting)
+        {
+            if (player.IsActivePlayer())
+            {
+                player.Shoot(false);
+                infoPanel.ShowInfo("Player " + player.playerName + " shot the enemy");
+            }
+            else
+            {
+                player.Shoot(true);
+                infoPanel.ShowInfo("Player " + player.playerName + " shot the enemy");
+            }
+            weaponController.isTargeting = false;
+            isTargeting = false;
+        }
     }
 }

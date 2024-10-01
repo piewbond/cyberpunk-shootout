@@ -21,6 +21,8 @@ public class Dealer : MonoBehaviour
     public int magBulletCount;
     [SerializeField]
     public Weapon weapon;
+    [SerializeField]
+    public InfoPanel infoPanel;
 
     public bool gameRunning = false;
 
@@ -31,12 +33,21 @@ public class Dealer : MonoBehaviour
     public float elapsedTime = 0.000f;
     [SerializeField]
     public bool UseMLAgent = true;
+    [SerializeField]
+    public GameEnv gameEnv;
     private bool isPlayerInTurn = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StartGameAfterDelay(1.0f));
+        if (gameEnv.isPlayedOnModel)
+        {
+            StartDelayed();
+        }
+    }
+
+    private void StartDelayed()
+    {
+        StartCoroutine(StartGameAfterDelay(0.5f));
 
         IEnumerator StartGameAfterDelay(float delay)
         {
@@ -45,7 +56,6 @@ public class Dealer : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (gameRunning)
@@ -54,7 +64,6 @@ public class Dealer : MonoBehaviour
         }
         if (!isPlayerInTurn && gameRunning)
         {
-            isPlayerInTurn = true;
             if (weapon.ammoCount == 0)
                 NewRound();
             else
@@ -79,7 +88,8 @@ public class Dealer : MonoBehaviour
 
         if (UseMLAgent)
             players[1].SetAgent(players[1].GetComponent<MLAgent>());
-        else
+
+        if (!players[1].isGamer)
             players[1].SetAgent(new MinMaxAgent(players[1]));
 
         DealModifiers();
@@ -130,6 +140,8 @@ public class Dealer : MonoBehaviour
 
     public void StartTurn()
     {
+        infoPanel.ShowInfo("Round " + roundCount + " " + currentPlayer.name + "'s turn");
+        isPlayerInTurn = true;
         currentPlayer.PlayTurn();
     }
 

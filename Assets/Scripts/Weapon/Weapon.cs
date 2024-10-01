@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public List<Ammo> ammoList;
+    private List<Ammo> ammoList;
     public int ammoCount;
     [SerializeField]
     public int damage;
@@ -53,7 +53,7 @@ public class Weapon : MonoBehaviour
                 Debug.Log("Ammo is not live");
                 //Do whiff animation here
             }
-            Debug.Log("Shoot " + ammoCount);
+            Debug.Log("Weapon.Shoot     Ammo: " + ammoCount);
         }
         damage = 1;
     }

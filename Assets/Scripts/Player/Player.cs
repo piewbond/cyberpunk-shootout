@@ -6,33 +6,40 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    private int MaxModifierAmount;
+
+    [SerializeField]
+    public string playerName;
+    [SerializeField]
+    public bool isGamer;
+
     public int health;
     public int maxHealth;
     public int shield;
+    public bool knowsNextShot;
+    public bool isNextShotLive;
+    private bool skipTurn = false;
+    private bool activePlayer = false;
+    public IBaseAgent agent;
+
     [SerializeField]
     public Dealer dealer;
     [SerializeField]
     private Weapon weapon;
     [SerializeField]
-    private int MaxModifierAmount;
-    [SerializeField]
     private List<Modifier> modifiers;
-    public IBaseAgent agent;
 
     [SerializeField]
-    public string playerName;
-    private bool skipTurn = false;
-    private bool activePlayer = false;
-    public bool knowsNextShot;
-    public bool isNextShotLive;
-    // Start is called before the first frame update
+    private WeaponController weaponController;
+    private GameEnv game;
 
     void Start()
     {
         modifiers = new List<Modifier>();
+        game = FindObjectOfType<GameEnv>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -40,6 +47,7 @@ public class Player : MonoBehaviour
 
     public void PlayTurn()
     {
+        activePlayer = true;
         Debug.Log(playerName + " playing turn");
         if (skipTurn)
         {
@@ -47,9 +55,17 @@ public class Player : MonoBehaviour
             dealer.EndTurn();
             return;
         }
-        agent.PlayTurn();
-        Debug.Log(playerName + " played turn");
-        dealer.EndTurn();
+
+        if (game.isPlayedOnModel || !isGamer)
+        {
+            agent.PlayTurn();
+            dealer.EndTurn();
+            Debug.Log(playerName + " played turn");
+            activePlayer = false;
+            return;
+        }
+
+        weaponController.GrabWeapon();
     }
 
     public void TakeDamage(int damage, bool ignoreShield)
@@ -132,6 +148,11 @@ public class Player : MonoBehaviour
     {
         weapon.Shoot(shootEnemy);
         knowsNextShot = false;
+        if (isGamer)
+        {
+            activePlayer = false;
+            dealer.EndTurn();
+        }
     }
 
     public List<Modifier> GetModifiers()
@@ -148,7 +169,7 @@ public class Player : MonoBehaviour
 
     public void SkipTurn()
     {
-        this.skipTurn = true;
+        skipTurn = true;
     }
 
     public void SetActivePlayer(bool active)

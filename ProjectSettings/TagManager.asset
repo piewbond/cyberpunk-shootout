@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Weapon
   - Dealer
+  - InfoPanel
   layers:
   - Default
   - TransparentFX

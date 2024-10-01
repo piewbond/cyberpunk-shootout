@@ -29,21 +29,8 @@ public class HeuristicAgent : IBaseAgent
         Debug.Log("Heuristic Agent playing turn");
 
         bool shootEnemy = true;
-        int liveBulletCount = 0;
-        int blankBulletCount = 0;
-        List<Ammo> ammos = weapon.ammoList;
-
-        foreach (Ammo ammo in ammos)
-        {
-            if (ammo.GetIsLive())
-            {
-                liveBulletCount++;
-            }
-            else
-            {
-                blankBulletCount++;
-            }
-        }
+        int liveBulletCount = weapon.GetLiveAmmoCount();
+        int blankBulletCount = weapon.GetBlankAmmoCount();
 
         if (liveBulletCount == 0)
         {
