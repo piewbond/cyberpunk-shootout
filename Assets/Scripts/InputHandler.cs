@@ -38,5 +38,10 @@ public class InputHandler : MonoBehaviour
             var player = hitObject.GetComponent<PlayerController>();
             player.OnClick();
         }
+        if (hitObject.CompareTag("Modifier"))
+        {
+            var modifier = hitObject.GetComponent<ModifierController>();
+            modifier.OnClick();
+        }
     }
 }

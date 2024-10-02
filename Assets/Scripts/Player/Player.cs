@@ -198,4 +198,9 @@ public class Player : MonoBehaviour
     {
         return agent;
     }
+
+    public bool HasModifier(Modifier modifier)
+    {
+        return modifiers.Contains(modifier);
+    }
 }

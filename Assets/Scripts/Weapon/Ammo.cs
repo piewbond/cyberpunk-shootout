@@ -19,4 +19,9 @@ public class Ammo
     {
         return isLive;
     }
+
+    public void SetIsLive(bool isLive)
+    {
+        this.isLive = isLive;
+    }
 }

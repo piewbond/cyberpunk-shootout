@@ -63,6 +63,8 @@ public class Weapon : MonoBehaviour
             //Do whiff animation here
         }
         Debug.Log("Weapon.Shoot     Ammo: " + ammoCount);
+        Debug.Log("Live Ammo Count: " + GetLiveAmmoCount());
+        Debug.Log("Blank Ammo Count: " + GetBlankAmmoCount());
         damage = 1;
     }
 
@@ -72,19 +74,17 @@ public class Weapon : MonoBehaviour
         ammoList = new List<Ammo>();
         for (int i = 0; i < ammoCount; i++)
         {
-            ammoList.Add(new Ammo());
+            Ammo ammo = new Ammo();
+            ammoList.Add(ammo);
         }
 
-        int blankCount = 0;
-        foreach (Ammo ammo in ammoList)
-            if (!ammo.GetIsLive())
-                blankCount++;
-
-        if (blankCount == ammoCount)
+        for (int i = 0; i < 3; i++)
         {
-            ammoList[Random.Range(0, ammoList.Count)].InverzAmmo();
+            int randomCount = Random.Range(0, ammoList.Count);
+            ammoList[randomCount].SetIsLive(true);
         }
-        Debug.Log("Weapon loaded: " + ammoCount + " blank: " + blankCount);
+
+
     }
 
     public void MultiplyDamage(int damageMultiplier)
