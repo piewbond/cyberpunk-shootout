@@ -22,10 +22,6 @@ public class WeaponController : MonoBehaviour
         Debug.Log("Weapon clicked");
         isTargeting = true;
         gameEnv.GetComponentsInChildren<PlayerController>();
-        foreach (PlayerController playerController in playerControllers)
-        {
-            playerController.isTargeting = true;
-        }
     }
 
     public void GrabWeapon()

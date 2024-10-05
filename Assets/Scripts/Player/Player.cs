@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public bool knowsNextShot;
     public bool isNextShotLive;
     private bool skipTurn = false;
+    private bool doubleAction = false;
     private bool activePlayer = false;
     public IBaseAgent agent;
 
@@ -146,6 +147,11 @@ public class Player : MonoBehaviour
 
     public void Shoot(bool shootEnemy)
     {
+        if (doubleAction)
+        {
+            doubleAction = false;
+            weapon.Shoot(shootEnemy);
+        }
         weapon.Shoot(shootEnemy);
         knowsNextShot = false;
         if (isGamer)
@@ -164,6 +170,11 @@ public class Player : MonoBehaviour
     public void UseModifier(Modifier modifier)
     {
         Debug.Log(playerName + " used " + modifier.GetModifierType());
+        if (doubleAction)
+        {
+            doubleAction = false;
+            modifier.Apply();
+        }
         modifier.Apply();
         modifiers.Remove(modifier);
     }
@@ -202,5 +213,10 @@ public class Player : MonoBehaviour
     public bool HasModifier(Modifier modifier)
     {
         return modifiers.Contains(modifier);
+    }
+
+    public void DoubleAction()
+    {
+        doubleAction = true;
     }
 }

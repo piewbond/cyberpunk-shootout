@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool isTargeting = false;
     private Player player;
     private Player enemy;
     private Dealer dealer;
@@ -23,11 +22,10 @@ public class PlayerController : MonoBehaviour
     public void OnClick()
     {
 
-        Debug.Log("Player clicked" + isTargeting);
-        if (isTargeting)
+        Debug.Log("Player clicked" + weaponController.isTargeting);
+        if (weaponController.isTargeting)
         {
             weaponController.isTargeting = false;
-            isTargeting = false;
             if (player.IsActivePlayer())
             {
                 player.Shoot(false);

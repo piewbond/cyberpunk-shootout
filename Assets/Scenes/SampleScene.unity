@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e60a0ff5c9ae14a8e0ee22d1711361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 0
+  healAmount: 1
 --- !u!1 &395331363
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,7 +991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6146f20e4bb7483999cfa58ab69d968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTargeting: 0
 --- !u!1 &690974184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,7 +1287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f08e9ed75308234892806a5b9ae630c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldAmount: 0
+  shieldAmount: 1
 --- !u!1 &1186658635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad696f44a10d2d4da8f884cdb63c927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 0
+  damageAmount: 2
 --- !u!1 &1242141620
 GameObject:
   m_ObjectHideFlags: 0
@@ -3411,7 +3410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6146f20e4bb7483999cfa58ab69d968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTargeting: 0
 --- !u!1001 &2068158839219067574
 PrefabInstance:
   m_ObjectHideFlags: 0
