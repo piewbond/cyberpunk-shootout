@@ -14,22 +14,13 @@ public class Weapon : MonoBehaviour
     public List<Player> players;
     private Player targetPlayer;
     private Player shooterPlayer;
-    private bool shootEnemy;
-
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    private bool isLastSelfShot = false;
+    [SerializeField]
+    MagazineController magazineController;
 
     public void Shoot(bool shootEnemy)
     {
-        this.shootEnemy = shootEnemy;
+        isLastSelfShot = false;
 
         if (players[0].IsActivePlayer())
         {
@@ -60,7 +51,9 @@ public class Weapon : MonoBehaviour
         else
         {
             Debug.Log("Ammo is not live");
-            //Do whiff animation here
+            //TODO: Do whiff animation here
+            if (!shootEnemy)
+                isLastSelfShot = true;
         }
         Debug.Log("Weapon.Shoot     Ammo: " + ammoCount);
         Debug.Log("Live Ammo Count: " + GetLiveAmmoCount());
@@ -70,6 +63,7 @@ public class Weapon : MonoBehaviour
 
     public void LoadWeapon(int ammoCount)
     {
+        //TODO: Implement load weapon animation
         this.ammoCount = ammoCount;
         ammoList = new List<Ammo>();
         for (int i = 0; i < ammoCount; i++)
@@ -84,6 +78,7 @@ public class Weapon : MonoBehaviour
             ammoList[randomCount].SetIsLive(true);
         }
 
+        magazineController.ShowBullets(GetLiveAmmoCount(), GetBlankAmmoCount());
 
     }
 
@@ -94,12 +89,12 @@ public class Weapon : MonoBehaviour
 
     public bool IsLastSelfShot()
     {
-        return !shootEnemy;
+        return isLastSelfShot;
     }
 
     public void SkipShot()
     {
-        //Shooting at the ceiling animation here
+        //TODO: Implement skipshot animation
         ammoList.RemoveAt(0);
     }
 
@@ -137,6 +132,14 @@ public class Weapon : MonoBehaviour
             }
         }
         return blankAmmoCount;
+    }
+
+    public void InverzBullet()
+    {
+        if (ammoList.Count > 0)
+        {
+            ammoList[0].SetIsLive(!ammoList[0].GetIsLive());
+        }
     }
 
 }

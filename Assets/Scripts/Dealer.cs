@@ -118,8 +118,6 @@ public class Dealer : MonoBehaviour
         Debug.Log("Round " + roundCount);
         DealModifiers();
         weapon.LoadWeapon(magBulletCount);
-        if (!weapon.IsLastSelfShot())
-            NextPlayer();
         StartTurn();
     }
 
@@ -132,7 +130,10 @@ public class Dealer : MonoBehaviour
         Debug.Log("Turn " + turnCount);
         Debug.Log("Ammo count: " + weapon.ammoCount);
         Debug.Log("Current player: " + currentPlayer.name);
-        NextPlayer();
+        if (!weapon.IsLastSelfShot())
+        {
+            NextPlayer();
+        }
         isPlayerInTurn = false;
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HPController : MonoBehaviour
 {
@@ -9,15 +10,17 @@ public class HPController : MonoBehaviour
     Player player;
     [SerializeField]
     private TextMeshProUGUI textMeshPro;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
+    [SerializeField]
+    public Image healthBar;
     void Update()
     {
         int health = player.health;
         textMeshPro.text = health.ToString();
+        UpdateHealthBar();
+    }
+
+    public void UpdateHealthBar()
+    {
+        healthBar.fillAmount = (float)player.health / player.maxHealth;
     }
 }

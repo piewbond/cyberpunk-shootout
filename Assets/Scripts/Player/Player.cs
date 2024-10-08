@@ -102,7 +102,13 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log(playerName + " died. type: " + agent.GetType());
+        if (isGamer)
+        {
+            Debug.Log(playerName + " died.");
+            dealer.EndGame();
+            return;
+        }
+        Debug.Log(playerName + " died. Agent type: " + agent.GetType());
         dealer.EndGame();
     }
 
