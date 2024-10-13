@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: -4.29, y: -2.25, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8822590347705855538}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7560962485826677095
@@ -98,16 +99,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1b36d2c9d287479131d7bdda95560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxModifierAmount: 10
+  playerName: Player1
+  isGamer: 0
   health: 10
   maxHealth: 10
   shield: 0
-  dealer: {fileID: 0}
-  weapon: {fileID: 0}
-  MaxModifierAmount: 10
-  modifiers: []
-  playerName: Player1
   knowsNextShot: 0
   isNextShotLive: 0
+  dealer: {fileID: 0}
+  weapon: {fileID: 0}
+  modifiers: []
+  weaponController: {fileID: 0}
 --- !u!70 &8964102078857172198
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -143,3 +146,34 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00000011920929, y: 0}
   m_Size: {x: 0.36999997, y: 0.91999996}
   m_Direction: 0
+--- !u!1 &8328532218823928232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8822590347705855538}
+  m_Layer: 6
+  m_Name: WeaponSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8822590347705855538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328532218823928232}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.554, y: -0.509, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 832375160277077308}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

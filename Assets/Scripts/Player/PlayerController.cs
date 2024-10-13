@@ -8,16 +8,18 @@ public class PlayerController : MonoBehaviour
     private Player enemy;
     private Dealer dealer;
     private WeaponController weaponController;
+    [SerializeField]
     private InfoPanel infoPanel;
+    private Transform weaponSpot;
 
     void Start()
     {
         GameObject weapon = GameObject.FindGameObjectWithTag("Weapon");
         weaponController = weapon.GetComponent<WeaponController>();
-        infoPanel = GameObject.FindGameObjectWithTag("InfoPanel").GetComponent<InfoPanel>();
         dealer = GameObject.FindGameObjectWithTag("Dealer").GetComponent<Dealer>();
         player = GetComponent<Player>();
         enemy = System.Array.Find(dealer.players, p => p != player);
+        weaponSpot = transform.Find("WeaponSpot");
     }
     public void OnClick()
     {
@@ -37,5 +39,15 @@ public class PlayerController : MonoBehaviour
                 infoPanel.ShowInfo("Player " + player.playerName + " shot the enemy");
             }
         }
+    }
+
+    public Transform GetWeaponSpot()
+    {
+        return weaponSpot;
+    }
+
+    public bool IsActivePlayer()
+    {
+        return player.IsActivePlayer();
     }
 }

@@ -11,9 +11,33 @@ public class WeaponController : MonoBehaviour
     private InfoPanel infoPanel;
     PlayerController[] playerControllers;
     public bool isTargeting = false;
+    private bool isGrabbing = false;
+    public float speed = 10f;
+    public Transform _target;
+
     void Start()
     {
         playerControllers = gameEnv.GetComponentsInChildren<PlayerController>();
+    }
+
+    void Update()
+    {
+        if (isGrabbing && _target != null)
+        {
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, _target.position, step);
+
+            if (Vector3.Distance(transform.position, _target.position) < 0.001f)
+            {
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.flipX = !spriteRenderer.flipX;
+                }
+                isGrabbing = false;
+                Debug.Log("Target reached");
+            }
+        }
     }
 
     public void OnClick()
@@ -28,6 +52,16 @@ public class WeaponController : MonoBehaviour
     {
         if (gameEnv.isPlayedOnModel)
             return;
-        //TODO implement weapon grab
+
+        isGrabbing = true;
+        foreach (PlayerController playerController in playerControllers)
+        {
+            if (playerController.IsActivePlayer())
+            {
+                _target = playerController.GetWeaponSpot();
+                break;
+            }
+        }
     }
+
 }

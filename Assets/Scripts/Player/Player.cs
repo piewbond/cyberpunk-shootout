@@ -208,7 +208,9 @@ public class Player : MonoBehaviour
 
     public string GetPlayerInfoForScore()
     {
-        return playerName + " with agent: " + agent.GetType();
+        if (agent != null)
+            return playerName + " with agent: " + agent.GetType();
+        return playerName;
     }
 
     public IBaseAgent GetAgent()

@@ -21,11 +21,11 @@ public class MagazineController : MonoBehaviour
             {
                 if (i < liveBullets)
                 {
-                    spriteRenderer.color = Color.green;
+                    spriteRenderer.color = Color.red;
                 }
                 else if (i < liveBullets + blankBullets)
                 {
-                    spriteRenderer.color = Color.red;
+                    spriteRenderer.color = Color.blue;
                 }
                 else
                 {
