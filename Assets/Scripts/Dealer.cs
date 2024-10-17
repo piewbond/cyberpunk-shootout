@@ -66,8 +66,7 @@ public class Dealer : MonoBehaviour
         {
             if (weapon.ammoCount == 0)
                 NewRound();
-            else
-                StartTurn();
+            StartTurn();
         }
     }
 

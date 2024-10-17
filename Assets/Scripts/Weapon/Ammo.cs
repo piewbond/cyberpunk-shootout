@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Ammo
 {
+    [SerializeField]
     private bool isLive;
-    public Ammo()
+    public Ammo(bool isLive)
     {
-        isLive = Random.Range(0, 2) == 0;
+        this.isLive = isLive;
     }
-
     public void InverzAmmo()
     {
         isLive = !isLive;

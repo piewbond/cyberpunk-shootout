@@ -38,6 +38,7 @@ public class Weapon : MonoBehaviour
         if (ammoList[0].GetIsLive())
         {
             Debug.Log("Target player: " + targetPlayer.playerName + "\nShooter player: " + shooterPlayer.playerName + "Is live: " + ammoList[0].GetIsLive());
+            Debug.Log("Ammo is live");
             if (shootEnemy)
             {
                 targetPlayer.TakeDamage(damage, ignoreShield);
@@ -47,6 +48,7 @@ public class Weapon : MonoBehaviour
                 shooterPlayer.TakeDamage(damage, ignoreShield);
             }
             ammoList.RemoveAt(0);
+
         }
         else
         {
@@ -59,27 +61,23 @@ public class Weapon : MonoBehaviour
         Debug.Log("Live Ammo Count: " + GetLiveAmmoCount());
         Debug.Log("Blank Ammo Count: " + GetBlankAmmoCount());
         damage = 1;
+
+        magazineController.ShowBullets(GetLiveAmmoCount(), GetBlankAmmoCount());
     }
 
     public void LoadWeapon(int ammoCount)
     {
-        //TODO: Implement load weapon animation
-        this.ammoCount = ammoCount;
+        Debug.Log("Weapon.LoadWeapon     Ammo: " + ammoCount);
         ammoList = new List<Ammo>();
         for (int i = 0; i < ammoCount; i++)
         {
-            Ammo ammo = new Ammo();
-            ammoList.Add(ammo);
+            bool isLive = Random.Range(0, 2) == 0;
+            ammoList.Add(new Ammo(isLive));
         }
 
-        for (int i = 0; i < 3; i++)
-        {
-            int randomCount = Random.Range(0, ammoList.Count);
-            ammoList[randomCount].SetIsLive(true);
-        }
+        this.ammoCount = ammoCount;
 
         magazineController.ShowBullets(GetLiveAmmoCount(), GetBlankAmmoCount());
-
     }
 
     public void MultiplyDamage(int damageMultiplier)
@@ -94,7 +92,7 @@ public class Weapon : MonoBehaviour
 
     public void SkipShot()
     {
-        //TODO: Implement skipshot animation
+        Debug.Log("Weapon.SkipShot     Ammo: " + ammoList[0].GetIsLive());
         ammoList.RemoveAt(0);
     }
 
