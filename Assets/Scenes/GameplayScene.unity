@@ -543,6 +543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0f07f80cd423e458ddc8130595d147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModifierName: 
+  ModifierDescription: 
   weapon: {fileID: 2068158839219067575}
 --- !u!4 &179480268
 Transform:
@@ -1230,6 +1232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e60a0ff5c9ae14a8e0ee22d1711361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModifierName: 
+  ModifierDescription: 
   healAmount: 1
 --- !u!1 &395331363
 GameObject:
@@ -1275,6 +1279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a40a120c15c14449f3e863b97e6d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModifierName: Ignore Shield
+  ModifierDescription: 
 --- !u!1 &407155454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,6 +1437,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &484588838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3504019003775353602, guid: 654fa35af722adc469428f8fc4c5258d, type: 3}
+  m_PrefabInstance: {fileID: 942137897486853454}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,11 +1633,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 832375160277077308, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.23
+      value: -4.16
       objectReference: {fileID: 0}
     - target: {fileID: 832375160277077308, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.11
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 832375160277077308, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2098,6 +2115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b40162b29b665849b3c7f258ee2a043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModifierName: Double Action
+  ModifierDescription: Your next action is doubled
 --- !u!1 &906681433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2502,6 +2521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f08e9ed75308234892806a5b9ae630c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModifierName: Shield
+  ModifierDescription: Apply shield for yourself
   shieldAmount: 1
 --- !u!224 &1154625429 stripped
 RectTransform:
@@ -2552,7 +2573,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad696f44a10d2d4da8f884cdb63c927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModifierName: Multiply Damage
+  ModifierDescription: Multiply the next shot's damage
   damageAmount: 2
+--- !u!114 &1206552044 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6989661775229941629, guid: 654fa35af722adc469428f8fc4c5258d, type: 3}
+  m_PrefabInstance: {fileID: 942137897486853454}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1221205896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,6 +2706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbcb4a36a701584392d54e2a3a05165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModifierName: Spy Bullet
+  ModifierDescription: Check whether the next bullet is live or blank
 --- !u!1001 &1269658447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3159,6 +3195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f9335dede393440a88e298dc621912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModifierName: Stun
+  ModifierDescription: Stun your enemy for the next turn
 --- !u!1 &1581134093 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5475523514106794129, guid: c2cae0b11c37826458ac1cd0f579157b, type: 3}
@@ -3462,6 +3500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f953dcbf3b2db347accc7cade4599c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModifierName: Skip Shot
+  ModifierDescription: Shoot the next bullet in the air
 --- !u!1 &1638270029
 GameObject:
   m_ObjectHideFlags: 0
@@ -5074,6 +5114,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7251106484765523583, guid: 62d5ce8047db19849a54aae000f77e57, type: 3}
   m_PrefabInstance: {fileID: 2020393446}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2040942851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1175474586935622720, guid: 654fa35af722adc469428f8fc4c5258d, type: 3}
+  m_PrefabInstance: {fileID: 942137897486853454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2040942857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040942851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0adb7c4fbfd741db8b5cc47666299d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemNameText: {fileID: 1206552044}
+  itemDescriptionText: {fileID: 484588838}
 --- !u!1001 &2084501497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5554,6 +5613,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8580250915590389001, guid: 654fa35af722adc469428f8fc4c5258d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580250915590389001, guid: 654fa35af722adc469428f8fc4c5258d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580250915590389001, guid: 654fa35af722adc469428f8fc4c5258d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580250915590389001, guid: 654fa35af722adc469428f8fc4c5258d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9172871342850820676, guid: 654fa35af722adc469428f8fc4c5258d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5588,7 +5663,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1573492380764576505, guid: 654fa35af722adc469428f8fc4c5258d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 258835735}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1175474586935622720, guid: 654fa35af722adc469428f8fc4c5258d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2040942857}
   m_SourcePrefab: {fileID: 100100000, guid: 654fa35af722adc469428f8fc4c5258d, type: 3}
 --- !u!224 &942137897486853455 stripped
 RectTransform:
@@ -5613,11 +5691,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 832375160277077308, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.65
+      value: 8.48
       objectReference: {fileID: 0}
     - target: {fileID: 832375160277077308, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 832375160277077308, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: m_LocalPosition.z

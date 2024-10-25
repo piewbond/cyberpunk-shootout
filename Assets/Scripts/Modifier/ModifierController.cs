@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -42,5 +43,15 @@ public class ModifierController : MonoBehaviour
 
         player.UseModifier(modifier);
 
+    }
+
+    public String GetModifierDescription()
+    {
+        return modifier.GetDescription();
+    }
+
+    public String GetModifierName()
+    {
+        return modifier.GetName();
     }
 }
