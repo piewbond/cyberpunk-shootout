@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public string playerName;
     [SerializeField]
     public bool isGamer;
+    [SerializeField]
+    NextShotPanel nextShotPanel;
 
     public int health;
     public int maxHealth;
@@ -72,19 +74,27 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage, bool ignoreShield)
     {
         Debug.Log(playerName + " took " + damage + " damage" + " health: " + health);
-        if (shield > 0 && !ignoreShield)
+        if (shield > 0)
         {
-            shield -= damage;
-            if (shield < 0)
+            if (ignoreShield)
             {
-                health += shield;
-                shield = 0;
+                health -= damage;
+            }
+            else
+            {
+                shield -= damage;
+                if (shield < 0)
+                {
+                    health += shield;
+                    shield = 0;
+                }
             }
         }
         else
         {
             health -= damage;
         }
+
         if (health <= 0)
         {
             Die();
@@ -204,6 +214,7 @@ public class Player : MonoBehaviour
     {
         knowsNextShot = weapon.isNextShotLive();
         isNextShotLive = weapon.isNextShotLive();
+        nextShotPanel.ShowNext(isNextShotLive);
     }
 
     public string GetPlayerInfoForScore()

@@ -47,8 +47,6 @@ public class Weapon : MonoBehaviour
             {
                 shooterPlayer.TakeDamage(damage, ignoreShield);
             }
-            ammoList.RemoveAt(0);
-
         }
         else
         {
@@ -57,12 +55,11 @@ public class Weapon : MonoBehaviour
             if (!shootEnemy)
                 isLastSelfShot = true;
         }
+        ammoList.RemoveAt(0);
         Debug.Log("Weapon.Shoot     Ammo: " + ammoCount);
         Debug.Log("Live Ammo Count: " + GetLiveAmmoCount());
         Debug.Log("Blank Ammo Count: " + GetBlankAmmoCount());
         damage = 1;
-
-        magazineController.ShowBullets(GetLiveAmmoCount(), GetBlankAmmoCount());
     }
 
     public void LoadWeapon(int ammoCount)
@@ -98,6 +95,10 @@ public class Weapon : MonoBehaviour
 
     public bool isNextShotLive()
     {
+        if (ammoList == null || ammoList.Count == 0)
+        {
+            return false;
+        }
         return ammoList[0].GetIsLive();
     }
 

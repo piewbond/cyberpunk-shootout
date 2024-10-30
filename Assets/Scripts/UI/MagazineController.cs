@@ -7,11 +7,6 @@ public class MagazineController : MonoBehaviour
     [SerializeField]
     GameObject[] bulletObjects;
 
-    void Start()
-    {
-
-    }
-
     public void ShowBullets(int liveBullets, int blankBullets)
     {
         for (int i = 0; i < bulletObjects.Length; i++)

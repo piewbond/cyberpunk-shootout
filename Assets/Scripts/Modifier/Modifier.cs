@@ -27,6 +27,20 @@ public class Modifier : MonoBehaviour
         return ModifierDescription;
     }
 
+    internal Sprite GetSprite()
+    {
+        return GetComponent<SpriteRenderer>().sprite;
+    }
+
+    internal string GetModifierName()
+    {
+        return ModifierName;
+    }
+
+    internal string GetModifierDescription()
+    {
+        return ModifierDescription;
+    }
 }
 
 public enum ModifierType

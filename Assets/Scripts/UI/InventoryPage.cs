@@ -5,14 +5,16 @@ using UnityEngine;
 public class InventoryPage : MonoBehaviour
 {
     [SerializeField]
-    private ModifierController modifierPrefab;
+    Player player;
+    [SerializeField]
+    private InventoryItem modifierPrefab;
     [SerializeField]
     private RectTransform contentPanel;
-    List<ModifierController> modifierControllers = new List<ModifierController>();
-    // Start is called before the first frame update
+    [SerializeField]
+    List<InventoryItem> inventoryItems = new List<InventoryItem>();
+
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -21,13 +23,19 @@ public class InventoryPage : MonoBehaviour
 
     }
 
-    public void Initialize(int inventorySize)
+    public void UpdateModifers()
     {
-        for (int i = 0; i < inventorySize; i++)
+        List<Modifier> modifiers = player.GetModifiers();
+        for (int i = 0; i < inventoryItems.Count; i++)
         {
-            ModifierController modifierController = Instantiate(modifierPrefab, contentPanel);
-            modifierController.transform.SetParent(contentPanel);
-            modifierControllers.Add(modifierController);
+            if (i < modifiers.Count)
+            {
+                inventoryItems[i].SetData(modifiers[i].GetSprite(), 1, modifiers[i]);
+            }
+            else
+            {
+                inventoryItems[i].ResetData();
+            }
         }
     }
 

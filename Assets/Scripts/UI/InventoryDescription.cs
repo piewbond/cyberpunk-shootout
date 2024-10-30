@@ -8,18 +8,10 @@ public class InventoryDescription : MonoBehaviour
     private TMPro.TextMeshProUGUI itemNameText;
     [SerializeField]
     private TMPro.TextMeshProUGUI itemDescriptionText;
-    void Start()
-    {
-        
-    }
 
-    void Update()
+    public void UpdateText(Modifier modifier)
     {
-        
-    }
-
-    public void UpdateText(ModifierController modifierController) {
-        itemNameText.text = modifierController.GetModifierName();
-        itemDescriptionText.text = modifierController.GetModifierDescription();
+        itemNameText.text = modifier.GetModifierName();
+        itemDescriptionText.text = modifier.GetModifierDescription();
     }
 }

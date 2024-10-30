@@ -37,6 +37,11 @@ public class Dealer : MonoBehaviour
     public GameEnv gameEnv;
     private bool isPlayerInTurn = false;
 
+    [SerializeField]
+    InventoryPage[] inventoryPages;
+    [SerializeField]
+    NextShotPanel nextShotPanel;
+
     void Start()
     {
         if (gameEnv.isPlayedOnModel)
@@ -79,6 +84,7 @@ public class Dealer : MonoBehaviour
         turnToBeat = 0;
         int startingPlayerIndex = Random.Range(0, players.Length);
         gameRunning = true;
+        currentPlayer = players[0];
 
         foreach (Player player in players)
             player.ResetPlayer();
@@ -94,7 +100,6 @@ public class Dealer : MonoBehaviour
         DealModifiers();
 
         weapon.LoadWeapon(magBulletCount);
-        currentPlayer = players[0];
         StartTurn();
     }
 
@@ -134,11 +139,26 @@ public class Dealer : MonoBehaviour
             NextPlayer();
         }
         isPlayerInTurn = false;
+        nextShotPanel.ResetPanel();
     }
 
     public void StartTurn()
     {
-        infoPanel.ShowInfo("Round " + roundCount + " Turn" + turnCount + " " + currentPlayer.name + "'s turn");
+        if (isPlayerInTurn)
+            return;
+
+        if (infoPanel == null)
+        {
+            Debug.LogError("No info panel found!");
+            return;
+        }
+        if (currentPlayer == null)
+        {
+            Debug.LogError("No current player found!");
+            return;
+        }
+
+        infoPanel.ShowInfo("R: " + roundCount + " T: " + turnCount + " " + currentPlayer.name + "'s turn");
         isPlayerInTurn = true;
         currentPlayer.PlayTurn();
     }
@@ -174,6 +194,11 @@ public class Dealer : MonoBehaviour
                 int randomIndex = Random.Range(0, possibleModifiers.Length);
                 player.AddModifier(possibleModifiers[randomIndex]);
             }
+        }
+
+        foreach (InventoryPage inventoryPage in inventoryPages)
+        {
+            inventoryPage.UpdateModifers();
         }
     }
 }
