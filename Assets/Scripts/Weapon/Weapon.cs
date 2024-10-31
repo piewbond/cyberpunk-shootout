@@ -91,6 +91,7 @@ public class Weapon : MonoBehaviour
     {
         Debug.Log("Weapon.SkipShot     Ammo: " + ammoList[0].GetIsLive());
         ammoList.RemoveAt(0);
+        ammoCount--;
     }
 
     public bool isNextShotLive()

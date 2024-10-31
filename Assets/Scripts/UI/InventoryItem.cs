@@ -7,7 +7,8 @@ using System;
 using UnityEngine.EventSystems;
 
 public class InventoryItem : MonoBehaviour, IPointerClickHandler,
-        IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
+        IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler,
+        IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
     private Image itemImage;
@@ -16,6 +17,8 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler,
 
     [SerializeField]
     private Image borderImage;
+    [SerializeField]
+    private InventoryDescription inventoryDescription;
 
     Modifier modifier;
 
@@ -53,8 +56,6 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler,
 
         player.UseModifier(modifier);
 
-        GameObject inventoryDescriptionObj = GameObject.Find("InventoryDescription");
-        InventoryDescription inventoryDescription = inventoryDescriptionObj.GetComponent<InventoryDescription>();
         inventoryDescription.UpdateText(modifier);
 
         ResetData();
@@ -67,6 +68,18 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler,
         {
             OnItemClicked?.Invoke(this);
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (modifier == null)
+            return;
+        inventoryDescription.UpdateText(modifier);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        inventoryDescription.ResetText();
     }
 
     public void OnEndDrag(PointerEventData eventData)

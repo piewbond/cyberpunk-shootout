@@ -14,4 +14,10 @@ public class InventoryDescription : MonoBehaviour
         itemNameText.text = modifier.GetModifierName();
         itemDescriptionText.text = modifier.GetModifierDescription();
     }
+
+    public void ResetText()
+    {
+        itemNameText.text = "";
+        itemDescriptionText.text = "Hover over an item to see its description.";
+    }
 }

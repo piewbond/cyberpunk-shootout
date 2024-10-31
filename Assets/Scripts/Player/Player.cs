@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     public void PlayTurn()
     {
         activePlayer = true;
+
         Debug.Log(playerName + " playing turn");
         if (skipTurn)
         {

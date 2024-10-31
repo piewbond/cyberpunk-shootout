@@ -20,7 +20,7 @@ public class InventoryPage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        UpdateModifers();
     }
 
     public void UpdateModifers()

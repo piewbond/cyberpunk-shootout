@@ -15,7 +15,6 @@ public class MLAgent : Agent, IBaseAgent
     private Player enemy;
     [SerializeField]
     private Dealer dealer;
-
     private bool isFirstEpisode = true;
     void Start()
     {
@@ -44,7 +43,8 @@ public class MLAgent : Agent, IBaseAgent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-
+        if (weapon == null)
+            Debug.LogError("weapon null");
         //TODO: Fix weapon nullreference
         // sensor.AddObservation(weapon.GetLiveAmmoCount());
         // sensor.AddObservation(weapon.GetBlankAmmoCount());
