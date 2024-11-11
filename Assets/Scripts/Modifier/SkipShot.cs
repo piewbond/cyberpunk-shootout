@@ -15,4 +15,11 @@ public class SkipShot : Modifier
     {
         return ModifierType.SkipShot;
     }
+
+    public override void Undo()
+    {
+        GameObject weaponObject = GameObject.FindGameObjectWithTag("Weapon");
+        Weapon weapon = weaponObject.GetComponent<Weapon>();
+        weapon.UndoShot();
+    }
 }

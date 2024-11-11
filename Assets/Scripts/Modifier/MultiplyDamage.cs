@@ -30,4 +30,9 @@ public class MultiplyDamage : Modifier
     {
         return ModifierType.MultiplyDamage;
     }
+
+    public override void Undo()
+    {
+        weapon.MultiplyDamage(1);
+    }
 }

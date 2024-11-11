@@ -29,4 +29,12 @@ public class Shield : Modifier
     {
         return ModifierType.Shield;
     }
+
+    public override void Undo()
+    {
+        GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
+        Dealer dealer = dealerObject.GetComponent<Dealer>();
+        Player player = dealer.GetCurrentPlayer();
+        player.TakeDamage(shieldAmount, false, true);
+    }
 }

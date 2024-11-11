@@ -17,10 +17,14 @@ public class InventoryPage : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateModifers();
+        if (player.IsActivePlayer())
+            SetItemsClickable(true);
+        else
+            SetItemsClickable(false);
+        
     }
 
     public void UpdateModifers()
@@ -36,6 +40,12 @@ public class InventoryPage : MonoBehaviour
             {
                 inventoryItems[i].ResetData();
             }
+        }
+    }
+
+    private void SetItemsClickable(bool clickable) {
+        foreach (InventoryItem item in inventoryItems) {
+            item.SetClickable(clickable);
         }
     }
 

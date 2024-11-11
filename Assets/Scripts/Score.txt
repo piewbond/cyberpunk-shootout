@@ -1022,3 +1022,619 @@ Score constants: 100 1 10
 Turn to beat: 13 Time: 0.06728172
 Player1 with agent: MinMaxAgent Score: 6
 Player2 with agent: HeuristicAgent Score: 405
+Score constants: 100 1 10
+Turn to beat: 159 Time: 27.97261
+Player1 Score: 620
+Player2 with agent: MLAgent Score: 20
+Score constants: 100 1 10
+Turn to beat: 11 Time: 14.86299
+Player1 Score: 604
+Player2 with agent: MLAgent Score: 6
+Score constants: 100 1 10
+Turn to beat: 1 Time: 6.952812
+Player1 Score: 505
+Player2 with agent: MinMaxAgent Score: 4
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: 205
+Player2 with agent: MinMaxAgent Score: 3
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: 105
+Player2 with agent: MinMaxAgent Score: 2
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: 5
+Player2 with agent: MinMaxAgent Score: 2
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: 5
+Player2 with agent: MinMaxAgent Score: -197
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -95
+Player2 with agent: MinMaxAgent Score: -197
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -95
+Player2 with agent: MinMaxAgent Score: -198
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -195
+Player2 with agent: MinMaxAgent Score: -198
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -195
+Player2 with agent: MinMaxAgent Score: -497
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -295
+Player2 with agent: MinMaxAgent Score: -497
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -295
+Player2 with agent: MinMaxAgent Score: -498
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -395
+Player2 with agent: MinMaxAgent Score: -498
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -395
+Player2 with agent: MinMaxAgent Score: -697
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -495
+Player2 with agent: MinMaxAgent Score: -697
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -495
+Player2 with agent: MinMaxAgent Score: -698
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -595
+Player2 with agent: MinMaxAgent Score: -698
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -595
+Player2 with agent: MinMaxAgent Score: -798
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -695
+Player2 with agent: MinMaxAgent Score: -798
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -695
+Player2 with agent: MinMaxAgent Score: -799
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -795
+Player2 with agent: MinMaxAgent Score: -799
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -795
+Player2 with agent: MinMaxAgent Score: -998
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -895
+Player2 with agent: MinMaxAgent Score: -998
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -895
+Player2 with agent: MinMaxAgent Score: -999
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -995
+Player2 with agent: MinMaxAgent Score: -999
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -995
+Player2 with agent: MinMaxAgent Score: -1296
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1095
+Player2 with agent: MinMaxAgent Score: -1296
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1095
+Player2 with agent: MinMaxAgent Score: -1297
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1195
+Player2 with agent: MinMaxAgent Score: -1297
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1195
+Player2 with agent: MinMaxAgent Score: -1496
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1295
+Player2 with agent: MinMaxAgent Score: -1496
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1295
+Player2 with agent: MinMaxAgent Score: -1497
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1395
+Player2 with agent: MinMaxAgent Score: -1497
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1395
+Player2 with agent: MinMaxAgent Score: -1597
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1495
+Player2 with agent: MinMaxAgent Score: -1597
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1495
+Player2 with agent: MinMaxAgent Score: -1598
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1595
+Player2 with agent: MinMaxAgent Score: -1598
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1595
+Player2 with agent: MinMaxAgent Score: -1797
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1695
+Player2 with agent: MinMaxAgent Score: -1797
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1695
+Player2 with agent: MinMaxAgent Score: -1798
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1795
+Player2 with agent: MinMaxAgent Score: -1798
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1795
+Player2 with agent: MinMaxAgent Score: -2097
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1895
+Player2 with agent: MinMaxAgent Score: -2097
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1895
+Player2 with agent: MinMaxAgent Score: -2098
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1995
+Player2 with agent: MinMaxAgent Score: -2098
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -1995
+Player2 with agent: MinMaxAgent Score: -2297
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2095
+Player2 with agent: MinMaxAgent Score: -2297
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2095
+Player2 with agent: MinMaxAgent Score: -2298
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2195
+Player2 with agent: MinMaxAgent Score: -2298
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2195
+Player2 with agent: MinMaxAgent Score: -2398
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2295
+Player2 with agent: MinMaxAgent Score: -2398
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2295
+Player2 with agent: MinMaxAgent Score: -2399
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2395
+Player2 with agent: MinMaxAgent Score: -2399
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2395
+Player2 with agent: MinMaxAgent Score: -2598
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2495
+Player2 with agent: MinMaxAgent Score: -2598
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2495
+Player2 with agent: MinMaxAgent Score: -2599
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2595
+Player2 with agent: MinMaxAgent Score: -2599
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2595
+Player2 with agent: MinMaxAgent Score: -2896
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2695
+Player2 with agent: MinMaxAgent Score: -2896
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2695
+Player2 with agent: MinMaxAgent Score: -2897
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2795
+Player2 with agent: MinMaxAgent Score: -2897
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2795
+Player2 with agent: MinMaxAgent Score: -3096
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2895
+Player2 with agent: MinMaxAgent Score: -3096
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2895
+Player2 with agent: MinMaxAgent Score: -3097
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2995
+Player2 with agent: MinMaxAgent Score: -3097
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -2995
+Player2 with agent: MinMaxAgent Score: -3197
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3095
+Player2 with agent: MinMaxAgent Score: -3197
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3095
+Player2 with agent: MinMaxAgent Score: -3198
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3195
+Player2 with agent: MinMaxAgent Score: -3198
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3195
+Player2 with agent: MinMaxAgent Score: -3397
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3295
+Player2 with agent: MinMaxAgent Score: -3397
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3295
+Player2 with agent: MinMaxAgent Score: -3398
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3395
+Player2 with agent: MinMaxAgent Score: -3398
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3395
+Player2 with agent: MinMaxAgent Score: -3697
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3495
+Player2 with agent: MinMaxAgent Score: -3697
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3495
+Player2 with agent: MinMaxAgent Score: -3698
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3595
+Player2 with agent: MinMaxAgent Score: -3698
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3595
+Player2 with agent: MinMaxAgent Score: -3897
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3695
+Player2 with agent: MinMaxAgent Score: -3897
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3695
+Player2 with agent: MinMaxAgent Score: -3898
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3795
+Player2 with agent: MinMaxAgent Score: -3898
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3795
+Player2 with agent: MinMaxAgent Score: -3998
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3895
+Player2 with agent: MinMaxAgent Score: -3998
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3895
+Player2 with agent: MinMaxAgent Score: -3999
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3995
+Player2 with agent: MinMaxAgent Score: -3999
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -3995
+Player2 with agent: MinMaxAgent Score: -4198
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4095
+Player2 with agent: MinMaxAgent Score: -4198
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4095
+Player2 with agent: MinMaxAgent Score: -4199
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4195
+Player2 with agent: MinMaxAgent Score: -4199
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4195
+Player2 with agent: MinMaxAgent Score: -4496
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4295
+Player2 with agent: MinMaxAgent Score: -4496
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4295
+Player2 with agent: MinMaxAgent Score: -4497
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4395
+Player2 with agent: MinMaxAgent Score: -4497
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4395
+Player2 with agent: MinMaxAgent Score: -4696
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4495
+Player2 with agent: MinMaxAgent Score: -4696
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4495
+Player2 with agent: MinMaxAgent Score: -4697
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4595
+Player2 with agent: MinMaxAgent Score: -4697
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4595
+Player2 with agent: MinMaxAgent Score: -4797
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4695
+Player2 with agent: MinMaxAgent Score: -4797
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4695
+Player2 with agent: MinMaxAgent Score: -4798
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4795
+Player2 with agent: MinMaxAgent Score: -4798
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4795
+Player2 with agent: MinMaxAgent Score: -4997
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4895
+Player2 with agent: MinMaxAgent Score: -4997
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4895
+Player2 with agent: MinMaxAgent Score: -4998
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4995
+Player2 with agent: MinMaxAgent Score: -4998
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -4995
+Player2 with agent: MinMaxAgent Score: -5297
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5095
+Player2 with agent: MinMaxAgent Score: -5297
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5095
+Player2 with agent: MinMaxAgent Score: -5298
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5195
+Player2 with agent: MinMaxAgent Score: -5298
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5195
+Player2 with agent: MinMaxAgent Score: -5497
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5295
+Player2 with agent: MinMaxAgent Score: -5497
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5295
+Player2 with agent: MinMaxAgent Score: -5498
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5395
+Player2 with agent: MinMaxAgent Score: -5498
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5395
+Player2 with agent: MinMaxAgent Score: -5598
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5495
+Player2 with agent: MinMaxAgent Score: -5598
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5495
+Player2 with agent: MinMaxAgent Score: -5599
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5595
+Player2 with agent: MinMaxAgent Score: -5599
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5595
+Player2 with agent: MinMaxAgent Score: -5798
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5695
+Player2 with agent: MinMaxAgent Score: -5798
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5695
+Player2 with agent: MinMaxAgent Score: -5799
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5795
+Player2 with agent: MinMaxAgent Score: -5799
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5795
+Player2 with agent: MinMaxAgent Score: -6096
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5895
+Player2 with agent: MinMaxAgent Score: -6096
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5895
+Player2 with agent: MinMaxAgent Score: -6097
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5995
+Player2 with agent: MinMaxAgent Score: -6097
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -5995
+Player2 with agent: MinMaxAgent Score: -6296
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6095
+Player2 with agent: MinMaxAgent Score: -6296
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6095
+Player2 with agent: MinMaxAgent Score: -6297
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6195
+Player2 with agent: MinMaxAgent Score: -6297
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6195
+Player2 with agent: MinMaxAgent Score: -6397
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6295
+Player2 with agent: MinMaxAgent Score: -6397
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6295
+Player2 with agent: MinMaxAgent Score: -6398
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6395
+Player2 with agent: MinMaxAgent Score: -6398
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6395
+Player2 with agent: MinMaxAgent Score: -6597
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6495
+Player2 with agent: MinMaxAgent Score: -6597
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6495
+Player2 with agent: MinMaxAgent Score: -6598
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6595
+Player2 with agent: MinMaxAgent Score: -6598
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6595
+Player2 with agent: MinMaxAgent Score: -6897
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6695
+Player2 with agent: MinMaxAgent Score: -6897
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6695
+Player2 with agent: MinMaxAgent Score: -6898
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6795
+Player2 with agent: MinMaxAgent Score: -6898
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6795
+Player2 with agent: MinMaxAgent Score: -7097
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6895
+Player2 with agent: MinMaxAgent Score: -7097
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6895
+Player2 with agent: MinMaxAgent Score: -7098
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6995
+Player2 with agent: MinMaxAgent Score: -7098
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -6995
+Player2 with agent: MinMaxAgent Score: -7198
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -7095
+Player2 with agent: MinMaxAgent Score: -7198
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -7095
+Player2 with agent: MinMaxAgent Score: -7199
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -7195
+Player2 with agent: MinMaxAgent Score: -7199
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -7195
+Player2 with agent: MinMaxAgent Score: -7398
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -7295
+Player2 with agent: MinMaxAgent Score: -7398
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -7295
+Player2 with agent: MinMaxAgent Score: -7399
+Score constants: 100 1 10
+Turn to beat: 1 Time: 2.010783
+Player1 Score: -7395
+Player2 with agent: MinMaxAgent Score: -7399

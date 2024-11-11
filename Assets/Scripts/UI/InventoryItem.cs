@@ -21,6 +21,7 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler,
     private InventoryDescription inventoryDescription;
 
     Modifier modifier;
+    bool IsClickable;
 
     public event Action<InventoryItem> OnItemClicked,
         OnItemDroppedOn, OnItemBeginDrag, OnItemEndDrag,
@@ -49,7 +50,8 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler,
 
     public void OnPointerClick(PointerEventData pointerData)
     {
-
+        if (!IsClickable) 
+            return;
         GameObject dealerObj = GameObject.Find("Dealer");
         Dealer dealer = dealerObj.GetComponent<Dealer>();
         Player player = dealer.GetCurrentPlayer();
@@ -102,5 +104,10 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler,
     public void OnDrag(PointerEventData eventData)
     {
 
+    }
+
+    internal void SetClickable(bool clickable)
+    {
+        IsClickable = clickable;
     }
 }

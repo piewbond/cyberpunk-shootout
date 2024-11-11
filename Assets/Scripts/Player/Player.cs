@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
     private WeaponController weaponController;
     private GameEnv game;
 
+    private bool hasWon = false;
     void Start()
     {
         modifiers = new List<Modifier>();
@@ -72,7 +74,7 @@ public class Player : MonoBehaviour
         weaponController.GrabWeapon();
     }
 
-    public void TakeDamage(int damage, bool ignoreShield)
+    public void TakeDamage(int damage, bool ignoreShield, bool isMinMax)
     {
         Debug.Log(playerName + " took " + damage + " damage" + " health: " + health);
         if (shield > 0)
@@ -98,7 +100,8 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+            if(!isMinMax)
+                Die();
         }
     }
 
@@ -121,6 +124,11 @@ public class Player : MonoBehaviour
         }
         Debug.Log(playerName + " died. Agent type: " + agent.GetType());
         dealer.EndGame();
+    }
+
+    public void Win()
+    {
+        hasWon = true;
     }
 
     public void Heal(int healAmount)
@@ -162,14 +170,14 @@ public class Player : MonoBehaviour
         this.agent = agent;
     }
 
-    public void Shoot(bool shootEnemy)
+    public void Shoot(bool shootEnemy, bool isMinMax)
     {
         if (doubleAction)
         {
             doubleAction = false;
-            weapon.Shoot(shootEnemy);
+            weapon.Shoot(shootEnemy, isMinMax);
         }
-        weapon.Shoot(shootEnemy);
+        weapon.Shoot(shootEnemy, isMinMax);
         knowsNextShot = false;
         if (isGamer)
         {
@@ -196,9 +204,9 @@ public class Player : MonoBehaviour
         modifiers.Remove(modifier);
     }
 
-    public void SkipTurn()
+    public void SkipTurn(bool skip)
     {
-        skipTurn = true;
+        skipTurn = skip;
     }
 
     public void SetActivePlayer(bool active)
@@ -211,11 +219,18 @@ public class Player : MonoBehaviour
         return activePlayer;
     }
 
-    public void SpyBullet()
+    public void SpyBullet(bool Undo)
     {
-        knowsNextShot = weapon.isNextShotLive();
-        isNextShotLive = weapon.isNextShotLive();
-        nextShotPanel.ShowNext(isNextShotLive);
+        if (Undo)
+        {
+            knowsNextShot = false;
+        }
+        else
+        {
+            knowsNextShot = true;
+            isNextShotLive = weapon.isNextShotLive();
+            nextShotPanel.ShowNext(isNextShotLive);
+        }
     }
 
     public string GetPlayerInfoForScore()
@@ -235,8 +250,68 @@ public class Player : MonoBehaviour
         return modifiers.Contains(modifier);
     }
 
-    public void DoubleAction()
+    public void DoubleAction(bool Undo)
     {
-        doubleAction = true;
+        if (Undo)
+        {
+            doubleAction = false;
+        }
+        else
+        {
+            doubleAction = true;
+        }
+    }
+
+    internal void MakeMove(PossibleMove possibleMove, bool finalMove)
+    {
+        if (possibleMove.MoveIndex == 1)
+        {
+            if (possibleMove.ShootEnemy)
+            {
+                Shoot(true, finalMove);
+            }
+            else
+            {
+                Shoot(false, finalMove);
+            }
+        }
+        else
+        {
+            UseModifier(possibleMove.Modifier);
+        }
+    }
+    internal void UndoMove(PossibleMove move)
+    {
+        if (move.MoveIndex == 1)
+        {
+            weapon.UndoShot();
+        }
+        else
+        {
+            UndoModifier(move.Modifier);
+        }
+    }
+
+    private void UndoModifier(Modifier modifier)
+    {
+        modifier.Undo();
+        modifiers.Add(modifier);
+    }
+
+    internal bool HasWon()
+    {
+        return hasWon;
+    }
+
+    internal bool HasLost()
+    {
+        if (health <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

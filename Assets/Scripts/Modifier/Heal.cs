@@ -21,4 +21,12 @@ public class Heal : Modifier
         return ModifierType.Heal;
     }
 
+    public override void Undo()
+    {
+        GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
+        dealer = dealerObject.GetComponent<Dealer>();
+        player = dealer.GetCurrentPlayer();
+        player.TakeDamage(healAmount, false, true);
+    }
+
 }

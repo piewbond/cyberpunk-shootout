@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class Stun : Modifier
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public override void Apply()
     {
         GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
@@ -24,7 +12,7 @@ public class Stun : Modifier
         {
             if (!player.IsActivePlayer())
             {
-                player.SkipTurn();
+                player.SkipTurn(true);
             }
         }
     }
@@ -32,5 +20,18 @@ public class Stun : Modifier
     public override ModifierType GetModifierType()
     {
         return ModifierType.Stun;
+    }
+
+    public override void Undo()
+    {
+        GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
+        Dealer dealer = dealerObject.GetComponent<Dealer>();
+        foreach (Player player in dealer.players)
+        {
+            if (!player.IsActivePlayer())
+            {
+                player.SkipTurn(false);
+            }
+        }
     }
 }

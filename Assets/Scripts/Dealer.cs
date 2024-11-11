@@ -89,13 +89,10 @@ public class Dealer : MonoBehaviour
         foreach (Player player in players)
             player.ResetPlayer();
 
-        players[1].SetAgent(new HeuristicAgent(players[1]));
+        players[1].SetAgent(new MinMaxAgent(players[1],players[0],score));
 
         if (UseMLAgent)
             players[1].SetAgent(players[1].GetComponent<MLAgent>());
-
-        if (!players[0].isGamer)
-            players[0].SetAgent(new MinMaxAgent(players[0]));
 
         DealModifiers();
 

@@ -21,11 +21,19 @@ public class SpyBullet : Modifier
         GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
         Dealer dealer = dealerObject.GetComponent<Dealer>();
         Player player = dealer.GetCurrentPlayer();
-        player.SpyBullet();
+        player.SpyBullet(false);
     }
 
     public override ModifierType GetModifierType()
     {
         return ModifierType.SpyBullet;
+    }
+
+    public override void Undo()
+    {
+        GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
+        Dealer dealer = dealerObject.GetComponent<Dealer>();
+        Player player = dealer.GetCurrentPlayer();
+        player.SpyBullet(true);
     }
 }

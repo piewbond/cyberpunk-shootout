@@ -7332,7 +7332,7 @@ PrefabInstance:
       objectReference: {fileID: 1338342600}
     - target: {fileID: 6336344870189012537, guid: 5a8cab79f8d710845b7499b0d59ddcf9, type: 3}
       propertyPath: UseMLAgent
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6336344870189012537, guid: 5a8cab79f8d710845b7499b0d59ddcf9, type: 3}
       propertyPath: gameRunning

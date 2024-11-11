@@ -13,6 +13,7 @@ public class Modifier : MonoBehaviour
     public Modifier() { }
     public virtual void Apply() { }
 
+    public virtual void Undo() { }
     public virtual ModifierType GetModifierType()
     {
         return ModifierType.DoubleAction;
@@ -53,4 +54,5 @@ public enum ModifierType
     SkipShot,
     SpyBullet,
     Stun,
+    InverzBullet,
 }

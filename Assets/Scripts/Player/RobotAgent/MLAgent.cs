@@ -71,12 +71,12 @@ public class MLAgent : Agent, IBaseAgent
         if (shootEnemy > 0.5f)
         {
             // Shoot the enemy
-            player.Shoot(true);
+            player.Shoot(true, false);
         }
         else
         {
             // Shoot self
-            player.Shoot(false);
+            player.Shoot(false, false);
         }
     }
 

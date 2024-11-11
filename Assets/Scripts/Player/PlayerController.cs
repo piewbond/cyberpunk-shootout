@@ -30,12 +30,12 @@ public class PlayerController : MonoBehaviour
             weaponController.isTargeting = false;
             if (player.IsActivePlayer())
             {
-                player.Shoot(false);
+                player.Shoot(false, false);
                 infoPanel.ShowInfo("Player " + player.playerName + " shot the enemy");
             }
             else
             {
-                enemy.Shoot(true);
+                enemy.Shoot(true, false);
                 infoPanel.ShowInfo("Player " + player.playerName + " shot the enemy");
             }
         }

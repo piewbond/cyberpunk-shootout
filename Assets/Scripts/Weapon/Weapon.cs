@@ -17,8 +17,9 @@ public class Weapon : MonoBehaviour
     private bool isLastSelfShot = false;
     [SerializeField]
     MagazineController magazineController;
+    private bool lastShotLive;
 
-    public void Shoot(bool shootEnemy)
+    public void Shoot(bool shootEnemy, bool isMinMax)
     {
         isLastSelfShot = false;
 
@@ -41,12 +42,13 @@ public class Weapon : MonoBehaviour
             Debug.Log("Ammo is live");
             if (shootEnemy)
             {
-                targetPlayer.TakeDamage(damage, ignoreShield);
+                targetPlayer.TakeDamage(damage, ignoreShield, isMinMax);
             }
             else
             {
-                shooterPlayer.TakeDamage(damage, ignoreShield);
+                shooterPlayer.TakeDamage(damage, ignoreShield, isMinMax);
             }
+            lastShotLive = true;
         }
         else
         {
@@ -54,6 +56,8 @@ public class Weapon : MonoBehaviour
             //TODO: Do whiff animation here
             if (!shootEnemy)
                 isLastSelfShot = true;
+
+            lastShotLive = false;
         }
         ammoList.RemoveAt(0);
         Debug.Log("Weapon.Shoot     Ammo: " + ammoCount);
@@ -79,7 +83,7 @@ public class Weapon : MonoBehaviour
 
     public void MultiplyDamage(int damageMultiplier)
     {
-        damage *= damageMultiplier;
+        damage = damageMultiplier;
     }
 
     public bool IsLastSelfShot()
@@ -89,7 +93,8 @@ public class Weapon : MonoBehaviour
 
     public void SkipShot()
     {
-        Debug.Log("Weapon.SkipShot     Ammo: " + ammoList[0].GetIsLive());
+        Debug.Log("Weapon.SkipShot     Ammo: " + ammoList[0].GetIsLive() + "ammo count:" + ammoCount);
+        lastShotLive = ammoList[0].GetIsLive();
         ammoList.RemoveAt(0);
         ammoCount--;
     }
@@ -142,4 +147,9 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    internal void UndoShot()
+    {
+        ammoList.Insert(0, new Ammo(lastShotLive));
+        ammoCount++;
+    }
 }

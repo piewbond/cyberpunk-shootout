@@ -26,4 +26,9 @@ public class IgnoreShield : Modifier
     {
         return ModifierType.IgnoreShield;
     }
+
+    public override void Undo()
+    {
+        weapon.ignoreShield = false;
+    }
 }

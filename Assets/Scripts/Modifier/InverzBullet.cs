@@ -11,4 +11,14 @@ public class InverzBullet : Modifier
     {
         weapon.InverzBullet();
     }
+
+    public override ModifierType GetModifierType()
+    {
+        return ModifierType.InverzBullet;
+    }
+
+    public override void Undo()
+    {
+        weapon.InverzBullet();
+    }
 }
