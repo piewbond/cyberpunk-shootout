@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            if(!isMinMax)
+            if (!isMinMax)
                 Die();
         }
     }

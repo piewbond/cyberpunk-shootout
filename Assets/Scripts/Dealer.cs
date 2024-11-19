@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Barracuda;
 using UnityEngine;
 
 public class Dealer : MonoBehaviour
@@ -42,8 +43,19 @@ public class Dealer : MonoBehaviour
     [SerializeField]
     NextShotPanel nextShotPanel;
 
+    //PVP
+    //PVMIN
+    //PVML
+    //PVHE
+    private int GameMode;
+    [SerializeField]
+    private int DefaultModeToStart;
+
     void Start()
     {
+        GameMode = PlayerPrefs.GetInt("GameMode", DefaultModeToStart);
+        Debug.Log("GameMode: " + GameMode);
+
         if (gameEnv.isPlayedOnModel)
         {
             StartDelayed();
@@ -82,17 +94,39 @@ public class Dealer : MonoBehaviour
         turnCount = 0;
         roundCount = 0;
         turnToBeat = 0;
+
         int startingPlayerIndex = Random.Range(0, players.Length);
         gameRunning = true;
-        currentPlayer = players[0];
+        currentPlayer = players[startingPlayerIndex];
 
         foreach (Player player in players)
             player.ResetPlayer();
 
-        players[1].SetAgent(new MinMaxAgent(players[1],players[0],score));
-
-        if (UseMLAgent)
-            players[1].SetAgent(players[1].GetComponent<MLAgent>());
+        switch (GameMode)
+        {
+            case 0:
+                UseMLAgent = false;
+                foreach (Player player in players)
+                {
+                    player.isGamer = true;
+                }
+                break;
+            case 1:
+                UseMLAgent = false;
+                players[1].SetAgent(new MinMaxAgent(players[1], players[0], score));
+                break;
+            case 2:
+                UseMLAgent = true;
+                players[1].SetAgent(players[1].GetComponent<MLAgent>());
+                break;
+            case 3:
+                UseMLAgent = false;
+                players[1].SetAgent(new HeuristicAgent(players[1]));
+                break;
+            default:
+                UseMLAgent = false;
+                break;
+        }
 
         DealModifiers();
 
