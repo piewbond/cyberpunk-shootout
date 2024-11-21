@@ -2264,7 +2264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a551e9cf9e40dcc469e516dd7e96f60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayedOnModel: 0
+  isPlayedOnModel: 1
 --- !u!1 &824338357
 GameObject:
   m_ObjectHideFlags: 0
@@ -6950,7 +6950,7 @@ PrefabInstance:
       objectReference: {fileID: 2068158839219067575}
     - target: {fileID: 6172662690974832359, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: isGamer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6172662690974832359, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: maxHealth
@@ -7342,6 +7342,10 @@ PrefabInstance:
       propertyPath: nextShotPanel
       value: 
       objectReference: {fileID: 231538222}
+    - target: {fileID: 6336344870189012537, guid: 5a8cab79f8d710845b7499b0d59ddcf9, type: 3}
+      propertyPath: DefaultModeToStart
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6336344870189012537, guid: 5a8cab79f8d710845b7499b0d59ddcf9, type: 3}
       propertyPath: GivenModifierAmount
       value: 5

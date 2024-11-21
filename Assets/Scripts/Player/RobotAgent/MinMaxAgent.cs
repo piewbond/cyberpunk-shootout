@@ -38,9 +38,10 @@ public class MinMaxAgent : IBaseAgent
 
         maxPlayer = player;
 
+        bestMove = new List<PossibleMove>();
+
         MinMax(maxDepth, true);
 
-        bestMove = new List<PossibleMove>();
         foreach (var move in bestMove)
         {
             player.MakeMove(move, true);
