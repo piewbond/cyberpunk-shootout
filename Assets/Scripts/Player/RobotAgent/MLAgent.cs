@@ -18,11 +18,6 @@ public class MLAgent : Agent, IBaseAgent
     private bool isFirstEpisode = true;
     void Start()
     {
-        // Link to the player and weapon
-        player = GetComponent<Player>();
-        weapon = player.GetComponent<Weapon>();
-        dealer = player.dealer;
-
         // Assume enemy is the other player in the dealer
         if (player.playerName == "Player1")
         {

@@ -17,14 +17,22 @@ public class MinMaxAgent : IBaseAgent
 
     private Player minPlayer;
     private Player maxPlayer;
-    List<PossibleMove> bestMove;
+    List<PossibleMove> bestMoves;
+
+    double healScore = 2;
+    double doubleActionScore = 1.5;
+    double ignoreShieldScore = 1.5;
+    double multiplyDamageScore = 1.5;
+    double shieldScore = 1.5;
+    double skipShotScore = 1.5;
+    double spyBulletScore = 1.5;
+    double stunScore = 1.5;
 
     public MinMaxAgent(Player maxPlayer, Player minPlayer, Score score)
     {
         player = maxPlayer;
         this.maxPlayer = maxPlayer;
         this.minPlayer = minPlayer;
-        this.score = score;
         dealer = player.dealer;
         weapon = dealer.weapon;
     }
@@ -36,144 +44,218 @@ public class MinMaxAgent : IBaseAgent
             maxDepth = weapon.ammoCount;
         }
 
-        maxPlayer = player;
+        bestMoves = new List<PossibleMove>();
 
-        bestMove = new List<PossibleMove>();
-
-        MinMax(maxDepth, true);
-
-        foreach (var move in bestMove)
+        MinMax(maxDepth, true, GetPossibleMovesFromModifiers(minPlayer.GetModifiers()), GetPossibleMovesFromModifiers(maxPlayer.GetModifiers()));
+        if (bestMoves.Count == 0)
+        {
+            Debug.Log("Only shooting move possible");
+            int liveCount = weapon.GetLiveAmmoCount();
+            int blankCount = weapon.GetBlankAmmoCount();
+            if (liveCount >= blankCount)
+                bestMoves.Add(new PossibleMove(null, true, false));
+            else
+                bestMoves.Add(new PossibleMove(null, false, false));
+        }
+        foreach (var move in bestMoves)
         {
             player.MakeMove(move, true);
         }
     }
 
-    private int Evaluate(bool isMaximizingPlayer)
+    private double EvaluateMoves(bool isMaximizingPlayer, List<PossibleMove> moves, int depth)
     {
-        return score.CalculateScoreForPlayer(isMaximizingPlayer ? maxPlayer : minPlayer);
+        double score = isMaximizingPlayer ? 1 : -1;
+        Player scorePlayer = isMaximizingPlayer ? maxPlayer : minPlayer;
+        Player enemyPlayer = isMaximizingPlayer ? minPlayer : maxPlayer;
+
+        PossibleMove shootMove = moves.FirstOrDefault(x => x.UseModifier == false);
+        moves.Remove(shootMove);
+
+        if (shootMove.Equals(null))
+        {
+            Debug.LogError("No shoot move found");
+        }
+
+        foreach (var move in moves)
+        {
+            if (move.UseModifier)
+            {
+                switch (move.Modifier.GetModifierType())
+                {
+                    case ModifierType.Heal:
+                        if (scorePlayer.health < scorePlayer.maxHealth)
+                        {
+                            score *= healScore;
+                        }
+                        break;
+                    case ModifierType.DoubleAction:
+                        score *= doubleActionScore;
+                        break;
+                    case ModifierType.IgnoreShield:
+                        if (enemyPlayer.shield > 0 && shootMove.ShootEnemy)
+                            score *= ignoreShieldScore;
+                        break;
+                    case ModifierType.MultiplyDamage:
+                        if (shootMove.ShootEnemy)
+                            score *= multiplyDamageScore;
+                        break;
+                    case ModifierType.Shield:
+                        score *= shieldScore;
+                        break;
+                    case ModifierType.SkipShot:
+                        score *= skipShotScore;
+                        break;
+                    case ModifierType.SpyBullet:
+                        score *= spyBulletScore;
+                        break;
+                    case ModifierType.Stun:
+                        score *= stunScore;
+                        break;
+                }
+            }
+        }
+
+        return score;
     }
 
-    private int MinMax(int depth, bool isMaximizingPlayer)
+    private double MinMax(int depth, bool isMaximizingPlayer, List<PossibleMove> minMoves = null, List<PossibleMove> maxMoves = null)
     {
-        if (depth == 0 || player.HasWon() || player.HasLost())
+        List<PossibleMove> movesToCheck = isMaximizingPlayer ? maxMoves : minMoves;
+
+        double bestScore = isMaximizingPlayer ? int.MinValue : int.MaxValue;
+        List<MoveSets> varitonsToCheck = new List<MoveSets>();
+        List<MoveSets> sameScoreVariations = new List<MoveSets>();
+
+        int n = movesToCheck.Count;
+        for (int i = 0; i < (1 << n); i++)
         {
-            return Evaluate(isMaximizingPlayer);
+            List<PossibleMove> subset = new List<PossibleMove>();
+            for (int j = 0; j < n; j++)
+            {
+                if ((i & (1 << j)) != 0)
+                {
+                    subset.Add(movesToCheck[j]);
+                }
+            }
+            if (subset.Count > 0)
+            {
+                varitonsToCheck.Add(new MoveSets(subset, isMaximizingPlayer));
+            }
         }
 
-        if (isMaximizingPlayer)
+        foreach (MoveSets moveSets in varitonsToCheck)
         {
-            int maxEval = int.MinValue;
-            List<PossibleMove> bestLocalMove = null;
-
-            // Evaluate all possible combinations of moveindex -1
-            var possibleMoves = GetPossibleMoves().Where(m => m.MoveIndex == -1).ToList();
-            int combinations = 1 << possibleMoves.Count; // 2^possibleMoves.Count
-
-            for (int i = 0; i < combinations; i++)
+            foreach (PossibleMove move in movesToCheck)
             {
-                // Apply combination of moveindex -1
-                for (int j = 0; j < possibleMoves.Count; j++)
+                for (int i = 0; i < 2; i++)
                 {
-                    if ((i & (1 << j)) != 0)
+                    List<PossibleMove> moves = new List<PossibleMove>(movesToCheck);
+                    if (movesToCheck.Count > 1)
+                        moves.Remove(move);
+                    PossibleMove shootMove = new PossibleMove(null, i == 0, false);
+                    moves.Add(shootMove); // Shooting enemy if i == 0, shooting self if i == 1
+                    double score = EvaluateMoves(isMaximizingPlayer, moves, depth);
+                    if (score == bestScore)
                     {
-                        player.MakeMove(possibleMoves[j], false);
+                        if (moves.Count != 0)
+                        {
+                            sameScoreVariations.Add(new MoveSets(moves, isMaximizingPlayer));
+                        }
                     }
-                }
-
-                // Evaluate moveindex 1
-                foreach (var move in GetPossibleMoves().Where(m => m.MoveIndex == 1))
-                {
-                    player.MakeMove(move, false);
-                    int eval = MinMax(depth - 1, false);
-                    player.UndoMove(move);
-                    if (eval > maxEval)
+                    else if (isMaximizingPlayer)
                     {
-                        maxEval = eval;
-                        bestLocalMove = new List<PossibleMove>(possibleMoves.Where((m, idx) => (i & (1 << idx)) != 0));
-                        bestLocalMove.Add(move);
+                        if (score > bestScore)
+                        {
+                            bestScore = score;
+                            bestMoves = moves;
+                            sameScoreVariations.Clear();
+                            sameScoreVariations.Add(new MoveSets(moves, true));
+                        }
                     }
-                }
-
-                // Undo combination of moveindex -1
-                for (int j = 0; j < possibleMoves.Count; j++)
-                {
-                    if ((i & (1 << j)) != 0)
+                    else
                     {
-                        player.UndoMove(possibleMoves[j]);
+                        if (score < bestScore)
+                        {
+                            bestScore = score;
+                            sameScoreVariations.Clear();
+                            sameScoreVariations.Add(new MoveSets(moves, false));
+                        }
                     }
                 }
             }
 
-            if (depth == maxDepth)
-            {
-                bestMove = bestLocalMove;
-            }
-
-            return maxEval;
         }
-        else
+
+        if (sameScoreVariations.Count > 1 && depth > 0)
         {
-            int minEval = int.MaxValue;
-            List<PossibleMove> bestLocalMove = null;
-
-            // Evaluate all possible combinations of moveindex -1
-            var possibleMoves = GetPossibleMoves().Where(m => m.MoveIndex == -1).ToList();
-            int combinations = 1 << possibleMoves.Count; // 2^possibleMoves.Count
-
-            for (int i = 0; i < combinations; i++)
+            bestScore = 0;
+            foreach (MoveSets moveSet in sameScoreVariations)
             {
-                // Apply combination of moveindex -1
-                for (int j = 0; j < possibleMoves.Count; j++)
+                if (moveSet.moves == null || moveSet.moves.Count == 0)
                 {
-                    if ((i & (1 << j)) != 0)
-                    {
-                        player.MakeMove(possibleMoves[j], false);
-                    }
+                    Debug.LogError("No moves found");
+                }
+                if (!moveSet.moves.Last().UseModifier)
+                {
+                    moveSet.moves.Remove(moveSet.moves.Last());
                 }
 
-                // Evaluate moveindex 1
-                foreach (var move in GetPossibleMoves().Where(m => m.MoveIndex == 1))
+                List<PossibleMove> minmoves = new List<PossibleMove>();
+                List<PossibleMove> maxmoves = new List<PossibleMove>();
+
+                if (moveSet.isMaximizingPlayer)
                 {
-                    player.MakeMove(move, false);
-                    int eval = MinMax(depth - 1, true);
-                    player.UndoMove(move);
-                    if (eval < minEval)
-                    {
-                        minEval = eval;
-                        bestLocalMove = new List<PossibleMove>(possibleMoves.Where((m, idx) => (i & (1 << idx)) != 0));
-                        bestLocalMove.Add(move);
-                    }
+                    maxMoves = moveSet.moves;
+                    minMoves = minmoves;
+                }
+                else
+                {
+                    minMoves = moveSet.moves;
+                    maxMoves = maxmoves;
                 }
 
-                // Undo combination of moveindex -1
-                for (int j = 0; j < possibleMoves.Count; j++)
+                double score = MinMax(depth - 1, !isMaximizingPlayer, minMoves, maxMoves);
+                if (isMaximizingPlayer)
                 {
-                    if ((i & (1 << j)) != 0)
+                    if (score > bestScore)
                     {
-                        player.UndoMove(possibleMoves[j]);
+                        bestScore = score;
+                        bestMoves = moveSet.moves;
+                    }
+                }
+                else
+                {
+                    if (score < bestScore)
+                    {
+                        bestScore = score;
                     }
                 }
             }
-
-            if (depth == maxDepth)
-            {
-                bestMove = bestLocalMove;
-            }
-
-            return minEval;
         }
+
+        return bestScore;
     }
 
-    private List<PossibleMove> GetPossibleMoves()
+    private List<PossibleMove> GetPossibleMovesFromModifiers(List<Modifier> modifiers)
     {
         List<PossibleMove> possibleMoves = new List<PossibleMove>();
-        foreach (Modifier modifier in player.GetModifiers())
+        foreach (Modifier modifier in modifiers)
         {
-            possibleMoves.Add(new PossibleMove(-1, modifier, false, true));
+            possibleMoves.Add(new PossibleMove(modifier, false, true));
         }
-        possibleMoves.Add(new PossibleMove(1, null, false, false));
-        possibleMoves.Add(new PossibleMove(1, null, true, false));
         return possibleMoves;
     }
 
+    class MoveSets
+    {
+        public List<PossibleMove> moves;
+        public bool isMaximizingPlayer;
+
+        public MoveSets(List<PossibleMove> moves, bool isMaximizingPlayer)
+        {
+            this.moves = moves;
+            this.isMaximizingPlayer = isMaximizingPlayer;
+        }
+    }
 }

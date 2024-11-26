@@ -54,6 +54,7 @@ public class Dealer : MonoBehaviour
     void Start()
     {
         GameMode = PlayerPrefs.GetInt("GameMode", DefaultModeToStart);
+        GameMode = 1;
         Debug.Log("GameMode: " + GameMode);
 
         if (gameEnv.isPlayedOnModel)
@@ -64,6 +65,7 @@ public class Dealer : MonoBehaviour
 
     private void StartDelayed()
     {
+        Debug.Log("Starting game after delay");
         StartCoroutine(StartGameAfterDelay(0.5f));
 
         IEnumerator StartGameAfterDelay(float delay)
@@ -97,35 +99,41 @@ public class Dealer : MonoBehaviour
 
         int startingPlayerIndex = Random.Range(0, players.Length);
         gameRunning = true;
-        currentPlayer = players[startingPlayerIndex];
+        // currentPlayer = players[startingPlayerIndex];
+        currentPlayer = players[0];
 
         foreach (Player player in players)
             player.ResetPlayer();
 
-        switch (GameMode)
+        if (UseMLAgent)
         {
-            case 0:
-                UseMLAgent = false;
-                foreach (Player player in players)
-                {
-                    player.isGamer = true;
-                }
-                break;
-            case 1:
-                UseMLAgent = false;
-                players[1].SetAgent(new MinMaxAgent(players[1], players[0], score));
-                break;
-            case 2:
-                UseMLAgent = true;
-                players[1].SetAgent(players[1].GetComponent<MLAgent>());
-                break;
-            case 3:
-                UseMLAgent = false;
-                players[1].SetAgent(new HeuristicAgent(players[1]));
-                break;
-            default:
-                UseMLAgent = false;
-                break;
+            Debug.Log("Heuristic set");
+            players[0].SetAgent(new HeuristicAgent(players[0]));
+            players[1].SetAgent(players[1].GetComponent<MLAgent>());
+        }
+        else
+        {
+            switch (GameMode)
+            {
+                case 0:
+                    UseMLAgent = false;
+                    foreach (Player player in players)
+                    {
+                        player.isGamer = true;
+                    }
+                    break;
+                case 1:
+                    players[1].SetAgent(new MinMaxAgent(players[1], players[0], score));
+                    break;
+                case 2:
+                    players[1].SetAgent(players[1].GetComponent<MLAgent>());
+                    break;
+                case 3:
+                    players[1].SetAgent(new HeuristicAgent(players[1]));
+                    break;
+                default:
+                    break;
+            }
         }
 
         DealModifiers();

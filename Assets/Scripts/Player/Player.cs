@@ -62,7 +62,12 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (game.isPlayedOnModel || !isGamer)
+        if (!game.isPlayedOnModel)
+        {
+            weaponController.GrabWeapon();
+        }
+
+        if (!isGamer)
         {
             agent.PlayTurn();
             dealer.EndTurn();
@@ -70,8 +75,6 @@ public class Player : MonoBehaviour
             activePlayer = false;
             return;
         }
-
-        weaponController.GrabWeapon();
     }
 
     public void TakeDamage(int damage, bool ignoreShield, bool isMinMax)
@@ -264,8 +267,14 @@ public class Player : MonoBehaviour
 
     internal void MakeMove(PossibleMove possibleMove, bool finalMove)
     {
-        if (possibleMove.MoveIndex == 1)
+        if (possibleMove.UseModifier)
         {
+            UseModifier(possibleMove.Modifier);
+            Debug.Log("Used modifier");
+        }
+        else
+        {
+            Debug.Log("Shoot weapon");
             if (possibleMove.ShootEnemy)
             {
                 Shoot(true, finalMove);
@@ -274,21 +283,6 @@ public class Player : MonoBehaviour
             {
                 Shoot(false, finalMove);
             }
-        }
-        else
-        {
-            UseModifier(possibleMove.Modifier);
-        }
-    }
-    internal void UndoMove(PossibleMove move)
-    {
-        if (move.MoveIndex == 1)
-        {
-            weapon.UndoShot();
-        }
-        else
-        {
-            UndoModifier(move.Modifier);
         }
     }
 

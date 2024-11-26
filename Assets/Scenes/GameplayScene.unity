@@ -2009,7 +2009,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: ad4d0ae7fb228bf48baa7822616944c8, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 3
   m_BehaviorType: 0
   m_BehaviorName: Shooting Behaviour
@@ -2264,7 +2264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a551e9cf9e40dcc469e516dd7e96f60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayedOnModel: 1
+  isPlayedOnModel: 0
 --- !u!1 &824338357
 GameObject:
   m_ObjectHideFlags: 0
@@ -6950,7 +6950,7 @@ PrefabInstance:
       objectReference: {fileID: 2068158839219067575}
     - target: {fileID: 6172662690974832359, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: isGamer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6172662690974832359, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: maxHealth
@@ -7332,7 +7332,7 @@ PrefabInstance:
       objectReference: {fileID: 1338342600}
     - target: {fileID: 6336344870189012537, guid: 5a8cab79f8d710845b7499b0d59ddcf9, type: 3}
       propertyPath: UseMLAgent
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6336344870189012537, guid: 5a8cab79f8d710845b7499b0d59ddcf9, type: 3}
       propertyPath: gameRunning
