@@ -19,8 +19,14 @@ public class Weapon : MonoBehaviour
     MagazineController magazineController;
     private bool lastShotLive;
 
-    public void Shoot(bool shootEnemy, bool isMinMax)
+    public void Shoot(bool shootEnemy)
     {
+        if (ammoList.Count == 0)
+        {
+            Debug.Log("No ammo left");
+            return;
+        }
+
         isLastSelfShot = false;
 
         if (players[0].IsActivePlayer())
@@ -34,19 +40,17 @@ public class Weapon : MonoBehaviour
             targetPlayer = players[0];
         }
 
-        if (ammoCount > 0)
-            ammoCount--;
+        Debug.Log("Target player: " + targetPlayer.playerName + "\nShooter player: " + shooterPlayer.playerName + "Is live: " + ammoList[0].GetIsLive());
         if (ammoList[0].GetIsLive())
         {
-            Debug.Log("Target player: " + targetPlayer.playerName + "\nShooter player: " + shooterPlayer.playerName + "Is live: " + ammoList[0].GetIsLive());
             Debug.Log("Ammo is live");
             if (shootEnemy)
             {
-                targetPlayer.TakeDamage(damage, ignoreShield, isMinMax);
+                targetPlayer.TakeDamage(damage, ignoreShield);
             }
             else
             {
-                shooterPlayer.TakeDamage(damage, ignoreShield, isMinMax);
+                shooterPlayer.TakeDamage(damage, ignoreShield);
             }
             lastShotLive = true;
         }
@@ -60,6 +64,7 @@ public class Weapon : MonoBehaviour
             lastShotLive = false;
         }
         ammoList.RemoveAt(0);
+        ammoCount--;
         Debug.Log("Weapon.Shoot     Ammo: " + ammoCount);
         Debug.Log("Live Ammo Count: " + GetLiveAmmoCount());
         Debug.Log("Blank Ammo Count: " + GetBlankAmmoCount());
@@ -93,6 +98,11 @@ public class Weapon : MonoBehaviour
 
     public void SkipShot()
     {
+        if (ammoList.Count == 0)
+        {
+            Debug.Log("No ammo left");
+            return;
+        }
         Debug.Log("Weapon.SkipShot     Ammo: " + ammoList[0].GetIsLive() + "ammo count:" + ammoCount);
         lastShotLive = ammoList[0].GetIsLive();
         ammoList.RemoveAt(0);

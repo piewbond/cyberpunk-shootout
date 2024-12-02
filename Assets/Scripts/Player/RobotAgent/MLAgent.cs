@@ -16,9 +16,17 @@ public class MLAgent : Agent, IBaseAgent
     [SerializeField]
     private Dealer dealer;
     private bool isFirstEpisode = true;
+
     void Start()
     {
-        // Assume enemy is the other player in the dealer
+    }
+
+    public override void OnEpisodeBegin()
+    {
+        if (!isFirstEpisode)
+            dealer.StartGame();
+        isFirstEpisode = false;
+
         if (player.playerName == "Player1")
         {
             enemy = player.dealer.players[1];
@@ -29,50 +37,116 @@ public class MLAgent : Agent, IBaseAgent
         }
     }
 
-    public override void OnEpisodeBegin()
-    {
-        if (!isFirstEpisode)
-            dealer.StartGame();
-        isFirstEpisode = false;
-    }
-
     public override void CollectObservations(VectorSensor sensor)
     {
+        List<Modifier> modifiers = player.GetModifiers();
         if (weapon == null)
+        {
             Debug.LogError("weapon null");
-        //TODO: Fix weapon nullreference
-        // sensor.AddObservation(weapon.GetLiveAmmoCount());
-        // sensor.AddObservation(weapon.GetBlankAmmoCount());
+            Debug.Break();
+        }
 
-        // Optionally: Add observations like player's health, shield, etc.
+        sensor.AddObservation(weapon.GetLiveAmmoCount());
+        sensor.AddObservation(weapon.GetBlankAmmoCount());
+
         sensor.AddObservation(player.health);
         sensor.AddObservation(player.shield);
 
-        //Add observatoin enemy health and shield
         sensor.AddObservation(enemy.health);
         sensor.AddObservation(enemy.shield);
 
-        // Observe whether the player knows if the next shot is live or not
         sensor.AddObservation(player.knowsNextShot);
         sensor.AddObservation(player.isNextShotLive);
+
+        List<float> modifierObservations = new List<float>();
+
+        foreach (var modifier in modifiers)
+        {
+            switch (modifier.GetModifierType())
+            {
+                case ModifierType.Heal:
+                    modifierObservations.Add(1.0f);
+                    break;
+                case ModifierType.DoubleAction:
+                    modifierObservations.Add(2.0f);
+                    break;
+                case ModifierType.IgnoreShield:
+                    modifierObservations.Add(3.0f);
+                    break;
+                case ModifierType.MultiplyDamage:
+                    modifierObservations.Add(4.0f);
+                    break;
+                case ModifierType.Shield:
+                    modifierObservations.Add(5.0f);
+                    break;
+                case ModifierType.SkipShot:
+                    modifierObservations.Add(6.0f);
+                    break;
+                case ModifierType.SpyBullet:
+                    modifierObservations.Add(7.0f);
+                    break;
+                case ModifierType.Stun:
+                    modifierObservations.Add(8.0f);
+                    break;
+                case ModifierType.InverzBullet:
+                    modifierObservations.Add(9.0f);
+                    break;
+                default:
+                    modifierObservations.Add(0.0f);
+                    break;
+            }
+        }
+
+        int maxModifiers = dealer.GivenModifierAmount;
+        while (modifierObservations.Count < maxModifiers)
+        {
+            modifierObservations.Add(-1.0f); // Pad with default value
+        }
+
+        sensor.AddObservation(modifierObservations);
     }
+
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        // Get the decision to shoot the enemy (1) or shoot self (0)
+        Debug.Log("Action received +++++++++++++++++++++++++++++++++++++++++++++++");
         var continuousActions = actions.ContinuousActions;
+
+        List<Modifier> useableModifiers = player.GetModifiers();
+        List<Modifier> modifiersToUse = new List<Modifier>();
+        if (useableModifiers.Count > 0)
+        {
+            for (int i = 0; i < dealer.GivenModifierAmount; i++)
+            {
+                if (i < useableModifiers.Count && continuousActions[i + 1] > 0.5f)
+                {
+                    //log modifierstouse count and useablemodifiers count
+                    modifiersToUse.Add(useableModifiers[i]);
+                }
+                Debug.Log("Modifiers to use count: " + modifiersToUse.Count + " Useable modifiers count: " + useableModifiers.Count);
+            }
+
+            foreach (var modifier in modifiersToUse)
+            {
+                player.UseModifier(modifier);
+            }
+        }
+
         float shootEnemy = continuousActions[0];
 
         if (shootEnemy > 0.5f)
         {
             // Shoot the enemy
-            player.Shoot(true, false);
+            player.Shoot(true);
         }
         else
         {
             // Shoot self
-            player.Shoot(false, false);
+            player.Shoot(false);
         }
+
+        player.SetActivePlayer(false);
+        dealer.EndTurn();
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -91,11 +165,16 @@ public class MLAgent : Agent, IBaseAgent
         {
             continuousActionsOut[0] = 0.0f;  // Shoot self
         }
+
+        // Heuristic for using modifiers (example: use all modifiers)
+        for (int i = 1; i < continuousActionsOut.Length; i++)
+        {
+            continuousActionsOut[i] = 1.0f; // Use all modifiers
+        }
     }
 
     public void PlayTurn()
     {
         RequestDecision();
-        player.dealer.EndTurn();
     }
 }

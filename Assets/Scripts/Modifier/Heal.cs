@@ -26,7 +26,7 @@ public class Heal : Modifier
         GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
         dealer = dealerObject.GetComponent<Dealer>();
         player = dealer.GetCurrentPlayer();
-        player.TakeDamage(healAmount, false, true);
+        player.TakeDamage(healAmount, false);
     }
 
 }

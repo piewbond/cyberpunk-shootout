@@ -50,11 +50,13 @@ public class Dealer : MonoBehaviour
     private int GameMode;
     [SerializeField]
     private int DefaultModeToStart;
+    [SerializeField]
+    MinMaxScores minMaxScores;
 
     void Start()
     {
         GameMode = PlayerPrefs.GetInt("GameMode", DefaultModeToStart);
-        GameMode = 1;
+        GameMode = 3;
         Debug.Log("GameMode: " + GameMode);
 
         if (gameEnv.isPlayedOnModel)
@@ -96,6 +98,7 @@ public class Dealer : MonoBehaviour
         turnCount = 0;
         roundCount = 0;
         turnToBeat = 0;
+        isPlayerInTurn = false;
 
         int startingPlayerIndex = Random.Range(0, players.Length);
         gameRunning = true;
@@ -123,13 +126,16 @@ public class Dealer : MonoBehaviour
                     }
                     break;
                 case 1:
-                    players[1].SetAgent(new MinMaxAgent(players[1], players[0], score));
+                    MinMaxAgent agent = new MinMaxAgent(players[1], players[0]);
+                    agent.SetScores(minMaxScores);
+                    players[1].SetAgent(agent);
                     break;
                 case 2:
                     players[1].SetAgent(players[1].GetComponent<MLAgent>());
                     break;
                 case 3:
                     players[1].SetAgent(new HeuristicAgent(players[1]));
+                    players[0].SetAgent(new MinMaxAgent(players[0], players[1]));
                     break;
                 default:
                     break;
@@ -166,18 +172,19 @@ public class Dealer : MonoBehaviour
 
     public void EndTurn()
     {
-        turnToBeat++;
-
         if (!gameRunning) return;
+
+        turnToBeat++;
+        isPlayerInTurn = false;
         turnCount++;
-        Debug.Log("Turn " + turnCount);
-        Debug.Log("Ammo count: " + weapon.ammoCount);
-        Debug.Log("Current player: " + currentPlayer.name);
+
+        Debug.Log("EndTurn: Turn " + turnCount);
+        Debug.Log("EndTurn: Ammo count: " + weapon.ammoCount);
+        Debug.Log("EndTurn: Player: " + currentPlayer.name);
         if (!weapon.IsLastSelfShot())
         {
             NextPlayer();
         }
-        isPlayerInTurn = false;
         nextShotPanel.ResetPanel();
     }
 

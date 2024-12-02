@@ -35,6 +35,6 @@ public class Shield : Modifier
         GameObject dealerObject = GameObject.FindGameObjectWithTag("Dealer");
         Dealer dealer = dealerObject.GetComponent<Dealer>();
         Player player = dealer.GetCurrentPlayer();
-        player.TakeDamage(shieldAmount, false, true);
+        player.TakeDamage(shieldAmount, false);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using JetBrains.Annotations;
 
 public class Score : MonoBehaviour
 {
@@ -18,13 +19,16 @@ public class Score : MonoBehaviour
     private double finalScorePlayer1;
     private double finalScorePlayer2;
 
-    private string filePath = "Assets/Scripts/Score.txt";
+    private string player1ScorePath = "Assets/Scripts/Player1.txt";
+    private string player2ScorePath = "Assets/Scripts/Player2.txt";
+    private string timePath = "Assets/Scripts/Time.txt";
+    private string turnPath = "Assets/Scripts/Turn.txt";
 
     public void ScoreGame()
     {
         CalculateScore();
-        Debug.Log("Score: " + finalScorePlayer1);
-        Debug.Log("Score: " + finalScorePlayer2);
+        Debug.Log("Player 1 Score: " + finalScorePlayer1);
+        Debug.Log("Player 2 Score: " + finalScorePlayer2);
     }
 
     private void CalculateScore()
@@ -60,14 +64,9 @@ public class Score : MonoBehaviour
 
     public void WriteScoreToFile()
     {
-        using (StreamWriter writer = new StreamWriter(filePath, true))
-        {
-            writer.WriteLine("Score constants: " + ScoreByRemainingHP + " " + ScoreByRemainingModifier + " " + turnToBeatScoreDivideBy);
-            writer.WriteLine("Turn to beat: " + dealer.turnToBeat + " Time: " + dealer.elapsedTime);
-            foreach (Player player in dealer.players)
-            {
-                writer.WriteLine(player.GetPlayerInfoForScore() + " Score: " + (player.playerName == "Player1" ? finalScorePlayer1 : finalScorePlayer2));
-            }
-        }
+        File.AppendAllText(player1ScorePath, finalScorePlayer1.ToString() + "\n");
+        File.AppendAllText(player2ScorePath, finalScorePlayer2.ToString() + "\n");
+        File.AppendAllText(timePath, dealer.elapsedTime.ToString() + "\n");
+        File.AppendAllText(turnPath, dealer.turnToBeat.ToString() + "\n");
     }
 }

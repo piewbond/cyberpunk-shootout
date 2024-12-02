@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq; // Add this using directive
+using Unity.Barracuda;
 using UnityEngine;
 
 public class MinMaxAgent : IBaseAgent
@@ -8,8 +9,6 @@ public class MinMaxAgent : IBaseAgent
     private Dealer dealer;
     private Player player;
     private Weapon weapon;
-    [SerializeField]
-    private Score score;
     [SerializeField]
     private int maxDepth;
     [SerializeField]
@@ -19,22 +18,36 @@ public class MinMaxAgent : IBaseAgent
     private Player maxPlayer;
     List<PossibleMove> bestMoves;
 
-    double healScore = 2;
-    double doubleActionScore = 1.5;
-    double ignoreShieldScore = 1.5;
-    double multiplyDamageScore = 1.5;
-    double shieldScore = 1.5;
-    double skipShotScore = 1.5;
-    double spyBulletScore = 1.5;
-    double stunScore = 1.5;
+    double healScore;
+    double doubleActionScore;
+    double ignoreShieldScore;
+    double multiplyDamageScore;
+    double shieldScore;
+    double skipShotScore;
+    double spyBulletScore;
+    double stunScore;
+    double inverzScore;
 
-    public MinMaxAgent(Player maxPlayer, Player minPlayer, Score score)
+    public MinMaxAgent(Player maxPlayer, Player minPlayer)
     {
         player = maxPlayer;
         this.maxPlayer = maxPlayer;
         this.minPlayer = minPlayer;
         dealer = player.dealer;
         weapon = dealer.weapon;
+    }
+
+    public void SetScores(MinMaxScores scores)
+    {
+        healScore = scores.healScore;
+        doubleActionScore = scores.doubleActionScore;
+        ignoreShieldScore = scores.ignoreShieldScore;
+        multiplyDamageScore = scores.multiplyDamageScore;
+        shieldScore = scores.shieldScore;
+        skipShotScore = scores.skipShotScore;
+        spyBulletScore = scores.spyBulletScore;
+        stunScore = scores.stunScore;
+        inverzScore = scores.inverzScore;
     }
 
     public void PlayTurn()
@@ -59,8 +72,10 @@ public class MinMaxAgent : IBaseAgent
         }
         foreach (var move in bestMoves)
         {
-            player.MakeMove(move, true);
+            player.MakeMove(move);
         }
+        player.SetActivePlayer(false);
+        dealer.EndTurn();
     }
 
     private double EvaluateMoves(bool isMaximizingPlayer, List<PossibleMove> moves, int depth)
@@ -71,6 +86,8 @@ public class MinMaxAgent : IBaseAgent
 
         PossibleMove shootMove = moves.FirstOrDefault(x => x.UseModifier == false);
         moves.Remove(shootMove);
+        int liveCount = weapon.GetLiveAmmoCount();
+        int blankCount = weapon.GetBlankAmmoCount();
 
         if (shootMove.Equals(null))
         {
@@ -99,6 +116,8 @@ public class MinMaxAgent : IBaseAgent
                     case ModifierType.MultiplyDamage:
                         if (shootMove.ShootEnemy)
                             score *= multiplyDamageScore;
+                        else
+                            score /= multiplyDamageScore;
                         break;
                     case ModifierType.Shield:
                         score *= shieldScore;
@@ -111,6 +130,19 @@ public class MinMaxAgent : IBaseAgent
                         break;
                     case ModifierType.Stun:
                         score *= stunScore;
+                        break;
+                    case ModifierType.InverzBullet:
+                        if (liveCount - depth / 2 >= blankCount - depth / 2)
+                        {
+                            if (shootMove.ShootEnemy)
+                            {
+                                score /= inverzScore;
+                            }
+                            else
+                            {
+                                score *= inverzScore;
+                            }
+                        }
                         break;
                 }
             }

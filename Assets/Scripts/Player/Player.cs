@@ -36,13 +36,13 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private WeaponController weaponController;
+    [SerializeField]
     private GameEnv game;
 
     private bool hasWon = false;
     void Start()
     {
         modifiers = new List<Modifier>();
-        game = FindObjectOfType<GameEnv>();
     }
 
     void Update()
@@ -70,14 +70,11 @@ public class Player : MonoBehaviour
         if (!isGamer)
         {
             agent.PlayTurn();
-            dealer.EndTurn();
-            Debug.Log(playerName + " played turn");
-            activePlayer = false;
             return;
         }
     }
 
-    public void TakeDamage(int damage, bool ignoreShield, bool isMinMax)
+    public void TakeDamage(int damage, bool ignoreShield)
     {
         Debug.Log(playerName + " took " + damage + " damage" + " health: " + health);
         if (shield > 0)
@@ -103,8 +100,7 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            if (!isMinMax)
-                Die();
+            Die();
         }
     }
 
@@ -173,19 +169,18 @@ public class Player : MonoBehaviour
         this.agent = agent;
     }
 
-    public void Shoot(bool shootEnemy, bool isMinMax)
+    public void Shoot(bool shootEnemy)
     {
         if (doubleAction)
         {
             doubleAction = false;
-            weapon.Shoot(shootEnemy, isMinMax);
+            weapon.Shoot(shootEnemy);
         }
-        weapon.Shoot(shootEnemy, isMinMax);
+        weapon.Shoot(shootEnemy);
         knowsNextShot = false;
         if (isGamer)
         {
             Debug.Log(playerName + " shot");
-            activePlayer = false;
             dealer.EndTurn();
         }
     }
@@ -265,7 +260,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    internal void MakeMove(PossibleMove possibleMove, bool finalMove)
+    internal void MakeMove(PossibleMove possibleMove)
     {
         if (possibleMove.UseModifier)
         {
@@ -277,21 +272,14 @@ public class Player : MonoBehaviour
             Debug.Log("Shoot weapon");
             if (possibleMove.ShootEnemy)
             {
-                Shoot(true, finalMove);
+                Shoot(true);
             }
             else
             {
-                Shoot(false, finalMove);
+                Shoot(false);
             }
         }
     }
-
-    private void UndoModifier(Modifier modifier)
-    {
-        modifier.Undo();
-        modifiers.Add(modifier);
-    }
-
     internal bool HasWon()
     {
         return hasWon;

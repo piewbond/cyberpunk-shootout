@@ -95,6 +95,8 @@ public class HeuristicAgent : IBaseAgent
             }
         }
 
-        player.Shoot(shootEnemy, false);
+        player.Shoot(shootEnemy);
+        player.SetActivePlayer(false);
+        dealer.EndTurn();
     }
 }
