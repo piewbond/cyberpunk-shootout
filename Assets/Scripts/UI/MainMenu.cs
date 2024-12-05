@@ -31,8 +31,11 @@ public class MainMenu : MonoBehaviour
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height + "    @" + resolutions[i].refreshRateRatio + "Hz";
-            options.Add(option);
+            if (resolutions[i].width >= 800)
+            {
+                string option = resolutions[i].width + " x " + resolutions[i].height + "    @" + resolutions[i].refreshRateRatio + "Hz";
+                options.Add(option);
+            }
 
             if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
                 currentResolutionIndex = i;

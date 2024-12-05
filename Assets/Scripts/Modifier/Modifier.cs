@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Modifier : MonoBehaviour
 {
+    [SerializeField]
     protected Dealer dealer;
     protected Player player;
     [SerializeField]

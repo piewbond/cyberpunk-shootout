@@ -6,23 +6,11 @@ public class MultiplyDamage : Modifier
 {
     [SerializeField]
     public int damageAmount;
+    [SerializeField]
     private Weapon weapon;
-
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public override void Apply()
     {
-        GameObject weaponObject = GameObject.FindGameObjectWithTag("Weapon");
-        weapon = weaponObject.GetComponent<Weapon>();
         weapon.MultiplyDamage(damageAmount);
     }
 

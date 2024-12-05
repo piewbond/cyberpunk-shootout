@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class IgnoreShield : Modifier
 {
+    [SerializeField]
     private Weapon weapon;
-    void Start()
-    {
-        GameObject weaponObject = GameObject.FindGameObjectWithTag("Weapon");
-        weapon = weaponObject.GetComponent<Weapon>();
-    }
 
     public override void Apply()
     {
@@ -19,10 +15,5 @@ public class IgnoreShield : Modifier
     public override ModifierType GetModifierType()
     {
         return ModifierType.IgnoreShield;
-    }
-
-    public override void Undo()
-    {
-        weapon.ignoreShield = false;
     }
 }

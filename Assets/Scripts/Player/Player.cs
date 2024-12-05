@@ -58,11 +58,13 @@ public class Player : MonoBehaviour
         {
             skipTurn = false;
             dealer.EndTurn();
+            activePlayer = false;
             return;
         }
 
         if (!game.isPlayedOnModel)
         {
+            Debug.Log(playerName + " grab turn");
             weaponController.GrabWeapon();
         }
 

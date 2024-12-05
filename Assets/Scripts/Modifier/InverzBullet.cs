@@ -16,9 +16,4 @@ public class InverzBullet : Modifier
     {
         return ModifierType.InverzBullet;
     }
-
-    public override void Undo()
-    {
-        weapon.InverzBullet();
-    }
 }
