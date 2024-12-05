@@ -55,16 +55,15 @@ public class Dealer : MonoBehaviour
     [SerializeField]
     MinMaxScores minMaxScores;
 
+    int runCount = 0;
+
     void Start()
     {
         GameMode = PlayerPrefs.GetInt("GameMode", DefaultModeToStart);
         GameMode = 0;
         Debug.Log("GameMode: " + GameMode);
 
-        if (gameEnv.isPlayedOnModel)
-        {
-            StartDelayed();
-        }
+        StartDelayed();
     }
 
     private void StartDelayed()
@@ -162,6 +161,11 @@ public class Dealer : MonoBehaviour
             agent.AddReward(score.CalculateScoreForPlayer(players[1]));
             agent.EndEpisode();
         }
+        if (runCount < 100)
+        {
+            runCount++;
+            StartDelayed();
+        }
     }
 
     public void NewRound()
@@ -226,6 +230,11 @@ public class Dealer : MonoBehaviour
     public Player GetCurrentPlayer()
     {
         return currentPlayer;
+    }
+
+    public Weapon GetWeapon()
+    {
+        return weapon;
     }
 
     public void DealModifiers()
