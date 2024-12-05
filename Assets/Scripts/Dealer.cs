@@ -161,7 +161,7 @@ public class Dealer : MonoBehaviour
             agent.AddReward(score.CalculateScoreForPlayer(players[1]));
             agent.EndEpisode();
         }
-        if (runCount < 100)
+        if (runCount < 100 && !UseMLAgent && gameEnv.isPlayedOnModel)
         {
             runCount++;
             StartDelayed();
