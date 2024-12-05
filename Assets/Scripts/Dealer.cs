@@ -42,6 +42,8 @@ public class Dealer : MonoBehaviour
     InventoryPage[] inventoryPages;
     [SerializeField]
     NextShotPanel nextShotPanel;
+    [SerializeField]
+    private GameObject restartButton;
 
     //PVP
     //PVMIN
@@ -56,7 +58,7 @@ public class Dealer : MonoBehaviour
     void Start()
     {
         GameMode = PlayerPrefs.GetInt("GameMode", DefaultModeToStart);
-        GameMode = 3;
+        GameMode = 0;
         Debug.Log("GameMode: " + GameMode);
 
         if (gameEnv.isPlayedOnModel)
@@ -135,7 +137,7 @@ public class Dealer : MonoBehaviour
                     break;
                 case 3:
                     players[1].SetAgent(new HeuristicAgent(players[1]));
-                    players[0].SetAgent(new MinMaxAgent(players[0], players[1]));
+                    // players[0].SetAgent(new MinMaxAgent(players[0], players[1]));
                     break;
                 default:
                     break;
@@ -153,6 +155,7 @@ public class Dealer : MonoBehaviour
         Debug.Log("Time: " + elapsedTime);
         gameRunning = false;
         score.ScoreGame();
+        restartButton.SetActive(true);
         if (UseMLAgent)
         {
             MLAgent agent = players[1].GetComponent<MLAgent>();

@@ -11,12 +11,6 @@ public class IgnoreShield : Modifier
         weapon = weaponObject.GetComponent<Weapon>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public override void Apply()
     {
         weapon.ignoreShield = true;

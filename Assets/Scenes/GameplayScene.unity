@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start Game
+  m_text: Restart Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2112,7 +2112,7 @@ PrefabInstance:
       objectReference: {fileID: 2068158839219067575}
     - target: {fileID: 6172662690974832359, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: isGamer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6172662690974832359, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: maxHealth
@@ -2489,7 +2489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a551e9cf9e40dcc469e516dd7e96f60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayedOnModel: 1
+  isPlayedOnModel: 0
 --- !u!1 &824338357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4148,7 +4148,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484310494}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 304ad0e211cb65545b2c3bfa6bf5bafd, type: 3}
@@ -5172,7 +5172,7 @@ GameObject:
   - component: {fileID: 1682464757}
   - component: {fileID: 1682464760}
   m_Layer: 5
-  m_Name: StartButton
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5258,6 +5258,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Dealer, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1682464755}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7321,7 +7333,7 @@ PrefabInstance:
       objectReference: {fileID: 2068158839219067575}
     - target: {fileID: 6172662690974832359, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: isGamer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6172662690974832359, guid: 0eea1fd474255c54ab8d20fd91850842, type: 3}
       propertyPath: maxHealth
@@ -7717,6 +7729,10 @@ PrefabInstance:
       propertyPath: nextShotPanel
       value: 
       objectReference: {fileID: 231538222}
+    - target: {fileID: 6336344870189012537, guid: 5a8cab79f8d710845b7499b0d59ddcf9, type: 3}
+      propertyPath: restartButton
+      value: 
+      objectReference: {fileID: 1682464755}
     - target: {fileID: 6336344870189012537, guid: 5a8cab79f8d710845b7499b0d59ddcf9, type: 3}
       propertyPath: DefaultModeToStart
       value: 2

@@ -31,11 +31,13 @@ public class PlayerController : MonoBehaviour
             if (player.IsActivePlayer())
             {
                 player.Shoot(false);
+                player.SetActivePlayer(false);
                 infoPanel.ShowInfo("Player " + player.playerName + " shot the enemy");
             }
             else
             {
                 enemy.Shoot(true);
+                enemy.SetActivePlayer(false);
                 infoPanel.ShowInfo("Player " + player.playerName + " shot the enemy");
             }
         }

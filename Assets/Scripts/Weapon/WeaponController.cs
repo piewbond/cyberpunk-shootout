@@ -13,29 +13,32 @@ public class WeaponController : MonoBehaviour
     public bool isTargeting = false;
     private bool isGrabbing = false;
     public float speed = 10f;
-    public Transform _target;
+    public Transform weaponLocation;
+    public Transform enemyLocation;
 
     void Start()
     {
         playerControllers = gameEnv.GetComponentsInChildren<PlayerController>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (isGrabbing && _target != null)
+        if (isGrabbing && weaponLocation != null)
         {
             float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, _target.position, step);
+            transform.position = Vector3.MoveTowards(transform.position, weaponLocation.position, step);
 
-            if (Vector3.Distance(transform.position, _target.position) < 0.001f)
+            if (Vector3.Distance(transform.position, weaponLocation.position) < 0.001f)
             {
-                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-                if (spriteRenderer != null)
-                {
-                    spriteRenderer.flipX = !spriteRenderer.flipX;
-                }
                 isGrabbing = false;
-                Debug.Log("Target reached");
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+                bool flipX = true;
+                if (weaponLocation.position.x < enemyLocation.position.x)
+                {
+                    flipX = false;
+                }
+                spriteRenderer.flipX = flipX;
             }
         }
     }
@@ -43,7 +46,6 @@ public class WeaponController : MonoBehaviour
     public void OnClick()
     {
         infoPanel.ShowInfo("Choose target");
-        Debug.Log("Weapon clicked");
         isTargeting = true;
         gameEnv.GetComponentsInChildren<PlayerController>();
     }
@@ -54,12 +56,16 @@ public class WeaponController : MonoBehaviour
             return;
 
         isGrabbing = true;
+
         foreach (PlayerController playerController in playerControllers)
         {
             if (playerController.IsActivePlayer())
             {
-                _target = playerController.GetWeaponSpot();
-                break;
+                weaponLocation = playerController.GetWeaponSpot();
+            }
+            else
+            {
+                enemyLocation = playerController.GetWeaponSpot();
             }
         }
     }

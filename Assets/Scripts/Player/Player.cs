@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameEnv game;
 
-    private bool hasWon = false;
     void Start()
     {
         modifiers = new List<Modifier>();
@@ -125,11 +124,6 @@ public class Player : MonoBehaviour
         dealer.EndGame();
     }
 
-    public void Win()
-    {
-        hasWon = true;
-    }
-
     public void Heal(int healAmount)
     {
         health += healAmount;
@@ -147,16 +141,6 @@ public class Player : MonoBehaviour
         }
 
         modifiers.Add(modifier);
-    }
-
-    public void RemoveModifier(Modifier modifier)
-    {
-        modifiers.Remove(modifier);
-    }
-
-    public void SetWeapon(Weapon weapon)
-    {
-        this.weapon = weapon;
     }
 
     public void Shield(int shieldAmount)
@@ -231,18 +215,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    public string GetPlayerInfoForScore()
-    {
-        if (agent != null)
-            return playerName + " with agent: " + agent.GetType();
-        return playerName;
-    }
-
-    public IBaseAgent GetAgent()
-    {
-        return agent;
-    }
-
     public bool HasModifier(Modifier modifier)
     {
         return modifiers.Contains(modifier);
@@ -260,8 +232,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    internal void MakeMove(PossibleMove possibleMove)
+    internal IEnumerator MakeMove(PossibleMove possibleMove)
     {
+        if (game.isPlayedOnModel)
+        {
+            yield return new WaitForSeconds(1);
+        }
         if (possibleMove.UseModifier)
         {
             UseModifier(possibleMove.Modifier);
@@ -278,22 +254,6 @@ public class Player : MonoBehaviour
             {
                 Shoot(false);
             }
-        }
-    }
-    internal bool HasWon()
-    {
-        return hasWon;
-    }
-
-    internal bool HasLost()
-    {
-        if (health <= 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
 }
