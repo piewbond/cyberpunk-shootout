@@ -60,7 +60,7 @@ public class Dealer : MonoBehaviour
     void Start()
     {
         GameMode = PlayerPrefs.GetInt("GameMode", DefaultModeToStart);
-        GameMode = 0;
+        GameMode = 3;
         Debug.Log("GameMode: " + GameMode);
 
         StartDelayed();
@@ -136,7 +136,7 @@ public class Dealer : MonoBehaviour
                     break;
                 case 3:
                     players[1].SetAgent(new HeuristicAgent(players[1]));
-                    // players[0].SetAgent(new MinMaxAgent(players[0], players[1]));
+                    players[0].SetAgent(new MinMaxAgent(players[0], players[1]));
                     break;
                 default:
                     break;
