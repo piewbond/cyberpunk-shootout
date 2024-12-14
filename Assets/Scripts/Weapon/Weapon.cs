@@ -54,7 +54,6 @@ public class Weapon : MonoBehaviour
         else
         {
             Debug.Log("Ammo is not live");
-            //TODO: Do whiff animation here
             if (!shootEnemy)
                 isLastSelfShot = true;
         }

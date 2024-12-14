@@ -2480,7 +2480,6 @@ Transform:
   m_Children:
   - {fileID: 2018535862}
   - {fileID: 7198427276023961577}
-  - {fileID: 2068158839219067577}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &724879849
@@ -5110,10 +5109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1300, y: 800}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5163,6 +5162,7 @@ RectTransform:
   - {fileID: 1965485869}
   - {fileID: 231538221}
   - {fileID: 243879214}
+  - {fileID: 2068158839219067577}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5205,11 +5205,11 @@ RectTransform:
   - {fileID: 21485465}
   m_Father: {fileID: 1679060443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -13, y: 33}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -13, y: -304}
   m_SizeDelta: {x: 160, y: 24}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1682464757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6339,7 +6339,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.9998779, y: -2}
+  m_AnchoredPosition: {x: -1, y: -2}
   m_SizeDelta: {x: 0, y: -5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1965485871
@@ -7438,27 +7438,31 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 724879848}
+    m_TransformParent: {fileID: 1679060443}
     m_Modifications:
     - target: {fileID: 2381806892972685058, guid: c2cae0b11c37826458ac1cd0f579157b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 8
+      value: 585
       objectReference: {fileID: 0}
     - target: {fileID: 2381806892972685058, guid: c2cae0b11c37826458ac1cd0f579157b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 8
+      value: 585
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381806892972685058, guid: c2cae0b11c37826458ac1cd0f579157b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 73.125
       objectReference: {fileID: 0}
     - target: {fileID: 2381806892972685058, guid: c2cae0b11c37826458ac1cd0f579157b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.41
+      value: -6.802242
       objectReference: {fileID: 0}
     - target: {fileID: 2381806892972685058, guid: c2cae0b11c37826458ac1cd0f579157b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2
+      value: -235.19562
       objectReference: {fileID: 0}
     - target: {fileID: 2381806892972685058, guid: c2cae0b11c37826458ac1cd0f579157b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.7620478
+      value: -6585.519
       objectReference: {fileID: 0}
     - target: {fileID: 2381806892972685058, guid: c2cae0b11c37826458ac1cd0f579157b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7573,6 +7577,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEnv: {fileID: 724879849}
   infoPanel: {fileID: 1338342600}
+  playerControllers:
+  - {fileID: 614361266}
+  - {fileID: 1135897448735595208}
   isTargeting: 0
   speed: 10
   weaponLocation: {fileID: 0}
@@ -7692,11 +7699,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3708182058308534590, guid: 5a8cab79f8d710845b7499b0d59ddcf9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.45
+      value: 7.95
       objectReference: {fileID: 0}
     - target: {fileID: 3708182058308534590, guid: 5a8cab79f8d710845b7499b0d59ddcf9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.88
+      value: 14.15
       objectReference: {fileID: 0}
     - target: {fileID: 3708182058308534590, guid: 5a8cab79f8d710845b7499b0d59ddcf9, type: 3}
       propertyPath: m_LocalPosition.z

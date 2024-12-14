@@ -44,11 +44,6 @@ public class Dealer : MonoBehaviour
     NextShotPanel nextShotPanel;
     [SerializeField]
     private GameObject restartButton;
-
-    //PVP
-    //PVMIN
-    //PVML
-    //PVHE
     private int GameMode;
     [SerializeField]
     private int DefaultModeToStart;
@@ -60,8 +55,6 @@ public class Dealer : MonoBehaviour
     void Start()
     {
         GameMode = PlayerPrefs.GetInt("GameMode", DefaultModeToStart);
-        GameMode = 2;
-
         StartDelayed();
     }
 

@@ -9,6 +9,7 @@ public class WeaponController : MonoBehaviour
     GameEnv gameEnv;
     [SerializeField]
     private InfoPanel infoPanel;
+    [SerializeField]
     PlayerController[] playerControllers;
     public bool isTargeting = false;
     private bool isGrabbing = false;
@@ -16,10 +17,6 @@ public class WeaponController : MonoBehaviour
     public Transform weaponLocation;
     public Transform enemyLocation;
 
-    void Start()
-    {
-        playerControllers = gameEnv.GetComponentsInChildren<PlayerController>();
-    }
 
     void FixedUpdate()
     {
