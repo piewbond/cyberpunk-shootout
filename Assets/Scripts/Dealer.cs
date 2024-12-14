@@ -60,16 +60,14 @@ public class Dealer : MonoBehaviour
     void Start()
     {
         GameMode = PlayerPrefs.GetInt("GameMode", DefaultModeToStart);
-        GameMode = 3;
-        Debug.Log("GameMode: " + GameMode);
+        GameMode = 2;
 
         StartDelayed();
     }
 
     private void StartDelayed()
     {
-        Debug.Log("Starting game after delay");
-        StartCoroutine(StartGameAfterDelay(0.5f));
+        StartCoroutine(StartGameAfterDelay(0.05f));
 
         IEnumerator StartGameAfterDelay(float delay)
         {
@@ -103,7 +101,7 @@ public class Dealer : MonoBehaviour
 
         int startingPlayerIndex = Random.Range(0, players.Length);
         gameRunning = true;
-        // currentPlayer = players[startingPlayerIndex];
+        currentPlayer = players[startingPlayerIndex];
         currentPlayer = players[0];
 
         foreach (Player player in players)
@@ -111,7 +109,6 @@ public class Dealer : MonoBehaviour
 
         if (UseMLAgent)
         {
-            Debug.Log("Heuristic set");
             players[0].SetAgent(new HeuristicAgent(players[0]));
             players[1].SetAgent(players[1].GetComponent<MLAgent>());
         }
@@ -136,7 +133,6 @@ public class Dealer : MonoBehaviour
                     break;
                 case 3:
                     players[1].SetAgent(new HeuristicAgent(players[1]));
-                    players[0].SetAgent(new MinMaxAgent(players[0], players[1]));
                     break;
                 default:
                     break;
@@ -158,10 +154,10 @@ public class Dealer : MonoBehaviour
         if (UseMLAgent)
         {
             MLAgent agent = players[1].GetComponent<MLAgent>();
-            agent.AddReward(score.CalculateScoreForPlayer(players[1]));
+            agent.AddReward(score.CalculateScoreForPlayer(players[1]) + (-1 * score.CalculateScoreForPlayer(players[0])));
             agent.EndEpisode();
         }
-        if (runCount < 100 && !UseMLAgent && gameEnv.isPlayedOnModel)
+        if (runCount < 250 && !UseMLAgent && gameEnv.isPlayedOnModel)
         {
             runCount++;
             StartDelayed();

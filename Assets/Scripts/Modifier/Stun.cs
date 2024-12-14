@@ -10,7 +10,7 @@ public class Stun : Modifier
         {
             if (!player.IsActivePlayer())
             {
-                player.SkipTurn(true);
+                player.SkipTurn();
             }
         }
     }

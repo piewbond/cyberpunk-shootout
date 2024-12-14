@@ -7,7 +7,7 @@ public class DoubleAction : Modifier
     public override void Apply()
     {
         player = dealer.GetCurrentPlayer();
-        player.DoubleAction(false);
+        player.DoubleAction();
     }
 
     public override ModifierType GetModifierType()

@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 
         if (!isGamer)
         {
-            agent.PlayTurn();
+            agent.AskForDecision();
             return;
         }
     }
@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
 
     public void Shoot(bool shootEnemy)
     {
-        if (doubleAction)
+        if (doubleAction && weapon.ammoCount > 1)
         {
             doubleAction = false;
             weapon.Shoot(shootEnemy);
@@ -188,9 +188,9 @@ public class Player : MonoBehaviour
         modifiers.Remove(modifier);
     }
 
-    public void SkipTurn(bool skip)
+    public void SkipTurn()
     {
-        skipTurn = skip;
+        skipTurn = true;
     }
 
     public void SetActivePlayer(bool active)
@@ -203,18 +203,13 @@ public class Player : MonoBehaviour
         return activePlayer;
     }
 
-    public void SpyBullet(bool Undo)
+    public void SpyBullet()
     {
-        if (Undo)
-        {
-            knowsNextShot = false;
-        }
-        else
-        {
-            knowsNextShot = true;
-            isNextShotLive = weapon.isNextShotLive();
-            nextShotPanel.ShowNext(isNextShotLive);
-        }
+
+        knowsNextShot = true;
+        isNextShotLive = weapon.isNextShotLive();
+        nextShotPanel.ShowNext(isNextShotLive);
+
     }
 
     public bool HasModifier(Modifier modifier)
@@ -222,24 +217,13 @@ public class Player : MonoBehaviour
         return modifiers.Contains(modifier);
     }
 
-    public void DoubleAction(bool Undo)
+    public void DoubleAction()
     {
-        if (Undo)
-        {
-            doubleAction = false;
-        }
-        else
-        {
-            doubleAction = true;
-        }
+        doubleAction = true;
     }
 
-    internal IEnumerator MakeMove(PossibleMove possibleMove)
+    internal void MakeMove(PossibleMove possibleMove)
     {
-        if (game.isPlayedOnModel)
-        {
-            yield return new WaitForSeconds(1);
-        }
         if (possibleMove.UseModifier)
         {
             UseModifier(possibleMove.Modifier);

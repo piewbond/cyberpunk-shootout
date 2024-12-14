@@ -17,8 +17,6 @@ public class Weapon : MonoBehaviour
     private bool isLastSelfShot = false;
     [SerializeField]
     MagazineController magazineController;
-    private bool lastShotLive;
-
     public void Shoot(bool shootEnemy)
     {
         if (ammoList.Count == 0)
@@ -40,7 +38,7 @@ public class Weapon : MonoBehaviour
             targetPlayer = players[0];
         }
 
-        Debug.Log("Target player: " + targetPlayer.playerName + "\nShooter player: " + shooterPlayer.playerName + "Is live: " + ammoList[0].GetIsLive());
+        Debug.Log("Target player: " + targetPlayer.playerName + "\nShooter player: " + shooterPlayer.playerName + "Is live: " + ammoList[0].GetIsLive() + "shoot enemy: " + shootEnemy);
         if (ammoList[0].GetIsLive())
         {
             Debug.Log("Ammo is live");
@@ -52,7 +50,6 @@ public class Weapon : MonoBehaviour
             {
                 shooterPlayer.TakeDamage(damage, ignoreShield);
             }
-            lastShotLive = true;
         }
         else
         {
@@ -60,8 +57,6 @@ public class Weapon : MonoBehaviour
             //TODO: Do whiff animation here
             if (!shootEnemy)
                 isLastSelfShot = true;
-
-            lastShotLive = false;
         }
         ammoList.RemoveAt(0);
         ammoCount--;
@@ -104,7 +99,6 @@ public class Weapon : MonoBehaviour
             return;
         }
         Debug.Log("Weapon.SkipShot     Ammo: " + ammoList[0].GetIsLive() + "ammo count:" + ammoCount);
-        lastShotLive = ammoList[0].GetIsLive();
         ammoList.RemoveAt(0);
         ammoCount--;
     }
@@ -116,11 +110,6 @@ public class Weapon : MonoBehaviour
             return false;
         }
         return ammoList[0].GetIsLive();
-    }
-
-    public List<Ammo> GetAmmoList()
-    {
-        return ammoList;
     }
 
     public int GetLiveAmmoCount()
@@ -155,11 +144,5 @@ public class Weapon : MonoBehaviour
         {
             ammoList[0].SetIsLive(!ammoList[0].GetIsLive());
         }
-    }
-
-    internal void UndoShot()
-    {
-        ammoList.Insert(0, new Ammo(lastShotLive));
-        ammoCount++;
     }
 }

@@ -2238,7 +2238,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 18e452827b0dc8b418d56eb3108fe7ec, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 36c447872e773b745b885d2872d97f3e, type: 3}
   m_InferenceDevice: 3
   m_BehaviorType: 2
   m_BehaviorName: Shooting Behaviour
@@ -2493,7 +2493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a551e9cf9e40dcc469e516dd7e96f60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayedOnModel: 1
+  isPlayedOnModel: 0
 --- !u!1 &824338357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4157,7 +4157,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484310494}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 304ad0e211cb65545b2c3bfa6bf5bafd, type: 3}
@@ -5189,7 +5189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1682464756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5266,10 +5266,10 @@ MonoBehaviour:
           m_StringArgument: Game Started
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 233844694}
-        m_TargetAssemblyTypeName: Dealer, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 1
+      - m_Target: {fileID: 1682464755}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5278,10 +5278,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1682464755}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 233844694}
+        m_TargetAssemblyTypeName: Dealer, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6596,8 +6596,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dealer: {fileID: 233844694}
   ScoreByRemainingHP: 100
-  ScoreByRemainingModifier: 1
-  turnToBeatScoreDivideBy: 10
+  ScoreByRemainingModifier: 10
+  turnToBeatScoreDivideBy: 3
 --- !u!4 &2018535862
 Transform:
   m_ObjectHideFlags: 0
@@ -7848,15 +7848,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92df1de7e2dedf4b900cbe6ba2a1fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healScore: 5
+  healScore: 2
   doubleActionScore: 1.5
-  ignoreShieldScore: 1.5
+  ignoreShieldScore: 2
   multiplyDamageScore: 2
-  shieldScore: 5
-  skipShotScore: 2
-  spyBulletScore: 5
-  stunScore: 1.5
-  inverzScore: 1.5
+  shieldScore: 2
+  skipShotScore: 1.25
+  spyBulletScore: 2
+  stunScore: 2
+  inverzScore: 1.25
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

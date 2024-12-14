@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IBaseAgent
 {
-    public virtual void PlayTurn() { }
+    public virtual void AskForDecision() { }
 }

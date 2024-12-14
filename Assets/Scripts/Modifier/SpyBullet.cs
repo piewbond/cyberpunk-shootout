@@ -7,7 +7,7 @@ public class SpyBullet : Modifier
     public override void Apply()
     {
         player = dealer.GetCurrentPlayer();
-        player.SpyBullet(false);
+        player.SpyBullet();
     }
 
     public override ModifierType GetModifierType()

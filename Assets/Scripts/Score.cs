@@ -19,10 +19,10 @@ public class Score : MonoBehaviour
     private double finalScorePlayer1;
     private double finalScorePlayer2;
 
-    private string player1ScorePath = "Assets/Scripts/Player1.txt";
-    private string player2ScorePath = "Assets/Scripts/Player2.txt";
-    private string timePath = "Assets/Scripts/Time.txt";
-    private string turnPath = "Assets/Scripts/Turn.txt";
+    private string player1ScorePath = "Assets/Scripts/Scores/Player1.txt";
+    private string player2ScorePath = "Assets/Scripts/Scores/Player2.txt";
+    private string timePath = "Assets/Scripts/Scores/Time.txt";
+    private string turnPath = "Assets/Scripts/Scores/Turn.txt";
 
     public void ScoreGame()
     {
@@ -57,7 +57,7 @@ public class Score : MonoBehaviour
     {
         int finalScore = 0;
         finalScore += player.health * ScoreByRemainingHP;
-        finalScore += player.GetModifiers().Count * ScoreByRemainingModifier;
+        finalScore -= player.GetModifiers().Count * ScoreByRemainingModifier;
 
         return finalScore;
     }

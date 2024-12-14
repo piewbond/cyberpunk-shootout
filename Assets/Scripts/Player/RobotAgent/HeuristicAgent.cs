@@ -24,7 +24,7 @@ public class HeuristicAgent : IBaseAgent
         }
     }
 
-    public void PlayTurn()
+    public void AskForDecision()
     {
         Debug.Log("Heuristic Agent playing turn");
 
@@ -91,6 +91,12 @@ public class HeuristicAgent : IBaseAgent
                     break;
                 case ModifierType.Stun:
                     player.UseModifier(modifier);
+                    break;
+                case ModifierType.InverzBullet:
+                    if (liveBulletCount < blankBulletCount)
+                    {
+                        player.UseModifier(modifier);
+                    }
                     break;
             }
         }

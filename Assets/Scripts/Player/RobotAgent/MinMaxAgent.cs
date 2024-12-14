@@ -50,7 +50,7 @@ public class MinMaxAgent : IBaseAgent
         inverzScore = scores.inverzScore;
     }
 
-    public void PlayTurn()
+    public void AskForDecision()
     {
         if (!DepthBySerialize)
         {
@@ -72,6 +72,16 @@ public class MinMaxAgent : IBaseAgent
         }
         foreach (var move in bestMoves)
         {
+            if (move.UseModifier)
+                Debug.Log("Using modifier: " + move.Modifier.GetModifierType());
+            else
+                Debug.Log("Shooting: " + (move.ShootEnemy ? "Enemy" : "Self"));
+
+            if (player.knowsNextShot && player.isNextShotLive && !move.ShootEnemy)
+            {
+                player.Shoot(true);
+                continue;
+            }
             player.MakeMove(move);
         }
         player.SetActivePlayer(false);
@@ -89,9 +99,14 @@ public class MinMaxAgent : IBaseAgent
         int liveCount = weapon.GetLiveAmmoCount();
         int blankCount = weapon.GetBlankAmmoCount();
 
-        if (shootMove.Equals(null))
+        if ((liveCount == 0 && !shootMove.ShootEnemy))
         {
-            Debug.LogError("No shoot move found");
+            return isMaximizingPlayer ? 10000 : -10000;
+        }
+
+        if (blankCount == 0 && !shootMove.ShootEnemy)
+        {
+            score = score / 10;
         }
 
         foreach (var move in moves)
@@ -112,6 +127,8 @@ public class MinMaxAgent : IBaseAgent
                     case ModifierType.IgnoreShield:
                         if (enemyPlayer.shield > 0 && shootMove.ShootEnemy)
                             score *= ignoreShieldScore;
+                        else 
+                            score /= ignoreShieldScore;
                         break;
                     case ModifierType.MultiplyDamage:
                         if (shootMove.ShootEnemy)

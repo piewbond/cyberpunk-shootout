@@ -120,7 +120,6 @@ public class MLAgent : Agent, IBaseAgent
             {
                 if (i < useableModifiers.Count && continuousActions[i + 1] > 0.5f)
                 {
-                    //log modifierstouse count and useablemodifiers count
                     modifiersToUse.Add(useableModifiers[i]);
                 }
                 Debug.Log("Modifiers to use count: " + modifiersToUse.Count + " Useable modifiers count: " + useableModifiers.Count);
@@ -134,7 +133,7 @@ public class MLAgent : Agent, IBaseAgent
 
         float shootEnemy = continuousActions[0];
 
-        if (shootEnemy > 0.5f)
+        if (shootEnemy < 0.5f)
         {
             // Shoot the enemy
             player.Shoot(true);
@@ -173,7 +172,7 @@ public class MLAgent : Agent, IBaseAgent
         }
     }
 
-    public void PlayTurn()
+    public void AskForDecision()
     {
         RequestDecision();
     }
