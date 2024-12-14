@@ -120,12 +120,15 @@ public class Dealer : MonoBehaviour
                     MinMaxAgent agent = new MinMaxAgent(players[1], players[0]);
                     agent.SetScores(minMaxScores);
                     players[1].SetAgent(agent);
+                    players[0].isGamer = true;
                     break;
                 case 2:
                     players[1].SetAgent(players[1].GetComponent<MLAgent>());
+                    players[0].isGamer = true;
                     break;
                 case 3:
                     players[1].SetAgent(new HeuristicAgent(players[1]));
+                    players[0].isGamer = true;
                     break;
                 default:
                     break;
